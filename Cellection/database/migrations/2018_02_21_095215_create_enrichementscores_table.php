@@ -20,10 +20,10 @@ class CreateEnrichementscoresTable extends Migration
             $table->double('es',8,4);
             $table->double('nes',8,4);
             $table->integer('moreextreme');
-            $table->integer('id_celline_datasets')->unsigned();
-            $table->foreign('id_celline_datasets')->references('id')->on('celline_datasets')->onDelete('cascade');
-            $table->integer('id_cellines')->unsigned();
-            $table->foreign('id_cellines')->references('id')->on('cellines')->onDelete('cascade');
+            $table->integer('cellinedatasets_id')->unsigned();
+            $table->foreign('cellinedatasets_id')->references('id')->on('cellinedatasets')->onDelete('cascade');
+            $table->integer('cellines_id')->unsigned();
+            $table->foreign('cellines_id')->references('id')->on('cellines')->onDelete('cascade');
             $table->timestamps();
         });
     }

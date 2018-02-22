@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Geneset extends Model
 {
-    //
+    public function genes()
+    {
+    	return $this->belongsToMany('App\Gene');
+    }
 }

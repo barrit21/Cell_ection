@@ -15,7 +15,7 @@ class CreateGenesetsTable extends Migration
     {
         Schema::create('genesets', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name',45);
+            $table->char('name');
             $table->timestamps();
         });
     }

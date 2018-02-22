@@ -15,20 +15,16 @@ class CreateGeneGenesetsTable extends Migration
     {
         Schema::create('gene_genesets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_genes')->unsigned();
-           // $table->foreign('id_genes')->references('id')->on('genes')->onDelete('cascade');
-            $table->integer('id_genesets')->unsigned();
-            //$table->foreign('id_genesets')->references('id')->on('genesets')->onDelete('cascade');
-            $table->timestamps();
-        });
-        Schema::enableForeignKeyConstraints();
-        Schema::table('gene_genesets', function(Blueprint $table){
-            $table->foreign('id_genes')
+            $table->integer('genes_id')->unsigned();
+            $table->foreign('genes_id')
                 ->references('id')->on('genes')
                 ->onDelete('cascade');
-            $table->foreign('id_genesets')
+            $table->integer('genesets_id')->unsigned();
+            $table->foreign('genesets_id')
                 ->references('id')->on('genesets')
-                ->onDelete('cascade');});
+                ->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
