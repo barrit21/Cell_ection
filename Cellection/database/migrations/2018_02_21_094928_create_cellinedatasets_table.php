@@ -13,17 +13,17 @@ class CreateCellineDatasetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cellinedatasets', function (Blueprint $table) {
+        Schema::create('celline_dataset', function (Blueprint $table) {
             $table->increments('id');
             $table->char('file',100);
-            $table->integer('cellines_id')->unsigned();
-            $table->foreign('cellines_id')->references('id')->on('cellines')->onDelete('cascade');
-            $table->integer('datasets_id')->unsigned();
-            $table->foreign('datasets_id')->references('id')->on('datasets')->onDelete('cascade');
-            $table->integer('vanderbilts_id')->unsigned();
-            $table->foreign('vanderbilts_id')->references('id')->on('vanderbilts')->onDelete('cascade');
-            $table->integer('citbcmsts_id')->unsigned();
-            $table->foreign('citbcmsts_id')->references('id')->on('citbcmsts')->onDelete('cascade');
+            $table->integer('celline_id')->unsigned()->nullable();
+            $table->foreign('celline_id')->references('id')->on('cellines')->onDelete('cascade');
+            $table->integer('dataset_id')->unsigned()->nullable();
+            $table->foreign('dataset_id')->references('id')->on('datasets')->onDelete('cascade');
+            $table->integer('vanderbilt_id')->unsigned()->nullable();
+            $table->foreign('vanderbilt_id')->references('id')->on('vanderbilts')->onDelete('cascade');
+            $table->integer('citbcmst_id')->unsigned()->nullable();
+            $table->foreign('citbcmst_id')->references('id')->on('citbcmsts')->onDelete('cascade');
             //$table->index(['id_cellines','id_datasets','id_vanderbilts','id_citbcmsts']);
             $table->timestamps();
         });

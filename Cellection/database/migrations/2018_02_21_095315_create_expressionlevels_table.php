@@ -16,10 +16,10 @@ class CreateExpressionlevelsTable extends Migration
         Schema::create('expressionlevels', function (Blueprint $table) {
             $table->increments('id');
             $table->double('expression',8,4);
-            $table->integer('genes_id')->unsigned();
-            $table->foreign('genes_id')->references('id')->on('genes')->onDelete('cascade');
-            $table->integer('cellinedatasets_id')->unsigned();
-            $table->foreign('cellinedatasets_id')->references('id')->on('cellinedatasets')->onDelete('cascade');
+            $table->integer('gene_id')->unsigned()->nullable();
+            $table->foreign('gene_id')->references('id')->on('genes')->onDelete('cascade');
+            $table->integer('cellinedataset_id')->unsigned()->nullable();
+            $table->foreign('cellinedataset_id')->references('id')->on('celline_dataset')->onDelete('cascade');
             $table->timestamps();
         });
     }
