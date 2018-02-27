@@ -16,13 +16,13 @@ class CreateCellineDatasetsTable extends Migration
         Schema::create('cellinedatasets', function (Blueprint $table) {
             $table->increments('id');
             $table->char('file',100);
-            $table->integer('cellines_id')->unsigned();
+            $table->integer('cellines_id')->unsigned()->nullable();
             $table->foreign('cellines_id')->references('id')->on('cellines')->onDelete('cascade');
-            $table->integer('datasets_id')->unsigned();
+            $table->integer('datasets_id')->unsigned()->nullable();
             $table->foreign('datasets_id')->references('id')->on('datasets')->onDelete('cascade');
-            $table->integer('vanderbilts_id')->unsigned();
+            $table->integer('vanderbilts_id')->unsigned()->nullable();
             $table->foreign('vanderbilts_id')->references('id')->on('vanderbilts')->onDelete('cascade');
-            $table->integer('citbcmsts_id')->unsigned();
+            $table->integer('citbcmsts_id')->unsigned()->nullable();
             $table->foreign('citbcmsts_id')->references('id')->on('citbcmsts')->onDelete('cascade');
             //$table->index(['id_cellines','id_datasets','id_vanderbilts','id_citbcmsts']);
             $table->timestamps();
