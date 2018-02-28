@@ -6,12 +6,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class Citbcmst extends Model
 {
-    public function cellinedatasets()
+   /** public function cellinedatasets()
     {
     	return $this->hasOne('App\Cellinedataset');
-    	#$test1= ...
 
     }
+    **/
+
+    public function datasets()
+    {
+        return $this->belongsToMany('App\Dataset');
+    }
+
+    public function cellines()
+    {
+        return $this->belongsToMany('App\Celline');
+    }
+
+    public function vanderbilts()
+    {
+        return $this->belongsToMany('App\Vanderbilt');
+    }
+
 
     public function expressionlevels()
     {

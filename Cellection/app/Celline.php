@@ -6,19 +6,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Celline extends Model
 {
-    public function cellinedatasets()
+
+    public function datasets()
     {
-    	return $this->hasMany('App\Cellinedataset');
+        return $this->belongsToMany('App\Dataset');
+    }
+
+    public function vanderbilts()
+    {
+        return $this->belongsToMany('App\Vanderbilt');
+    }
+
+    public function citbcmsts()
+    {
+        return $this->belongsToMany('App\Citbcmst');
     }
 
     public function expressionlevels()
     {
-    	return $this->hasManyThrough('App\Expressionlevel', 'App\Cellinedataset');
+    	return $this->hasManyThrough('App\Expressionlevel', 'App\Celline_dataset');
     }
 
      public function enrichementscores()
     {
-    	return $this->hasManyThrough('App\enrichementscore','App\cellinedataset');
+    	return $this->hasManyThrough('App\Enrichementscore','App\Celline_dataset');
     }
 }
 

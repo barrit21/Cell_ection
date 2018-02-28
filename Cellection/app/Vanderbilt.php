@@ -6,11 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vanderbilt extends Model
 {
-    public function cellinedatasets()
+    public function datasets()
     {
-    	return $this->hasOne('App\Cellinedataset');
-    	#$test1= ...
+        return $this->belongsToMany('App\Dataset');
+    }
 
+    public function citbcmsts()
+    {
+        return $this->belongsToMany('App\Citbcmst');
+    }
+
+    public function cellines()
+    {
+        return $this->belongsToMany('App\Celline');
     }
 
     public function expressionlevels()

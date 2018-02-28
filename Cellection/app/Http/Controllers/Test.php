@@ -1,23 +1,36 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Http\Request;
-use App\Celline;
-use App\Dataset;
+namespace App\Http\Controllers;
 
-class CelDatasetLigneeFileSeeder extends Seeder
+use Illuminate\Http\Request;
+use \App\Celline;
+use \App\Dataset;
+use \App\Vanderbilt;
+use \App\Citbcmst;
+
+class Test extends Controller
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function test()
     {
+    	
+    	/**
+        //$dataset = Dataset::where('name','Krupp13')->first();
+    	$celline = Celline::where('name','BT20')->first();
+    	$filename = "BT-20_SS331465_HG-U133_Plus_2_HCHP-182965_.CEL";
+    	
+    	// dd($celline);
+    	$dataset -> cellines() -> attach($celline -> id, [
+    		"file" => $filename
+        ]);
+    	 dd($dataset);
+    	//dd($celline-> datasets);
+        */
+       
+       /**
         $cellines = Celline::all();
         $datasets = Dataset::all();
 
-        $fichier=file('./storage/Data/cel_dataset_lignee.txt');
+        $fichier=file('./public/cel_dataset_lignee.txt');
         unset($fichier[0]);
 
         foreach ($fichier as $value) {
@@ -37,9 +50,7 @@ class CelDatasetLigneeFileSeeder extends Seeder
            
             $dataset -> cellines() -> attach($celline -> id, [
             "file" => $filename]);
+        */
         }
-
-
     }
-
 }

@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Cellinedataset extends Model
+class CellineDataset extends Pivot
 {
-    public function vanderbilts()
+    /** public function vanderbilts()
     {
     	return $this->belongsTo('App\Vanderbilt');
     }
@@ -35,6 +35,6 @@ class Cellinedataset extends Model
     {
     	return $this->belongsTo('App\Enrichementscore');
     }
-
+**/
 
 }

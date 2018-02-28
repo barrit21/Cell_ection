@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGeneGenesetsTable extends Migration
+class CreateGeneGenesetTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateGeneGenesetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('gene_genesets', function (Blueprint $table) {
+        Schema::create('gene_geneset', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('genes_id')->unsigned();
-            $table->foreign('genes_id')
+            $table->integer('gene_id')->unsigned();
+            $table->foreign('gene_id')
                 ->references('id')->on('genes')
                 ->onDelete('cascade');
-            $table->integer('genesets_id')->unsigned();
-            $table->foreign('genesets_id')
+            $table->integer('geneset_id')->unsigned();
+            $table->foreign('geneset_id')
                 ->references('id')->on('genesets')
                 ->onDelete('cascade');
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateGeneGenesetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gene_genesets');
+        Schema::dropIfExists('gene_geneset');
     }
 }
