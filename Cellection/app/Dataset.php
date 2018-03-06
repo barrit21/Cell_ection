@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dataset extends Model
 {
+
+    protected $fillable=['name'];
+
     public function cellines()
     {
         return $this -> belongsToMany('\App\Celline');
@@ -13,12 +16,12 @@ class Dataset extends Model
 
     public function citbcmsts()
     {
-        return $this->belongsToMany('App\Citbcmst');
+        return $this->belongsToMany('App\Citbcmst', 'celline_dataset');
     }
 
     public function vanderbilts()
     {
-        return $this->belongsToMany('App\Vanderbilt');
+        return $this->belongsToMany('App\Vanderbilt', 'celline_dataset');
     }
     
     // public function cellinedatasets()

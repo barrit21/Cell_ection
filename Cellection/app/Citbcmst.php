@@ -15,17 +15,22 @@ class Citbcmst extends Model
 
     public function datasets()
     {
-        return $this->belongsToMany('App\Dataset');
+        return $this->belongsToMany('App\Dataset', 'celline_dataset');
     }
 
     public function cellines()
     {
-        return $this->belongsToMany('App\Celline');
+        return $this->belongsToMany('App\Celline', 'celline_dataset');
     }
 
     public function vanderbilts()
     {
-        return $this->belongsToMany('App\Vanderbilt');
+        return $this->belongsToMany('App\Vanderbilt', 'celline_dataset');
+    }
+
+    public function celline_datasets()
+    {
+        return $this->hasOne('App\Celline_dataset');
     }
 
 

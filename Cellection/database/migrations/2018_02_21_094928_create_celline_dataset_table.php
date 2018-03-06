@@ -15,7 +15,7 @@ class CreateCellineDatasetTable extends Migration
     {
         Schema::create('celline_dataset', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('file',100);
+            $table->char('file',100)->unique();
             $table->integer('celline_id')->unsigned()->nullable();
             $table->foreign('celline_id')->references('id')->on('cellines')->onDelete('cascade');
             $table->integer('dataset_id')->unsigned()->nullable();

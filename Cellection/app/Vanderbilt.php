@@ -8,17 +8,22 @@ class Vanderbilt extends Model
 {
     public function datasets()
     {
-        return $this->belongsToMany('App\Dataset');
+        return $this->belongsToMany('App\Dataset', 'celline_dataset');
     }
 
     public function citbcmsts()
     {
-        return $this->belongsToMany('App\Citbcmst');
+        return $this->belongsToMany('App\Citbcmst', 'celline_dataset');
     }
 
     public function cellines()
     {
-        return $this->belongsToMany('App\Celline');
+        return $this->belongsToMany('App\Celline', 'celline_dataset');
+    }
+
+    public function celline_datasets()
+    {
+        return $this->hasOne('App\CellineDataset');
     }
 
     public function expressionlevels()

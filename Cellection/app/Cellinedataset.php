@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class CellineDataset extends Pivot
 {
-    /** public function vanderbilts()
+    public function vanderbilts()
     {
     	return $this->belongsTo('App\Vanderbilt');
     }
@@ -35,6 +35,5 @@ class CellineDataset extends Pivot
     {
     	return $this->belongsTo('App\Enrichementscore');
     }
-**/
 
 }

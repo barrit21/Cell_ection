@@ -19,7 +19,8 @@ class CellinesFileSeeder extends Seeder
 
         foreach($fichier as $key){
             $infos=explode("\t", $key);
-            $infos[0]=str_replace('"', '', $infos[0]);
+            $infos[0]=str_replace('"','',$infos[0]);
+            $infos[2]=trim($infos[2]);
             DB::table('cellines')->insert([
                 'name'=>($infos[0]),
                 'replicate'=>intval($infos[2]),

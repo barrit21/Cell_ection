@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Celline extends Model
 {
+    protected $fillable=['name'];
 
     public function datasets()
     {

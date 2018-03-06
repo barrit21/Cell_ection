@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Citbcmst;
+use App\CellineDataset;
 
 class CitbcmstFileSeeder extends Seeder
 {
@@ -19,12 +21,26 @@ class CitbcmstFileSeeder extends Seeder
         	//$value=str_replace('"', '', $value);
         	$value=explode('"',$value);
         	
-        	DB::table('citbcmsts')->insert([
+            DB::table('citbcmsts')->insert([
                 'class'=>($value[3]),
                 'classmixed'=>($value[5]),
                 'classcore'=>($value[7]),
                 'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
             ]);
+        }
+
+        foreach ($fichier as $value) {
+            $value=explode('"',$value);
+            
+            $cellinedataset=CellineDataset::all();
+            if ($cellinedataset->contains('file',$value[1])===false){
+                DB::table('celline_dataset')->insert([
+                    'file'=>($value[1]),
+                ]);
+            }
+
+            $cellinedataset=CellineDataset::where('file',$value[1])->first();
+            $citbcmst=Citbcmst::where()
         }
     }
 }
