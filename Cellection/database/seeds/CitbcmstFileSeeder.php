@@ -14,33 +14,32 @@ class CitbcmstFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('./storage/Data/citbcmst.bertheau07.csv');
+        $fichier=file('./storage/Data/citbcmst.bertheau07.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         unset($fichier[0]);
+        $all_cellinedataset = CellineDataset::all();
 
         foreach ($fichier as $value) {
-        	//$value=str_replace('"', '', $value);
-        	$value=explode('"',$value);
-        	
-            DB::table('citbcmsts')->insert([
-                'class'=>($value[3]),
-                'classmixed'=>($value[5]),
-                'classcore'=>($value[7]),
-                'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+        	$value = str_replace('"', '', $value);
+        	$value = explode("\t",$value);
+            Citbcmst::firstOrCreate([
+                'classe' => $value[1],
+                'classmixed' => $value[2],
+                'classcore' => $value[3],
+                'classification' => $value[4]
             ]);
-        }
 
-        foreach ($fichier as $value) {
-            $value=explode('"',$value);
-            
-            $cellinedataset=CellineDataset::all();
-            if ($cellinedataset->contains('file',$value[1])===false){
-                DB::table('celline_dataset')->insert([
-                    'file'=>($value[1]),
-                ]);
-            }
+            /*
+             * Pour quelle lignée, quel dataset ?
+             */
 
-            $cellinedataset=CellineDataset::where('file',$value[1])->first();
-            $citbcmst=Citbcmst::where()
+            // if ($cellinedataset->contains('file',$value[1])===false){
+            //     DB::table('celline_dataset')->insert([
+            //         'file'=>($value[1]),
+            //     ]);
+            // }
+
+            // $cellinedataset=CellineDataset::where('file',$value[1])->first();
+            // $citbcmst=Citbcmst::where()
         }
     }
 }

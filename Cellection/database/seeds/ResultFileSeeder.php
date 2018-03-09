@@ -20,23 +20,32 @@ class ResultFileSeeder extends Seeder
 
         /** 
          * Vanderbilt table population 
-         *                    */
-        $fichier=file('./storage/Data/result.csv');
-        unset($fichier[0]);
+         *                    
+         */
+        $content = file('./storage/Data/result.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        
+        $all_cellinedataset = CellineDataset::all();
+        $cd_files = $all_cellinedataset->pluck('file')->toArray();
 
-        foreach ($fichier as $value) {
-        	$value=explode(",", $value);
-            $value[3]=trim($value[3]);
-        	//dd($value[0]);
-        	if (strpos($value[1], "UNS")===false){
-	        	DB::table('vanderbilts')->insert([
-	                'class'=>($value[1]),
-	                'correlation'=>($value[2]),
-	                'pval'=>($value[3]),
-	                'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-	            ]);
+        foreach($content as $line){
+            $data = explode(',',$line);
+            if($data[0] != "" && $data[1] != "UNS"){
+                dd($data);
+                $v = new Vanderbilt;
+                $v -> classe = $data[1];
+                $v -> correlation = round($data[2],2);
+                $v -> pval = $data[3];
+                $v -> save();
+                
+                dd($v);
+                // if (! in_array($data[0], $cd_files)){
+                //     DB::table('celline_dataset')->insert([
+                //         'file'=>($data[0]),
+                //     ]);
+                // }
 
-	        }
+                $vanderbilt -> celline_datasets() -> save($cellinedataset, 'vanderbilt_id');
+            }
         }
 
         foreach ($fichier as $value) {

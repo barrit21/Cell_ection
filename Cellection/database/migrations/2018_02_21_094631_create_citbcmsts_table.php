@@ -15,7 +15,7 @@ class CreateCitbcmstsTable extends Migration
     {
         Schema::create('citbcmsts', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('class',45)->nullable();
+            $table->char('classe',45)->nullable();
             $table->char('classmixed',45)->nullable();
             $table->char('classcore',45)->nullable();
             $table->char('classification',45)->nullable();

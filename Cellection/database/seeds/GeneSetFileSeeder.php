@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Geneset;
 
 class GeneSetFileSeeder extends Seeder
 {
@@ -16,11 +17,11 @@ class GeneSetFileSeeder extends Seeder
 
         foreach ($fichier as $key => $value) {
     		if(strpos($value, "$")===0){
-    			$value=str_replace('$','', $value);
-    			DB::table('genesets')->insert([
-    				'name'=>($value),
-                    'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-    			]);
+				$value=str_replace('$','', $value);
+				Geneset::firstOrCreate([
+					'name' => $value
+				]);
+
     		}
     		//else{
     		//	$value=explode("\t", $value);

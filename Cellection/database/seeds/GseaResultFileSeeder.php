@@ -16,9 +16,7 @@ class GseaResultFileSeeder extends Seeder
         unset($fichier[0]);
         foreach ($fichier as $value) {
         	$value=explode("\t", $value);
-        	//echo'<pres>';
-        	//print_r($value);
-        	//echo'</pres>'; 
+
         	DB::table('enrichementscores')->insert([
             	'pval'=>($value[1]),
             	'padj'=>($value[2]),
