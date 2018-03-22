@@ -46,22 +46,9 @@ class Celline extends Model
             ->select('cellines.id','cellines.name', 'cellines.replicate', DB::raw('group_concat(datasets.name SEPARATOR ", ") as list_dataset'))
             ->groupBy('cellines.id')
             ->get();
-            //->toJson();
-           // var_dump($data);
-           // exit;
 
     	return $data;
     }
-
-    //public static function infos_cell_lines() {
-    //	$datum = DB::table
-    //}
-
-    public static function query_data()
-    {
-        #$query = DB::table('cellines')->select('name as value') ->get()->toJson();
-    }
-
 
 }
 

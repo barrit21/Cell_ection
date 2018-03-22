@@ -4,29 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Celline;
+use App\Gene;
 
 class QueryController extends Controller
 {
     public function index(Request $request)
     {
     	$term = $request->query('term');
-    	//echo $term;
-    	//exit;
 
-    	//appel du modèle avec le $term pour récupérer les enregistrements correspondants.
-    	//--> le modèle renvoie un tableau avec la liste des enregistrements
+        $searchH=[];
 
-    	//transformer le tableau php en tableau json et l'envoyer à la vue DANS LE CONTROLLER ?
+        $valuescells=Celline::where('name', 'LIKE', '%'.$term.'%')->get()->pluck('name');
+        foreach ($valuescells as $valuescell) {
+            array_push($searchH, ["category"=>'Cell lines', "value"=>$valuescell]);
+        }
 
-        $search=[[
-            "category"=>'Cell line',
-            "value"=>Celline::where('name', 'LIKE', '%'.$term.'%')->first()]];
+        $valuesgenes=Gene::where('hugo', 'LIKE', '%'.$term.'%')->get()->pluck('hugo');
+        foreach ($valuesgenes as $valuesgene) {
+            array_push($searchH, ["category"=>'Genes', "value"=>$valuesgene]);
+        }
 
-
-        #dump($search);
-
-    	
-
-    	return view('query', compact('search'));
+    	return response()->json($searchH);
     }
 }
