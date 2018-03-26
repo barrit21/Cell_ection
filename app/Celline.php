@@ -41,8 +41,8 @@ class Celline extends Model
     //Plus besoin de faire les jointures à la main après, y penser !
     {
     	$data = DB::table('cellines')
-            ->join('cellinedatasets', 'cellines.id', '=', 'cellinedatasets.cellines_id')
-            ->join('datasets', 'datasets.id', '=', 'cellinedatasets.datasets_id')
+            ->join('celline_dataset', 'cellines.id', '=', 'celline_dataset.celline_id')
+            ->join('datasets', 'datasets.id', '=', 'celline_dataset.dataset_id')
             ->select('cellines.id','cellines.name', 'cellines.replicate', DB::raw('group_concat(datasets.name SEPARATOR ", ") as list_dataset'))
             ->groupBy('cellines.id')
             ->get();
