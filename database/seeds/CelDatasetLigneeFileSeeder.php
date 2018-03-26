@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use App\Celline;
 use App\Dataset;
+use App\Vanderbilt;
+use App\Citbcmst;
 
 class CelDatasetLigneeFileSeeder extends Seeder
 {
@@ -64,8 +66,10 @@ class CelDatasetLigneeFileSeeder extends Seeder
            
             $dataset -> cellines() -> attach($celline -> id, [
                'file' => $filename]);
+
             
         } 
+        
     }
 
 }
