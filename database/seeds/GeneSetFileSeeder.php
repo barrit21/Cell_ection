@@ -13,12 +13,13 @@ class GeneSetFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('storage/Data/geneset_test.txt');
+        $fichier=file('storage/Data/geneset_test.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
         $genes=Gene::all();
 
 
-        print_r($fichier);
+        //print_r($fichier);
+    
 
         foreach ($fichier as $line) {
             if (strpos($line, "$")===0){
@@ -29,72 +30,65 @@ class GeneSetFileSeeder extends Seeder
                 $g[]=$line;
             }
         }
-        #print_r($g);
-        #print_r($dataset);
-        #echo(count($dataset));
+   
+*/
 
-        $table=array();
-        $geneset=array();
-
-        for ($i=0; $i < count($fichier) ; $i++) { 
-            if (strpos($fichier[$i], "$")===0){
-                unset($fichier[$i-1]);
-                $d=str_replace('$`', '', $fichier[$i]);
-                $d=str_replace('`', '', $d);
-
-                $e=0;
-
-                while (strpos($fichier[$i+1],"$")===0){
-                    $geneset[]=$fichier[$i+1];
-                    $e=$i;
-                    $i=$i+1;
-                }
-
-                print_r($geneset);
-                echo($e);
-            }
-
-        }
-
-        #print_r($table);
-        foreach ($table as $dataset => $gen) {
-            
-        }
-
-        /*
-
-
+        /**
+        Remplissage de Geneset, Genes (uniprot)
+        */
+        $e=0;
         foreach ($fichier as $key => $value) {
-    		if(strpos($value, "$")===0){
+            //for ($i=0 ; $i < count($dataset) ; ){
+                //$g$i=array($value);
+        	if(strpos($value, "$")===0){
     			$value=str_replace('$','', $value);
                 $value=trim($value);
                 $value=str_replace('`', '', $value);
     			DB::table('genesets')->insert([
-    				'name'=>($value),
-                    #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+    				'name'=>($value)
+                    //'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
     			]);
-    		}
-
+                $e++;
+                $g{$e} = array($value);
+                //echo($e);
+            }
     		else{
-                
                 $value=str_replace('"', '', $value);
-                echo($value);
-
-
-                if ($genes->contains('uniprot',$value)===false){
-                    DB::table('genes')->insert([
-                        'uniprot'=>$value]);
+                $l=explode(' ', $value);
+                unset($l[0]);
+                //print_r($l);
+                foreach ($l as $key) {
+                    //echo($key);
+                    $key
+                    array_push($g{$e}, $key);
+                    if ($genes->contains('uniprot',$key)===false){
+                        echo("oui");
+                        DB::table('genes')->insert([
+                            'uniprot'=>$key]);
+                    }
                 }
+                //print_r($g{$e});
+               
+            }
 
-    		      #foreach ($value as $gene=>$bam) {
-    		//		$gene=str_replace('"', '', $gene);
-    				//DB::table('genes')->insert([
-    				//	'uniprot'=>($gene),
-    		//		]);
-    		//	}
-    		}
-    	}
+           
+        }
+        //print_r($g{2});
+        //echo(count($g{2}));
 
-        */
+        for($i=1 ; $i <= count($dataset) ; $i++){
+            $d=$g{$i}[0];
+            for($a=1 ; $a < count($g{$i}) ; $a++){
+                $h=$g{$i}[$a];
+                $x=Gene::where('uniprot',$h)->first();
+                $y=Geneset::where('name',$d)->first();
+                //$x -> genesets() -> attach($y -> id);
+            }
+        }
+
+
+       
+
+    
     }
 }

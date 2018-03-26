@@ -16,8 +16,8 @@ class CreateCellinesTable extends Migration
         Schema::create('cellines', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name',45);
-            $table->integer('replicate');
-            $table->timestamps();
+            $table->integer('replicate')->nullable();
+            #$table->timestamps();
         });
     }
 

@@ -15,12 +15,12 @@ class CreateCitbcmstsTable extends Migration
     {
         Schema::create('citbcmsts', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('class',45);
-            $table->char('classmixed',45);
-            $table->char('classcore',45);
-            $table->char('classification',45);
-            $table->double('distance',8,4);
-            $table->timestamps();
+            $table->char('class',45)->nullable();
+            $table->char('classmixed',45)->nullable();
+            $table->char('classcore',45)->nullable();
+            $table->char('classification',45)->nullable();
+            $table->double('distance',8,4)->nullable();
+            #$table->timestamps();
         });
     }
 

@@ -31,7 +31,7 @@ class UgoToUniprotFileSeeder extends Seeder
             $key[1]=trim($key[1]);
 
             if($genetable->contains('hugo',$key[1])===false){
-                echo($key[1]);
+                //echo($key[1]);
                 DB::table('genes')->insert([
                     'hugo'=>($key[1]),
                     'uniprot'=>($key[0]),

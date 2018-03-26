@@ -15,9 +15,9 @@ class CreateGenesTable extends Migration
     {
         Schema::create('genes', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('hugo',45);
-            $table->char('info',100);
-            $table->integer('uniprot');
+            $table->char('hugo',45)->nullable();
+            $table->char('info',100)->nullable();
+            $table->integer('uniprot')->nullable();
             $table->timestamps();
         });
     }
