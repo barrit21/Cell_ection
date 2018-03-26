@@ -15,14 +15,6 @@ class UgoToUniprotFileSeeder extends Seeder
     {
         $fichier=file('./storage/Data/reactome.entrez2sym.txt');
         unset($fichier[0]);
-        /*
-        if ($dataset->contains('name', $value[0])===false){
-                DB::table('datasets')->insert([
-                    'name'=>($value[0]),
-                    #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            }
-        */
        
         $genetable=Gene::all();
         
@@ -31,7 +23,6 @@ class UgoToUniprotFileSeeder extends Seeder
             $key[1]=trim($key[1]);
 
             if($genetable->contains('hugo',$key[1])===false){
-                echo($key[1]);
                 DB::table('genes')->insert([
                     'hugo'=>($key[1]),
                     'uniprot'=>($key[0]),

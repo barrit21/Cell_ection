@@ -5,9 +5,7 @@ use Carbon\Carbon;
 use App\Citbcmst;
 use App\CellineDataset;
 
-/**
- * Ne pas remplir pour l'instant car les données ne sont pas uniques pour chaque fichier .CEL, à voir avec les données supplémentaires ? 
- */
+
 class CitbcmstFileSeeder extends Seeder
 {
     /**
@@ -17,40 +15,56 @@ class CitbcmstFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('./storage/Data/citbcmst.bertheau07.csv');
+        
+        $fichier=file('./storage/Data/20161112 resultats vanderbilt et CIT.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         unset($fichier[0]);
+        unset($fichier[1]);
+
+        $citbcmst=Citbcmst::all();
+        $cellinedataset=CellineDataset::all();
 
         foreach ($fichier as $value) {
-        	//$value=str_replace('"', '', $value);
-        	$value=explode('"',$value);
-        	
-            DB::table('citbcmsts')->insert([
-                'class'=>($value[3]),
-                'classmixed'=>($value[5]),
-                'classcore'=>($value[7]),
-                #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-            ]);
-        }
 
-        foreach ($fichier as $value) {
-            $value=explode('"',$value);
+        	$value=explode(';',$value);
             
             $cellinedataset=CellineDataset::all();
-            if ($cellinedataset->contains('file',$value[1])===false){
+    
+            #Insertion des informations dans citbcmsts sans doublons
+            if (Citbcmst::where([
+                ['class','=',$value[7]],
+                ['classmixed','=',$value[8]],
+                ['classcore','=',$value[9]]])->exists()){
+            }
+            else{
+                DB::table('citbcmsts')->insert([
+                        'class'=>($value[7]),
+                        'classmixed'=>($value[8]),
+                        'classcore'=>($value[9]),
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now(),
+
+                    ]);
+            }
+            #vérification que le fichier soit dans celline_dataset
+            if ($cellinedataset->contains('file',$value[2])===false){
+                //echo($value[2]);
                 DB::table('celline_dataset')->insert([
-                    'file'=>($value[1]),
+                    'file'=>($value[2]),
                 ]);
             }
 
-            $cellinedataset=CellineDataset::where('file',$value[1])->first();
-            $citbcmst=Citbcmst::where([
-                ['class',$value[3]],
-                ['classmixed',$value[5]],
-                ['classcore',$value[7]],
-            ])->get();
-            dd($citbcmst);
 
-            #$citbcmst-> celline_dataset() -> save($cellinedataset, 'citbcmst_id');
+            #intégration de l'id citbcmst dans la table celline dataset
+            $citbcmst=Citbcmst::where([
+                ['class','=',$value[7]],
+                ['classmixed','=',$value[8]],
+                ['classcore','=',$value[9]]])-> first();
+            $c=$citbcmst->id;
+
+
+            CellineDataset::where('file',$value[2])->update(['citbcmst_id'=>$c]);
+
         }
+
     }
 }

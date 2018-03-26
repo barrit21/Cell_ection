@@ -13,88 +13,66 @@ class GeneSetFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('storage/Data/geneset_test.txt');
+        $fichier=file('storage/Data/geneset_reactome_L.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
         $genes=Gene::all();
 
 
-        print_r($fichier);
+        //print_r($fichier);
 
-        foreach ($fichier as $line) {
-            if (strpos($line, "$")===0){
-                $dataset[]=$line;
-            }
-            else{
+   
 
-                $g[]=$line;
-            }
-        }
-        #print_r($g);
-        #print_r($dataset);
-        #echo(count($dataset));
-
-        $table=array();
-        $geneset=array();
-
-        for ($i=0; $i < count($fichier) ; $i++) { 
-            if (strpos($fichier[$i], "$")===0){
-                unset($fichier[$i-1]);
-                $d=str_replace('$`', '', $fichier[$i]);
-                $d=str_replace('`', '', $d);
-
-                $e=0;
-
-                while (strpos($fichier[$i+1],"$")===0){
-                    $geneset[]=$fichier[$i+1];
-                    $e=$i;
-                    $i=$i+1;
-                }
-
-                print_r($geneset);
-                echo($e);
-            }
-
-        }
-
-        #print_r($table);
-        foreach ($table as $dataset => $gen) {
-            
-        }
-
-        /*
-
-
+        /**
+        Remplissage de Geneset, Genes (uniprot)
+        */
+       
+        $e=0;
         foreach ($fichier as $key => $value) {
-    		if(strpos($value, "$")===0){
+            //for ($i=0 ; $i < count($dataset) ; ){
+                //$g$i=array($value);
+        	if(strpos($value, "$")===0){
+                $dataset[]=$value;
     			$value=str_replace('$','', $value);
                 $value=trim($value);
                 $value=str_replace('`', '', $value);
     			DB::table('genesets')->insert([
     				'name'=>($value),
-                    #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
+                    'created_at'=>Carbon::now(),
+                    'updated_at' => Carbon::now(),
     			]);
-    		}
-
+                $e++;
+                $g{$e} = array($value);
+                //echo($e);
+            }
     		else{
-                
-                $value=str_replace('"', '', $value);
-                echo($value);
+                $l=explode(',', $value);
+                foreach ($l as $uniprot) {
+                    array_push($g{$e}, $uniprot);
 
-
-                if ($genes->contains('uniprot',$value)===false){
-                    DB::table('genes')->insert([
-                        'uniprot'=>$value]);
+                    if ($genes->contains('uniprot',$uniprot)===false){
+                        //echo($uniprot);
+                        //echo(" ");
+                        DB::table('genes')->insert([
+                            'uniprot'=>$uniprot]);
+                    }
                 }
+                //print_r($g{$e});
+               
+            }
 
-    		      #foreach ($value as $gene=>$bam) {
-    		//		$gene=str_replace('"', '', $gene);
-    				//DB::table('genes')->insert([
-    				//	'uniprot'=>($gene),
-    		//		]);
-    		//	}
-    		}
-    	}
-
-        */
+           
+        }
+        print_r($g);
+       
+        for($i=1 ; $i <= count($dataset) ; $i++){
+            $d=$g{$i}[0];
+            for($a=1 ; $a < count($g{$i}) ; $a++){
+                $h=$g{$i}[$a];
+                $x=Gene::where('uniprot',$h)->first();
+                $y=Geneset::where('name',$d)->first();
+                $x -> genesets() -> attach($y -> id);
+            }
+        }
+    
     }
 }

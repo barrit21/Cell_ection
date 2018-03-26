@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use App\CellineDataset;
 use App\Expressionlevel;
 use App\Gene;
+use App\Celline;
+use App\Dataset;
 use Carbon\Carbon;
 
 /** 
@@ -19,96 +21,86 @@ class ExpressionLevelFileSeeder extends Seeder
      */
     public function run()
     {
-    	#faire une boucle for, pour choisir les colonnes mais à voir les clés étrangères !! 
         
-        $fichier = file('./storage/Data/expression_level_MCF7.txt');
+        $fichier = file('./storage/Data/expression_level_MCF7_test.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        //print_r($fichier);
         
-        $files=explode("\t", $fichier[0]);
-        unset($files[0]);
-        $filenet=[];
-        foreach ($files as $file) {
-            $filenet[]=str_replace('"', '', $file);
-        }
-        #print_r($filenet);
+        $genes_table=Gene::all();
+        $celline_dataset_table=CellineDataset::all();
 
-        unset($fichier[0]);
-        unset($fichier[1]);
+        $tab_result = array();
 
-        foreach ($fichier as $value) {
-            $expression=explode("\t",$value);
-            $gene=$expression[0];
-            $gene=str_replace('"','',$gene);
-            DB::table('genes')->insert([
-                'hugo'=>($gene),
-            ]);
-        } 
+        $raw_files=[];
 
-
-        /**
-        foreach ($fichier as $value) {
-                $value=explode("\t",$value);
-                $g=str_replace('"','',$value[0]);
-
-                $geneid=Gene::where('hugo',$g)->first();
-
-                for ($i=1 ; $i <= 15 ; $i++){
-                    $idfile=CellineDataset::where('file',$filenet[$i])->first();
-                    
-                    DB::table('expressionlevels')->insert([
-                       'expression'=>($value[1]),
-                       'gene_id'=>($geneid),
-                       'celline_dataset_id'=>($idfile),
-                   ]);
-
+        foreach ($fichier as $line) {
+            if(!empty($line)){
+                $row= explode("\t", $line);
+                if(preg_match('/^Raw\sFile/',$row[0])){
+                    unset($row[0]);
+                    foreach ($row as $filename) {
+                        $filename= str_replace('"', '', $filename);
+                        if ($celline_dataset_table->contains('file',$filename)===false){
+                            DB::table('celline_dataset')->insert([
+                                'file'=>$filename]);
+                        }
+                        array_push($raw_files, $filename);
+                    }
                 }
-    
-                for ($i=1; $i <=15 ; $i++) {
-                    echo($i);
-                    $files[$i]=str_replace('"','',$files[$i]);
-                    
-                    $idfile=CellineDataset::where('file',$files[$i])->first();
-                    */
-                    /**
-                    DB::table('expressionlevels')->insert([
-                        'expression'=>($express[$i]),
-                        'gene_id'=>($gene),
-                        'celline_dataset_id'=>($idfile),
-                    ]);
-                #}
-
-        } 
-        */          
-
-        
-        /**
-        for ($i=1; $i<=2 ; $i++){
-            $file[]=$fichier[$i];
-        } 
-        print_r($file);
-        */
-        /**
-        foreach (explode("\n", $fichier) as $line) {
-            if (!empty($line)) {
-                $row = explode("\t", $line);
-                $tab_result[] = array('RawFile' => $row[0],
-                            'cel1' => $row[1],
-                            'cel2' => $row[2],
-                            'cel3' => $row[3],
-                            'cel4' => $row[4],
-                            'cel5' => $row[5],
-                            'cel6' => $row[6],
-                            'cel7' => $row[7],
-                            'cel8' => $row[8],
-                            'cel9' => $row[9],
-                            'cel10' => $row[10],
-                            'cel11' => $row[11],
-                            'cel12' => $row[12],
-                            'cel13' => $row[13],
-                            'cel14' => $row[14]);
             }
         }
         
-        */
+        //print_r($raw_files);
+        
+        $datasets=[];
+
+        foreach ($fichier as $line) {
+            if (!empty($line)){
+                
+                $row= explode("\t", $line);
+
+                //print_r($row);
+
+                if(preg_match('/^Raw\sFile/',$row[0])){
+                    //echo("rawfile");
+                    unset($row[0]);
+                }
+
+                elseif (preg_match('/^Dataset/',$row[0])){
+                    //echo('dataset');
+                    unset($row[0]);
+                }
+                
+                else{
+                    //echo("why");
+                    $data =explode("\t", $line);
+                    $gene_name= str_replace('"', '',$data[0]);
+                    if($genes_table->contains('hugo', $gene_name)===false){
+                        DB::table('genes')->insert([
+                            'hugo'=> ($gene_name),
+                        ]);
+                    }
+
+                    $gene=Gene::where('hugo', $gene_name)->first();
+
+                    unset($data[0]);
+
+                    $index=count($data);
+                    //echo($index);
+
+                    for ($i=0 ; $i < $index ; $i++){
+                        //echo($i);
+                        $celline_dataset=CellineDataset::where('file', $raw_files[$i])->first();
+                        
+                        $Exp = Expressionlevel::firstOrCreate([
+                            "expression" => round($data[$i+1],3),
+                            "gene_id" => $gene -> id, 
+                            "celline_dataset_id" => $celline_dataset -> id ,
+                             ]); 
+                    }
+                }
+            }
+        }
+
     }
    
 }

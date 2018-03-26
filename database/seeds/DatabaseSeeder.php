@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
         	CellinesFileSeeder::class,
         	DatasetsFileSeeder::class,
         	CelDatasetLigneeFileSeeder::class,
+            CitbcmstFileSeeder::class,
+            UgoToUniprotFileSeeder::class,
             ResultFileSeeder::class,
             ExpressionLevelFileSeeder::class,
-            UgoToUniprotFileSeeder::class,
         	#GeneSetFileSeeder::class,
         	#GseaResultFileSeeder::class
         	]);

@@ -12,10 +12,15 @@ class CellinesFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('./storage/Data/cell_lines.txt');
+        /**
+         * Ce seed récupère les informations du fichier cell_lines.txt de storage/Data/ et les intègrent dans la table celline.
+         */
+        
+        #Récupération des données du fichier 
+        $fichier=file('./storage/Data/cell_lines.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
+        #Supprime la 1ère ligne (nom des colonnes)
         unset($fichier[0]);
-        unset($fichier[1]);
 
         foreach($fichier as $key){
             $infos=explode("\t", $key);
@@ -24,7 +29,6 @@ class CellinesFileSeeder extends Seeder
             DB::table('cellines')->insert([
                 'name'=>($infos[0]),
                 'replicate'=>intval($infos[2]),
-                #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
             ]);
         }
     }
