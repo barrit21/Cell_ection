@@ -220,6 +220,9 @@ class Pivot extends Model
      */
     public function getUpdatedAtColumn()
     {
-        return $this->pivotParent->getUpdatedAtColumn();
+        if ($this->pivotParent){
+            return $this->pivotParent->getUpdatedAtColumn();
+        }
+        return static::UPDATED_AT;
     }
 }
