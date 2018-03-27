@@ -7,10 +7,13 @@ use App\Gene;
 
 class GeneController extends Controller
 {
-    public function index($id) 
+    public function index($hugo) 
 	{
-		$datum = Gene::findOrFail($id);
+		$gene = Gene::where('hugo', $hugo)->first();
+		if($gene == null){
+			// ERREUR
+		}
 		$data = Gene::liste_gene();
-		return view("layout", ["menu" => "home", "content" => view('gene', array('datum'=> $datum, 'data'=> $data))]);
+		return view("layout", ["menu" => "home", "content" => view('gene', array('datum'=> $gene, 'data'=> $data))]);
 	}
 }

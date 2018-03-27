@@ -7,11 +7,13 @@ use App\Celline;
 
 class CellineController extends Controller
 {
-	public function index($id) 
+	public function index($name) 
 	{
-		$datum = Celline::findOrFail($id);
-		//dd($datum);
-		$data = Celline::res_data($id);
-		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $datum, 'data'=> $data))]);
+		$celline = Celline::where('name',$name)->first();
+		if($celline == null){
+			// ERREUR
+		}
+		$data = Celline::res_data($celline -> id);
+		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data))]);
 	}
 }
