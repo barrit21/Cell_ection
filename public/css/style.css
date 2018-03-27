@@ -63,3 +63,22 @@ footer {
 a {
 	color:#C74A17;
 }
+
+.btn-primary {
+	background-color: #C74A17 !important;
+	border-color: #57585A;
+}
+
+.jumbotron {
+	background-color: #F1F1F1 !important;
+}
+
+.form-control:focus {
+	border-color:#C74A17 !important;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
+}
+
+ui-autocomplete-input {
+	background-color: #F1F1F1 !important;
+}

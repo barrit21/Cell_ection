@@ -58,7 +58,7 @@ class Celline extends Model
 
         foreach ($id_dataset as $cell)
         {
-            $resu = Dataset::where('id', $cell) -> pluck('name'); 
+            $resu = Dataset::where('id', $cell) -> pluck('name');
             array_push($resultats, $resu);
         }
         //dd($resultats);

@@ -1,12 +1,14 @@
 @section('content')
 
-<a href= "/">
-    <b>Return</b>
-</a>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="/"><span aria-hidden="true">&larr;</span>Return</a></li>
+  </ul>
+</nav>
 
 <script type="text/javascript">
 //exporte les données sélectionnées
-//Tableau résult
+//Tableau result
 var $table = $('#table');
   $(function () {
       $('#toolbar').find('select').change(function () {
@@ -57,16 +59,16 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">File ID</th>
+        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Number of the replicate</th>
         <th data-field="Replicate" data-filter-control="input" data-sortable="true">Dataset</th>
         <th data-formatter="linkFormatter" >More</th>
     </tr>
     </thead>    
     <tbody>
-          <?php foreach ($data as $res) : ?>      
+          <?php foreach ($data as $res) : ?>     
         <tr>
+          <td>x</td>
           <td><?php echo trim($res, '["]'); ?></td>
-          <td><?php echo $res; ?></td>
         </tr>
           <?php endforeach; ?>
     </tbody>

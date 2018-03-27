@@ -10,7 +10,7 @@ class CellineController extends Controller
 	{
 		$celline = Celline::where('name',$name)->first();
 		if($celline == null){
-			// ERREUR
+			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
 		$data = Celline::res_data($celline -> id);
 
