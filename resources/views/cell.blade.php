@@ -57,18 +57,18 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Cell line</th>
-        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Replicate</th>
-        <th data-field="Datasets" data-filter-control="input" data-sortable="true">Datasets</th>
+        <th data-field="Cell line" data-filter-control="input" data-sortable="true">File ID</th>
+        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Dataset</th>
         <th data-formatter="linkFormatter" >More</th>
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $res) : ?>
-          <tr>
-              <td><?php echo trim($res, '["]'); ?></td>
-          </tr>
-      <?php endforeach; ?>
+          <?php foreach ($data as $res) : ?>      
+        <tr>
+          <td><?php echo trim($res, '["]'); ?></td>
+          <td><?php echo $res; ?></td>
+        </tr>
+          <?php endforeach; ?>
     </tbody>
       </table>
     </div>

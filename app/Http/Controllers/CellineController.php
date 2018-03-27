@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,6 +13,8 @@ class CellineController extends Controller
 			// ERREUR
 		}
 		$data = Celline::res_data($celline -> id);
+
+		//dd($idfiles);
 		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data))]);
 	}
 }

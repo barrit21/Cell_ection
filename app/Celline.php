@@ -41,8 +41,8 @@ class Celline extends Model
     	$data = DB::table('cellines')
             ->join('celline_dataset', 'cellines.id', '=', 'celline_dataset.celline_id')
             ->join('datasets', 'datasets.id', '=', 'celline_dataset.dataset_id')
-            // ->select('cellines.id','cellines.name', 'cellines.replicate', DB::raw('group_concat(datasets.name SEPARATOR ", ") as list_dataset'))
-            // ->groupBy('cellines.id')
+            ->select('cellines.id','cellines.name', 'cellines.replicate', DB::raw('group_concat(datasets.name SEPARATOR ", ") as list_dataset'))
+            ->groupBy('cellines.id')
             ->get();
 
     	return $data;
@@ -51,17 +51,26 @@ class Celline extends Model
     public static function res_data($id)
     {
         $id_cell = $id;
-        $id_dataset = CellineDataset::where('celline_id', $id_cell) -> pluck('dataset_id')->toArray();
-        
+        $id_dataset = CellineDataset::where('celline_id', $id_cell) -> pluck('dataset_id');
+
+
         $resultats=[];
 
         foreach ($id_dataset as $cell)
         {
-            $resu = Dataset::where('id', $cell) -> pluck('name');
+            $resu = Dataset::where('id', $cell) -> pluck('name'); 
             array_push($resultats, $resu);
         }
         //dd($resultats);
         return $resultats;
     }
+
+    /*public static function id_files($id)
+    {
+        $id_cell = $id;
+        $id_file = CellineDataset::where('celline_id', $id_cell) -> pluck('id');
+
+        return $id_file;
+    }*/
 
 }
