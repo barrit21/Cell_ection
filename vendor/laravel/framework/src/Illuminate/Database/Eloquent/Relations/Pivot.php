@@ -226,4 +226,4 @@ class Pivot extends Model
 
         return static::UPDATED_AT;    }
 }
-//coucou emilie
+//c
