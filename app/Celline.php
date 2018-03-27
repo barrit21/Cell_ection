@@ -36,7 +36,7 @@ class Celline extends Model
     }
 
 
-    public static function liste_cell_dataset() 
+    /*public static function liste_cell_dataset() 
     {
     	$data = DB::table('cellines')
             ->join('celline_dataset', 'cellines.id', '=', 'celline_dataset.celline_id')
@@ -46,7 +46,7 @@ class Celline extends Model
             ->get();
 
     	return $data;
-    }
+    }*/
 
     public static function res_data($id)
     {
