@@ -25,7 +25,7 @@ class CitbcmstFileSeeder extends Seeder
 
         foreach ($fichier as $value) {
 
-        	$value=explode(';',$value);
+            $value=explode(';',$value);
             
             $cellinedataset=CellineDataset::all();
     

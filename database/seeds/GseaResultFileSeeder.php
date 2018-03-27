@@ -20,16 +20,16 @@ class GseaResultFileSeeder extends Seeder
 
 
         foreach ($fichier as $value) {
-        	$value=explode("\t", $value);
-        	//echo'<pres>';
-        	//print_r($value);
-        	//echo'</pres>'; 
-        	$enrich=DB::table('enrichementscores')->insert([
-            	'pval'=>($value[1]),
-            	'padj'=>($value[2]),
-            	'es'=>($value[3]),
-            	'nes'=>($value[4]),
-            	'moreextreme'=>($value[5]),
+            $value=explode("\t", $value);
+            //echo'<pres>';
+            //print_r($value);
+            //echo'</pres>'; 
+            $enrich=DB::table('enrichementscores')->insert([
+                'pval'=>($value[1]),
+                'padj'=>($value[2]),
+                'es'=>($value[3]),
+                'nes'=>($value[4]),
+                'moreextreme'=>($value[5]),
             
             $geneset=Geneset::where('name',$value[0])->first();
 

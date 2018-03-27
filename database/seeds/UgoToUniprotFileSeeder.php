@@ -19,7 +19,7 @@ class UgoToUniprotFileSeeder extends Seeder
         $genetable=Gene::all();
         
         foreach ($fichier as $key) {
-        	$key=explode("\t",$key);
+            $key=explode("\t",$key);
             $key[1]=trim($key[1]);
 
             if($genetable->contains('hugo',$key[1])===false){
@@ -32,12 +32,12 @@ class UgoToUniprotFileSeeder extends Seeder
                 $hugo=Gene::where('hugo',$key[1])->update(['uniprot' => $key[0]]);
             }
 
-        	#DB::table('genes')->insert([
+            #DB::table('genes')->insert([
             #    'hugo'=>($key[1]),
             #    'uniprot'=>($key[0]),
                 #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
 
-         	#]);
+            #]);
 
         }
     }

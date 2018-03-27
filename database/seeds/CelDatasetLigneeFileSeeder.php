@@ -1,12 +1,10 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use App\Celline;
 use App\Dataset;
 use App\Vanderbilt;
 use App\Citbcmst;
-
 class CelDatasetLigneeFileSeeder extends Seeder
 {
     /**
@@ -23,18 +21,14 @@ class CelDatasetLigneeFileSeeder extends Seeder
         
         #Récupération des données du fichier 
         $fichier=file('./storage/Data/cel_dataset_lignee.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
         #Supression de la 1ère ligne (nom des colonnes)
         unset($fichier[0]);
-
         foreach ($fichier as $value) {
             $value=explode("\t",$value);
             $value[2]=trim($value[2]);
-
             //$dataset= Dataset::firstOrNew(['name'=>$value[0]]);
             
             $dataset=Dataset::all();
-
             #Vérification que le dataset est déjà présent dans dataset
             if ($dataset->contains('name', $value[0])===false){
                 #echo("hola1");
@@ -42,7 +36,6 @@ class CelDatasetLigneeFileSeeder extends Seeder
                     'name'=>($value[0]),
                 ]);
             }
-
             //$celline= Celline::firstOrNew(['name'=>$value[2]]);
             
             $celline=Celline::all();
@@ -53,23 +46,17 @@ class CelDatasetLigneeFileSeeder extends Seeder
                     'name'=>($value[2]),
                 ]);
             }
-
-
             #Intégration des données dans celline_dataset
     
             $dataset=Dataset::where('name',$value[0])->first();
             $celline=Celline::where('name',$value[2])->first();
             $filename=str_replace('-','.',$value[1]);
-
             
-
            
             $dataset -> cellines() -> attach($celline -> id, [
                'file' => $filename]);
-
             
         } 
         
     }
-
 }

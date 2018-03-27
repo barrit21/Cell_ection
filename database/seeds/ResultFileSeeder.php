@@ -26,8 +26,8 @@ class ResultFileSeeder extends Seeder
 
         #insertion des données dans la table vanderbilts sans doublons (sauf pour les "UNS")
         foreach ($fichier as $value) {
-        	$value=explode(';',$value);
-        	if (strpos($value[4], "UNS")===false){
+            $value=explode(';',$value);
+            if (strpos($value[4], "UNS")===false){
 
                 if (Vanderbilt::where([
                     ['class','=',$value[4]],
@@ -66,7 +66,7 @@ class ResultFileSeeder extends Seeder
 
                 $vanderbilt -> celline_dataset() -> save($cellinedataset, 'vanderbilt_id');
 
-	        }
+            }
         }
 
     }

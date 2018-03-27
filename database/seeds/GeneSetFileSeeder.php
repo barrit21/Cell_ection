@@ -30,21 +30,21 @@ class GeneSetFileSeeder extends Seeder
         foreach ($fichier as $key => $value) {
             //for ($i=0 ; $i < count($dataset) ; ){
                 //$g$i=array($value);
-        	if(strpos($value, "$")===0){
+            if(strpos($value, "$")===0){
                 $dataset[]=$value;
-    			$value=str_replace('$','', $value);
+                $value=str_replace('$','', $value);
                 $value=trim($value);
                 $value=str_replace('`', '', $value);
-    			DB::table('genesets')->insert([
-    				'name'=>($value),
+                DB::table('genesets')->insert([
+                    'name'=>($value),
                     'created_at'=>Carbon::now(),
                     'updated_at' => Carbon::now(),
-    			]);
+                ]);
                 $e++;
                 $g{$e} = array($value);
                 //echo($e);
             }
-    		else{
+            else{
                 $l=explode(',', $value);
                 foreach ($l as $uniprot) {
                     array_push($g{$e}, $uniprot);

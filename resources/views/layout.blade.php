@@ -65,7 +65,7 @@
                 </button>
                 <a class="navbar-brand" href="/">
 
-                    <img class="img-responsive" src="/gif/hospice.gif" />
+                    <img class="img-responsive" src="/gif/logo.gif" />
 
                 </a>
                 
@@ -120,9 +120,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &copy; 2018 Hospices Civils de Lyon | By : Lélia Debornes, Emilie Gérard-Marchant and Marianne Taupin <br/>
-                    <a href="http://www.designbootstrap.com/" target="_blank"> DesignBootstrap</a> <br/>
-                    <a href="http://glyphicons.com/" target="_blank"> UsingGlyphicons </a>
+                    &copy; 2018 Hospices Civils de Lyon | By : Lélia Debornes, Emilie Gérard-Marchant and Marianne Taupin 
                 </div>
 
             </div>

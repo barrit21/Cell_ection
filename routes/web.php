@@ -15,6 +15,7 @@ use App\cell_lines;
 
 Route::get('/', 'HomePageController@index');
 Route::get('/cell/{id}', 'CellineController@index');
+Route::get('/gene/{id}', 'GeneController@index');
 Route::get('/about_us', function() {
 	return view("layout", ["menu" => "about", "content" => view('about_us')]);
 });

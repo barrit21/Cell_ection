@@ -10,7 +10,6 @@ class Geneset extends Model
     {
     	return $this->belongsToMany('App\Gene');
     }
-
     public function enrichementscores()
     {
     	return $this->hasMany('App\Enrichementscore');
