@@ -67,7 +67,7 @@ function linkFormatter(value)
     <tbody>
           <?php foreach ($data as $res) : ?>     
         <tr>
-          <td>x</td>
+          <td>Auto_increment</td>
           <td><?php echo trim($res, '["]'); ?></td>
         </tr>
           <?php endforeach; ?>
@@ -90,10 +90,11 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Cell line</th>
-        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Replicate</th>
-        <th data-field="Datasets" data-filter-control="input" data-sortable="true">Datasets</th>
-        <th data-formatter="linkFormatter" >More</th>
+        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Number of the replicate</th>
+        <th data-field="Class" data-filter-control="input" data-sortable="true">Vanderbilt's class</th>
+        <th data-field="Correlation" data-filter-control="input" data-sortable="true">Vanderbilt's correlation</th>
+        <th data-field="P-value" data-filter-control="input" data-sortable="true">Vanderbilt's p-value</th>
+        <th data-field="CITBCMST" data-filter-control="input" data-sortable="true">CITBCMST</th>
     </tr>
     </thead>    
     <tbody>
@@ -121,10 +122,8 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Cell line</th>
-        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Replicate</th>
-        <th data-field="Datasets" data-filter-control="input" data-sortable="true">Datasets</th>
-        <th data-formatter="linkFormatter" >More</th>
+        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Name of the Geneset</th>
+        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Enrichissement score</th>
     </tr>
     </thead>    
     <tbody>
