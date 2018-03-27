@@ -1,5 +1,11 @@
 @section('content')
 
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="/"><span aria-hidden="true">&larr;</span>Return</a></li>
+  </ul>
+</nav>
+
 <ul class="nav nav-tabs" id="myTab">
 <!-- <ul class="nav nav-pills" id="myTab"> -->
   <li class="active"><a data-toggle="tab" href="#menu01">Paper/How to cite us</a></li>
