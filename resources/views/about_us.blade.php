@@ -2,7 +2,7 @@
 
 <ul class="nav nav-tabs" id="myTab">
 <!-- <ul class="nav nav-pills" id="myTab"> -->
-  <li class="active"><a data-toggle="tab" href="#menu01">Paper/How to cote us</a></li>
+  <li class="active"><a data-toggle="tab" href="#menu01">Paper/How to cite us</a></li>
   <li><a data-toggle="tab" href="#menu02">How to use</a></li>
   <li><a data-toggle="tab" href="#menu03">Terms to Access</a></li>
   <li><a data-toggle="tab" href="#menu04">Contact Us</a></li>

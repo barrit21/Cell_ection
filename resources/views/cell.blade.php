@@ -64,14 +64,9 @@ function linkFormatter(value)
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $datum) : ?>
+      <?php foreach ($data as $res) : ?>
           <tr>
-              <td>
-                  <?= $datum->name; ?>
-              </td>
-              <td><?php echo $datum->replicate; ?></td>
-              <td><?php echo $datum->list_dataset; ?></td>
-              <td><?php echo $datum->id;?></td>
+              <td><?php echo trim($res, '["]'); ?></td>
           </tr>
       <?php endforeach; ?>
     </tbody>
@@ -100,14 +95,9 @@ function linkFormatter(value)
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $datum) : ?>
+      <?php foreach ($data as $res) : ?>
           <tr>
-              <td>
-                  <?= $datum->name; ?>
-              </td>
-              <td><?php echo $datum->replicate; ?></td>
-              <td><?php echo $datum->list_dataset; ?></td>
-              <td><?php echo $datum->id;?></td>
+              <td><?php echo $res; ?></td>
           </tr>
       <?php endforeach; ?>
     </tbody>
@@ -136,14 +126,10 @@ function linkFormatter(value)
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $datum) : ?>
+      <?php foreach ($data as $res) : ?>
           <tr>
-              <td>
-                  <?= $datum->name; ?>
-              </td>
-              <td><?php echo $datum->replicate; ?></td>
-              <td><?php echo $datum->list_dataset; ?></td>
-              <td><?php echo $datum->id;?></td>
+              <td><?php echo $res; ?></td>
+
           </tr>
       <?php endforeach; ?>
     </tbody>

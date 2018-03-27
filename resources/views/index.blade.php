@@ -1,5 +1,5 @@
 @section('content')
-<form align="center" id="q-form" cache="false" action="/search" accept-charset="UTF-8" method="get"> 
+<form align="center" id="q-form" cache="false" action="/cell/1" accept-charset="UTF-8" method="get"> 
   <div class="col-xs-12">
 
     <script>

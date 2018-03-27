@@ -16,9 +16,9 @@ class CreateVanderbiltsTable extends Migration
         Schema::create('vanderbilts', function (Blueprint $table) {
             $table->increments('id');
             $table->char('class',45);
-            $table->double('correlation',8,6)->nullable();
-            $table->double('pval',8,4)->nullable();
-            #$table->timestamps();
+            $table->char('correlation',45)->nullable();
+            $table->char('pval',45)->nullable();
+            $table->timestamps();
         });
     }
 

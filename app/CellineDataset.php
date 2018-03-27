@@ -8,26 +8,32 @@ class CellineDataset extends Pivot
 {
     public function vanderbilts()
     {
-        return $this->belongsTo('App\Vanderbilt');
+    	return $this->belongsTo('App\Vanderbilt');
     }
+
     public function citbcmsts()
     {
-        return $this->belongsTo('App\Citbcmst');
+    	return $this->belongsTo('App\Citbcmst');
     }
+
     public function datasets()
     {
-        return $this->belongsTo('App\Dataset');
+    	return $this->belongsTo('App\Dataset');
     }
+
     public function cellines()
     {
-        return $this->belongsTo('App\Celline');
+    	return $this->belongsTo('App\Celline');
     }
+
     public function expressionlevels()
     {
-        return $this->belongsTo('App\Expressionlevel');
+    	return $this->belongsTo('App\Expressionlevel');
     }
+
     public function enrichementscores()
     {
-        return $this->belongsTo('App\Enrichementscore');
+    	return $this->belongsTo('App\Enrichementscore');
     }
+
 }

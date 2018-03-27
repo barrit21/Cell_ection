@@ -12,17 +12,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-        	
-        	CellinesFileSeeder::class,
-        	DatasetsFileSeeder::class,
-        	CelDatasetLigneeFileSeeder::class,
+            
+            CellinesFileSeeder::class,
+            DatasetsFileSeeder::class,
+            CelDatasetLigneeFileSeeder::class,
             CitbcmstFileSeeder::class,
+            UgoToUniprotFileSeeder::class,
             ResultFileSeeder::class,
             ExpressionLevelFileSeeder::class,
-            #UgoToUniprotFileSeeder::class,
-        	#GeneSetFileSeeder::class,
-        	#GseaResultFileSeeder::class
-        	]);
+            #GeneSetFileSeeder::class,
+            #GseaResultFileSeeder::class
+            ]);
         
     }
 }

@@ -15,67 +15,59 @@ class ResultFileSeeder extends Seeder
      */
     public function run()
     {
-        //$vanderbilts=Vanderbilt::all();
-        //$celline_datasets=CellineDataset::all();
 
         /** 
-         * Vanderbilt table population 
+         * Vanderbilt population 
          *                    */
-        $fichier=file('./storage/Data/result.csv');
+       $fichier=file('./storage/Data/20161112 resultats vanderbilt et CIT.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         unset($fichier[0]);
+        unset($fichier[1]);
 
+
+        #insertion des données dans la table vanderbilts sans doublons (sauf pour les "UNS")
         foreach ($fichier as $value) {
-        	$value=explode(",", $value);
-            $value[3]=trim($value[3]);
-        	//dd($value[0]);
-        	if (strpos($value[1], "UNS")===false){
-	        	DB::table('vanderbilts')->insert([
-	                'class'=>($value[1]),
-	                'correlation'=>($value[2]),
-	                'pval'=>($value[3]),
-	                #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-	            ]);
+            $value=explode(';',$value);
+            if (strpos($value[4], "UNS")===false){
 
-	        }
-        }
+                if (Vanderbilt::where([
+                    ['class','=',$value[4]],
+                    ['correlation','=',$value[5]],
+                    ['pval','=',$value[6]]])->exists()){
+                }
+                else{
+                    DB::table('vanderbilts')->insert([
+                        'class'=>($value[4]),
+                        'correlation'=>($value[5]),
+                        'pval'=>($value[6]),
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now(),
 
-        foreach ($fichier as $value) {
-            $value=explode(",", $value);
-            $value[3]=trim($value[3]);
-            $value[2]=round($value[2],6);
-            if (strpos($value[1], "UNS")===false){
-                //dd($value);
+                    ]);
+                }
+
                 $vanderbilt=Vanderbilt::where([
-                ['class',$value[1]],
-                ['correlation',($value[2])],
-                ['pval',$value[3]],
+                ['class',$value[4]],
+                ['correlation',($value[5])],
+                ['pval',$value[6]],
                 ])->first();
-                #dd($vanderbilt);
                 
                 $cellinedataset=CellineDataset::all();
-                
-                if ($cellinedataset->contains('file',$value[0])===false){
-                    DB::table('celline_dataset')->insert([
-                        'file'=>($value[0]),
+
+                #vérification que file de vanderbilt existe dans la table celline_dataset
+                if ($cellinedataset->contains('file',$value[2])===false){
+                        DB::table('celline_dataset')->insert([
+                        'file'=>($value[2]),
                     ]);
                 }
                 
             
                 $cellinedataset=CellineDataset::where(
-                    'file', $value[0])->first();
+                    'file', $value[2])->first();
 
                 $vanderbilt -> celline_dataset() -> save($cellinedataset, 'vanderbilt_id');
 
-               // App\CellineDataset::where('id',$value[0])->update(['vanderbilt_id'=>$vanderbilt]);
             }
-
         }
-
-
-            
-
-        #$celline_datasets-> vanderbilts() ->attach($vanderbilts->id,);
-
 
     }
 }

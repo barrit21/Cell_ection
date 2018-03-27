@@ -20,7 +20,7 @@ class CreateCitbcmstsTable extends Migration
             $table->char('classcore',45)->nullable();
             $table->char('classification',45)->nullable();
             $table->double('distance',8,4)->nullable();
-            #$table->timestamps();
+            $table->timestamps();
         });
     }
 

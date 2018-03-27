@@ -10,12 +10,11 @@ class Gene extends Model
 {
     public function expressionlevels()
     {
-    	return $this->hasMany('App\Expressionlevel');
+        return $this->hasMany('App\Expressionlevel');
     }
-
     public function genesets()
     {
-    	return $this->belongsToMany('App\Geneset');
+        return $this->belongsToMany('App\Geneset');
     }
 
     public static function liste_gene() 

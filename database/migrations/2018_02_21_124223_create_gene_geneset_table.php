@@ -23,7 +23,7 @@ class CreateGeneGenesetTable extends Migration
             $table->foreign('geneset_id')
                 ->references('id')->on('genesets')
                 ->onDelete('cascade');
-            #$table->timestamps();
+            $table->timestamps();
         });
     }
 

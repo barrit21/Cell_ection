@@ -65,7 +65,7 @@
                 </button>
                 <a class="navbar-brand" href="/">
 
-                    <img class="img-responsive" src="/img/logo-lyon1.png" />
+                    <img class="img-responsive" src="/gif/logo.gif" />
 
                 </a>
                 

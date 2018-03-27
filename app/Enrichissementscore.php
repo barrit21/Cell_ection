@@ -10,7 +10,6 @@ class Enrichementscore extends Model
     {
     	return $this->belongsTo('App\Cellinedataset');
     }
-
     public function genesets()
     {
     	return $this->belongsTo('App\Geneset');
