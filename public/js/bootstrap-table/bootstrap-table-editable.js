@@ -1,4 +1,8 @@
 /**
+ * @file bootstrap-table-editable.js
+ * 
+ * @brief To do dynamic tables
+ *
  * @author zhixin wen <wenzhixin2010@gmail.com>
  * extensions: https://github.com/vitalets/x-editable
  */

@@ -1,13 +1,20 @@
 <?php
 
+/**
+ * @file Processor.php
+ */
+
 namespace TijsVerkoyen\CssToInlineStyles\Css\Property;
 
 use Symfony\Component\CssSelector\Node\Specificity;
 
-class Processor
+/**
+ * @class Processor
+ */
+class Processor //automatically created by Laravel
 {
     /**
-     * Split a string into seperate properties
+     * @brief Split a string into seperate properties
      *
      * @param string $propertiesString
      * @return array
@@ -58,7 +65,7 @@ class Processor
     }
 
     /**
-     * Convert a property-string into an object
+     * @brief Convert a property-string into an object
      *
      * @param string $property
      * @return Property|null
@@ -82,7 +89,7 @@ class Processor
     }
 
     /**
-     * Convert an array of property-strings into objects
+     * @brief Convert an array of property-strings into objects
      *
      * @param array $properties
      * @return Property[]
@@ -104,7 +111,7 @@ class Processor
     }
 
     /**
-     * Build the property-string for multiple properties
+     * @brief Build the property-string for multiple properties
      *
      * @param array $properties
      * @return string

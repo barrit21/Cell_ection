@@ -3,6 +3,7 @@
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
+ * @file index.php
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */

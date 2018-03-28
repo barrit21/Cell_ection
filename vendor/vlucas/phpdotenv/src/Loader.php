@@ -1,18 +1,22 @@
 <?php
 
+/**
+ * @file Loader.php 
+ */
+
 namespace Dotenv;
 
 use Dotenv\Exception\InvalidFileException;
 use Dotenv\Exception\InvalidPathException;
 
 /**
- * This is the loaded class.
+ * @class Loader
  *
  * It's responsible for loading variables by reading a file from disk and:
  * - stripping comments beginning with a `#`,
  * - parsing lines that look shell variable setters, e.g `export key = value`, `key="value"`.
  */
-class Loader
+class Loader //automatically created by Laravel
 {
     /**
      * The file path.

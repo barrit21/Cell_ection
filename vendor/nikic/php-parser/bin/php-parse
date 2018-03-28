@@ -1,7 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+/**
+ * @file php-parse
+ */
+
+foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) { //automatically created by Laravel
     if (file_exists($file)) {
         require $file;
         break;
@@ -197,6 +201,5 @@ function parseArgs($args) {
                 }
         }
     }
-
     return array($operations, $files, $attributes);
 }

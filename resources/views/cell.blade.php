@@ -138,8 +138,6 @@ function linkFormatter(value)
     </div>
   </div>
 
-
 </div>
-
 
 @stop

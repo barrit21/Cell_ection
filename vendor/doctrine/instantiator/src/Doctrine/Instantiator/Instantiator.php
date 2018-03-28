@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file Instantiator.php 
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -30,7 +35,7 @@ use ReflectionClass;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-final class Instantiator implements InstantiatorInterface
+final class Instantiator implements InstantiatorInterface //automatically created by Laravel
 {
     /**
      * Markers used internally by PHP to define whether {@see \unserialize} should invoke

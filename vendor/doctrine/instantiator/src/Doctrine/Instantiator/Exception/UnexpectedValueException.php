@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file UnexpectedValueException.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,7 +33,7 @@ use UnexpectedValueException as BaseUnexpectedValueException;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class UnexpectedValueException extends BaseUnexpectedValueException implements ExceptionInterface
+class UnexpectedValueException extends BaseUnexpectedValueException implements ExceptionInterface //automatically created by Laravel
 {
     /**
      * @param ReflectionClass $reflectionClass

@@ -1,4 +1,6 @@
 /*!
+ * @file bootstrap.js
+ * 
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -14,13 +16,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
   // ============================================================
-
   function transitionEnd() {
     var el = document.createElement('bootstrap')
 
@@ -74,13 +74,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // ALERT CLASS DEFINITION
   // ======================
-
   var dismiss = '[data-dismiss="alert"]'
   var Alert   = function (el) {
     $(el).on('click', dismiss, this.close)
@@ -126,7 +124,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // ALERT PLUGIN DEFINITION
   // =======================
-
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
@@ -145,7 +142,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // ALERT NO CONFLICT
   // =================
-
   $.fn.alert.noConflict = function () {
     $.fn.alert = old
     return this
@@ -154,7 +150,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // ALERT DATA-API
   // ==============
-
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
 
 }(jQuery);
@@ -167,13 +162,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // BUTTON PUBLIC CLASS DEFINITION
   // ==============================
-
   var Button = function (element, options) {
     this.$element  = $(element)
     this.options   = $.extend({}, Button.DEFAULTS, options)
@@ -229,7 +222,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // BUTTON PLUGIN DEFINITION
   // ========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -251,7 +243,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // BUTTON NO CONFLICT
   // ==================
-
   $.fn.button.noConflict = function () {
     $.fn.button = old
     return this
@@ -260,7 +251,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // BUTTON DATA-API
   // ===============
-
   $(document).on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
     var $btn = $(e.target)
     if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
@@ -278,13 +268,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // CAROUSEL CLASS DEFINITION
   // =========================
-
   var Carousel = function (element, options) {
     this.$element    = $(element).on('keydown.bs.carousel', $.proxy(this.keydown, this))
     this.$indicators = this.$element.find('.carousel-indicators')
@@ -434,7 +422,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // CAROUSEL PLUGIN DEFINITION
   // ==========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -457,7 +444,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // CAROUSEL NO CONFLICT
   // ====================
-
   $.fn.carousel.noConflict = function () {
     $.fn.carousel = old
     return this
@@ -466,7 +452,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // CAROUSEL DATA-API
   // =================
-
   $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
     var href
     var $this   = $(this)
@@ -502,13 +487,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // COLLAPSE PUBLIC CLASS DEFINITION
   // ================================
-
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
@@ -612,7 +595,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -633,7 +615,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // COLLAPSE NO CONFLICT
   // ====================
-
   $.fn.collapse.noConflict = function () {
     $.fn.collapse = old
     return this
@@ -642,7 +623,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // COLLAPSE DATA-API
   // =================
-
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
     var href
     var $this   = $(this)
@@ -673,13 +653,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // DROPDOWN CLASS DEFINITION
   // =========================
-
   var backdrop = '.dropdown-backdrop'
   var toggle   = '[data-toggle="dropdown"]'
   var Dropdown = function (element) {
@@ -780,7 +758,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
@@ -799,7 +776,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // DROPDOWN NO CONFLICT
   // ====================
-
   $.fn.dropdown.noConflict = function () {
     $.fn.dropdown = old
     return this
@@ -808,7 +784,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // APPLY TO STANDARD DROPDOWN ELEMENTS
   // ===================================
-
   $(document)
     .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
@@ -825,13 +800,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // MODAL CLASS DEFINITION
   // ======================
-
   var Modal = function (element, options) {
     this.options        = options
     this.$body          = $(document.body)
@@ -1048,7 +1021,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // MODAL PLUGIN DEFINITION
   // =======================
-
   function Plugin(option, _relatedTarget) {
     return this.each(function () {
       var $this   = $(this)
@@ -1069,7 +1041,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // MODAL NO CONFLICT
   // =================
-
   $.fn.modal.noConflict = function () {
     $.fn.modal = old
     return this
@@ -1078,7 +1049,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // MODAL DATA-API
   // ==============
-
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
@@ -1107,13 +1077,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // TOOLTIP PUBLIC CLASS DEFINITION
   // ===============================
-
   var Tooltip = function (element, options) {
     this.type       =
     this.options    =
@@ -1527,7 +1495,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // TOOLTIP PLUGIN DEFINITION
   // =========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -1548,7 +1515,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // TOOLTIP NO CONFLICT
   // ===================
-
   $.fn.tooltip.noConflict = function () {
     $.fn.tooltip = old
     return this
@@ -1564,13 +1530,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // POPOVER PUBLIC CLASS DEFINITION
   // ===============================
-
   var Popover = function (element, options) {
     this.init('popover', element, options)
   }
@@ -1589,7 +1553,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // NOTE: POPOVER EXTENDS tooltip.js
   // ================================
-
   Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
 
   Popover.prototype.constructor = Popover
@@ -1641,7 +1604,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // POPOVER PLUGIN DEFINITION
   // =========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -1662,7 +1624,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // POPOVER NO CONFLICT
   // ===================
-
   $.fn.popover.noConflict = function () {
     $.fn.popover = old
     return this
@@ -1678,13 +1639,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // SCROLLSPY CLASS DEFINITION
   // ==========================
-
   function ScrollSpy(element, options) {
     var process  = $.proxy(this.process, this)
 
@@ -1802,7 +1761,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // SCROLLSPY PLUGIN DEFINITION
   // ===========================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -1822,7 +1780,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // SCROLLSPY NO CONFLICT
   // =====================
-
   $.fn.scrollspy.noConflict = function () {
     $.fn.scrollspy = old
     return this
@@ -1831,7 +1788,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // SCROLLSPY DATA-API
   // ==================
-
   $(window).on('load.bs.scrollspy.data-api', function () {
     $('[data-spy="scroll"]').each(function () {
       var $spy = $(this)
@@ -1849,13 +1805,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // TAB CLASS DEFINITION
   // ====================
-
   var Tab = function (element) {
     this.element = $(element)
   }
@@ -1934,7 +1888,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // TAB PLUGIN DEFINITION
   // =====================
-
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
@@ -1953,7 +1906,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // TAB NO CONFLICT
   // ===============
-
   $.fn.tab.noConflict = function () {
     $.fn.tab = old
     return this
@@ -1962,7 +1914,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // TAB DATA-API
   // ============
-
   $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
     e.preventDefault()
     Plugin.call($(this), 'show')
@@ -1978,13 +1929,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
   // AFFIX CLASS DEFINITION
   // ======================
-
   var Affix = function (element, options) {
     this.options = $.extend({}, Affix.DEFAULTS, options)
 
@@ -2067,7 +2016,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // AFFIX PLUGIN DEFINITION
   // =======================
-
   function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
@@ -2087,7 +2035,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // AFFIX NO CONFLICT
   // =================
-
   $.fn.affix.noConflict = function () {
     $.fn.affix = old
     return this
@@ -2096,7 +2043,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   // AFFIX DATA-API
   // ==============
-
   $(window).on('load', function () {
     $('[data-spy="affix"]').each(function () {
       var $spy = $(this)

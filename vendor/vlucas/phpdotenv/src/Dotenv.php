@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file Dotenv.php
+ */
+
 namespace Dotenv;
 
 /**
@@ -8,7 +12,7 @@ namespace Dotenv;
  * It's responsible for loading a `.env` file in the given directory and
  * setting the environment vars.
  */
-class Dotenv
+class Dotenv //automatically created by Laravel
 {
     /**
      * The file path.

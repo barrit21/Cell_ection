@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file SerialisableArrayObjectAsset.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,7 +33,7 @@ use Serializable;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class SerializableArrayObjectAsset extends ArrayObject implements Serializable
+class SerializableArrayObjectAsset extends ArrayObject implements Serializable //automatically created by Laravel
 {
     /**
      * Constructor - should not be called

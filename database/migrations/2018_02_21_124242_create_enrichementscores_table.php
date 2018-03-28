@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file 2018_02_21_124242_create_enrichementscores_table.php
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class CreateEnrichementscoresTable
+ */
 class CreateEnrichementscoresTable extends Migration
 {
     /**
@@ -26,7 +33,6 @@ class CreateEnrichementscoresTable extends Migration
             $table->foreign('celline_id')->references('id')->on('cellines')->onDelete('cascade');
             $table->integer('geneset_id')->unsigned()->nullable();
             $table->foreign('geneset_id')->references('id')->on('genesets')->onDelete('cascade');
-            #$table->timestamps();
         });
     }
 

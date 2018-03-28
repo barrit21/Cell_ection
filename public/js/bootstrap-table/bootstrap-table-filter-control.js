@@ -1,4 +1,8 @@
 /**
+ * @file bootstrap-table-filter-control.js
+ *
+ * @brief To do dynamic tables
+ *
  * @author: Dennis Hernández
  * @webSite: http://djhvscf.github.io/Blog
  * @version: v1.0.0

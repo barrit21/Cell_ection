@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * @file MultipleValidationWithAnd.php
+ */
+
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\Validation\Exception\EmptyValidationList;
 
-class MultipleValidationWithAnd implements EmailValidation
+class MultipleValidationWithAnd implements EmailValidation //automatically created by Laravel
 {
     /**
      * If one of validations gets failure skips all succeeding validation.

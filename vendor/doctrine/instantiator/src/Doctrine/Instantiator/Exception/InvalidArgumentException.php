@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file InvalidArgumentException.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ use ReflectionClass;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class InvalidArgumentException extends BaseInvalidArgumentException implements ExceptionInterface
+class InvalidArgumentException extends BaseInvalidArgumentException implements ExceptionInterface //automatically created by Laravel
 {
     /**
      * @param string $className

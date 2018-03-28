@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * @brief ExampleTest.php
+ */
+
 namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+/**
+ * @class ExampleTest
+ */
+class ExampleTest extends TestCase //automatically created by Laravel
 {
     /**
      * A basic test example.

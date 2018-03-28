@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file InstantiatorPerformanceEvent.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ use Doctrine\Instantiator\Instantiator;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class InstantiatorPerformanceEvent extends AthleticEvent
+class InstantiatorPerformanceEvent extends AthleticEvent //automatically created by Laravel
 {
     /**
      * @var \Doctrine\Instantiator\Instantiator

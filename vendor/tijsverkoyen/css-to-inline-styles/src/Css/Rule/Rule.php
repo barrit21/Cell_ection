@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * @file Rule.php
+ */
+
 namespace TijsVerkoyen\CssToInlineStyles\Css\Rule;
 
 use Symfony\Component\CssSelector\Node\Specificity;
 
-final class Rule
+/**
+ * @class Rule
+ */
+final class Rule //automatically created by Laravel
 {
     /**
      * @var string
@@ -27,7 +34,7 @@ final class Rule
     private $order;
 
     /**
-     * Rule constructor.
+     * @brief Rule constructor.
      *
      * @param string      $selector
      * @param Property[]  $properties
@@ -43,7 +50,7 @@ final class Rule
     }
 
     /**
-     * Get selector
+     * @brief Get selector
      *
      * @return string
      */
@@ -53,7 +60,7 @@ final class Rule
     }
 
     /**
-     * Get properties
+     * @brief Get properties
      *
      * @return array
      */
@@ -63,7 +70,7 @@ final class Rule
     }
 
     /**
-     * Get specificity
+     * @brief Get specificity
      *
      * @return Specificity
      */
@@ -73,7 +80,7 @@ final class Rule
     }
 
     /**
-     * Get order
+     * @brief Get order
      *
      * @return int
      */

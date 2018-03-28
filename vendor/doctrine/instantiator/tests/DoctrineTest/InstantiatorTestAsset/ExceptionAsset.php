@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file ExceptionAsset.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ use Exception;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class ExceptionAsset extends Exception
+class ExceptionAsset extends Exception //automatically created by Laravel
 {
     /**
      * Constructor - should not be called

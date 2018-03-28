@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file ExpressionLevelFileSeeder.php
+ */
+
 use Illuminate\Database\Seeder;
 use App\CellineDataset;
 use App\Expressionlevel;
@@ -8,10 +12,9 @@ use App\Celline;
 use App\Dataset;
 use Carbon\Carbon;
 
-/** 
- * A reprendre erreur de datetime ??
+/**
+ * @class ExpressionLevelFileSeeder
  */
-
 class ExpressionLevelFileSeeder extends Seeder
 {
     /**
@@ -23,7 +26,6 @@ class ExpressionLevelFileSeeder extends Seeder
     {
         
         $fichier = file('./storage/Data/expression_level_MCF7_test.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        //print_r($fichier);
         
         $genes_table=Gene::all();
         $celline_dataset_table=CellineDataset::all();
@@ -48,17 +50,13 @@ class ExpressionLevelFileSeeder extends Seeder
                 }
             }
         }
-        
-        //print_r($raw_files);
-        
+                
         $datasets=[];
 
         foreach ($fichier as $line) {
             if (!empty($line)){
                 
                 $row= explode("\t", $line);
-
-                //print_r($row);
 
                 if(preg_match('/^Raw\sFile/',$row[0])){
                     //echo("rawfile");
@@ -71,7 +69,6 @@ class ExpressionLevelFileSeeder extends Seeder
                 }
                 
                 else{
-                    //echo("why");
                     $data =explode("\t", $line);
                     $gene_name= str_replace('"', '',$data[0]);
                     if($genes_table->contains('hugo', $gene_name)===false){
@@ -85,7 +82,6 @@ class ExpressionLevelFileSeeder extends Seeder
                     unset($data[0]);
 
                     $index=count($data);
-                    //echo($index);
 
                     for ($i=0 ; $i < $index ; $i++){
                         //echo($i);
@@ -100,7 +96,5 @@ class ExpressionLevelFileSeeder extends Seeder
                 }
             }
         }
-
     }
-   
 }

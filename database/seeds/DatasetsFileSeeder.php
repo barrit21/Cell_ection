@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file DatasetsFileSeeder.php
+ */
+
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Dataset;
 
+/**
+ * @class DatasetsFileSeeder
+ */
 class DatasetsFileSeeder extends Seeder
 {
     /**
@@ -23,7 +30,6 @@ class DatasetsFileSeeder extends Seeder
             $line=trim($line);
             DB::table('datasets')->insert([
                 'name'=>($line),
-               
             ]);
         }
     }

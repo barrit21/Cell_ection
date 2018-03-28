@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file InvalidCallbackException.php
+ */
+
 namespace Dotenv\Exception;
 
 use InvalidArgumentException;
@@ -7,7 +11,7 @@ use InvalidArgumentException;
 /**
  * This is the invalid callback exception class.
  */
-class InvalidCallbackException extends InvalidArgumentException implements ExceptionInterface
+class InvalidCallbackException extends InvalidArgumentException implements ExceptionInterface //automatically created by Laravel
 {
     //
 }

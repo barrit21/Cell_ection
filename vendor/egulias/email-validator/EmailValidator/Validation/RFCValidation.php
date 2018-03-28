@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * @file RFCValidation.php
+ */
+
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\EmailParser;
 use Egulias\EmailValidator\Exception\InvalidEmail;
 
-class RFCValidation implements EmailValidation
+class RFCValidation implements EmailValidation //automatically created by Laravel
 {
     /**
      * @var EmailParser

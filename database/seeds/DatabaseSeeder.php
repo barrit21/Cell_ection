@@ -1,15 +1,14 @@
 <?php
 
 /**
- * \file DatabaseSeeder.php
- * \author Lélia, Marianne & Emilie
- * @mainpage thehdc, sfnskjfnfsjsjn 
- * @brief hfuzhfzeu piivif
- * 
- * { item_description }
+ * @file DatabaseSeeder.php
  */
 
 use Illuminate\Database\Seeder;
+
+/**
+ * @class DatabaseSeeder
+ */
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +20,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            
             CellinesFileSeeder::class,
             DatasetsFileSeeder::class,
             CelDatasetLigneeFileSeeder::class,
@@ -29,9 +27,8 @@ class DatabaseSeeder extends Seeder
             UgoToUniprotFileSeeder::class,
             ResultFileSeeder::class,
             ExpressionLevelFileSeeder::class,
-            #GeneSetFileSeeder::class,
-            #GseaResultFileSeeder::class
+            GeneSetFileSeeder::class,
+            GseaResultFileSeeder::class
             ]);
-        
     }
 }

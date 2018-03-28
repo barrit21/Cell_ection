@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file AbstractLexer.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ namespace Doctrine\Common\Lexer;
  * @author Jonathan Wage <jonwage@gmail.com>
  * @author Roman Borschel <roman@code-factory.org>
  */
-abstract class AbstractLexer
+abstract class AbstractLexer //automatically created by Laravel
 {
     /**
      * Lexer original input string.

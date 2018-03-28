@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file 2018_02_21_124203_create_genesets_table.php
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class CreateGenesetsTable
+ */
 class CreateGenesetsTable extends Migration
 {
     /**

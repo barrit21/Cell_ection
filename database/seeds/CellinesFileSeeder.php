@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @file CellinesFile Seeder.php
+ */
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -7,20 +10,16 @@ class CellinesFileSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * 
+     * This seed gets informations from the cell_lines.txt file in storage/Data and integrates them in the celline table.
      *
      * @return void
      */
     public function run()
-    {
-        /**
-         * Ce seed récupère les informations du fichier cell_lines.txt de storage/Data/ et les intègrent dans la table celline.
-         */
-        
-        #Récupération des données du fichier 
-        $fichier=file('./storage/Data/cell_lines.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    {   
+        $fichier=file('./storage/Data/cell_lines.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES); // get file's datas
 
-        #Supprime la 1ère ligne (nom des colonnes)
-        unset($fichier[0]);
+        unset($fichier[0]); //delete the first line = columns' name
 
         foreach($fichier as $key){
             $infos=explode("\t", $key);

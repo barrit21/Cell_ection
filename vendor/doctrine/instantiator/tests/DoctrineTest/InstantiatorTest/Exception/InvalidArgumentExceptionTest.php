@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file InvalidArgumentExceptionTest.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -30,7 +35,7 @@ use ReflectionClass;
  *
  * @covers \Doctrine\Instantiator\Exception\InvalidArgumentException
  */
-class InvalidArgumentExceptionTest extends PHPUnit_Framework_TestCase
+class InvalidArgumentExceptionTest extends PHPUnit_Framework_TestCase //automatically created by Laravel
 {
     public function testFromNonExistingTypeWithNonExistingClass()
     {

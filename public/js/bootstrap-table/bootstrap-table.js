@@ -1,4 +1,8 @@
 /**
+ * @file bootstrap-table.js
+ * 
+ * @brief To do dynamic arrays 
+ *
  * @author zhixin wen <wenzhixin2010@gmail.com>
  * version: 1.10.0
  * https://github.com/wenzhixin/bootstrap-table/
@@ -9,7 +13,6 @@
 
     // TOOLS DEFINITION
     // ======================
-
     var cachedWidth = null;
 
     // it only does '%s', and return '' when arguments are undefined
@@ -86,7 +89,7 @@
                         r.field = index;
                     }
                 }
-
+                
                 for (k = 0; k < rowspan; k++) {
                     flag[i + k][index] = true;
                 }
@@ -231,7 +234,6 @@
 
     // BOOTSTRAP TABLE CLASS DEFINITION
     // ======================
-
     var BootstrapTable = function (el, options) {
         this.options = options;
         this.$el = $(el);
@@ -1305,7 +1307,6 @@
                             '<a href="javascript:void(0)">...</a>',
                             '</li>');
                     }
-
                     to--;
                 }
             }
@@ -1966,7 +1967,6 @@
             this.$header.find('.focus-temp').removeClass('focus-temp');
         }
 
-        // fix bug: $.data() is not working as expected after $.append()
         this.$header.find('th[data-field]').each(function (i) {
             that.$header_.find(sprintf('th[data-field="%s"]', $(this).data('field'))).data($(this).data());
         });
@@ -1988,7 +1988,6 @@
                 .find('.fht-cell').width($this.innerWidth());
         });
         // horizontal scroll event
-        // TODO: it's probably better improving the layout than binding to scroll event
         this.$tableBody.off('scroll').on('scroll', function () {
             that.$tableHeader.scrollLeft($(this).scrollLeft());
 
@@ -2004,7 +2003,7 @@
             data = that.getData(),
             html = [];
 
-        if (!this.options.showFooter || this.options.cardView) { //do nothing
+        if (!this.options.showFooter || this.options.cardView) {
             return;
         }
 
@@ -2125,7 +2124,6 @@
 
     // PUBLIC FUNCTION DEFINITION
     // =======================
-
     BootstrapTable.prototype.resetView = function (params) {
         var padding = 0;
 
@@ -2607,7 +2605,6 @@
         this.options.cardView = !this.options.cardView;
         this.initHeader();
         // Fixed remove toolbar when click cardView button.
-        //that.initToolbar();
         this.initBody();
         this.trigger('toggle', this.options.cardView);
     };
@@ -2710,7 +2707,6 @@
 
     // BOOTSTRAP TABLE PLUGIN DEFINITION
     // =======================
-
     var allowedMethods = [
         'getOptions',
         'getSelections', 'getAllSelections', 'getData',
@@ -2787,7 +2783,6 @@
 
     // BOOTSTRAP TABLE INIT
     // =======================
-
     $(function () {
         $('[data-toggle="table"]').bootstrapTable();
     });

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file InvalidFileException.php
+ */
+
 namespace Dotenv\Exception;
 
 use InvalidArgumentException;
@@ -7,7 +11,7 @@ use InvalidArgumentException;
 /**
  * This is the invalid file exception class.
  */
-class InvalidFileException extends InvalidArgumentException implements ExceptionInterface
+class InvalidFileException extends InvalidArgumentException implements ExceptionInterface //automatically created by Laravel
 {
     //
 }

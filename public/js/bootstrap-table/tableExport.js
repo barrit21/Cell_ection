@@ -1,4 +1,6 @@
 /**
+ * @file tableExport.js
+ *
  * @preserve tableExport.jquery.plugin
  *
  * Version 1.9.8

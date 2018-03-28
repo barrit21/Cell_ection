@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file 2018_02_21_124215_create_celline_dataset_table.php
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class CreateCellineDatasetTable
+ */
 class CreateCellineDatasetTable extends Migration
 {
     /**
@@ -24,7 +31,6 @@ class CreateCellineDatasetTable extends Migration
             $table->foreign('vanderbilt_id')->references('id')->on('vanderbilts')->onDelete('cascade');
             $table->integer('citbcmst_id')->unsigned()->nullable();
             $table->foreign('citbcmst_id')->references('id')->on('citbcmsts')->onDelete('cascade');
-            //$table->index(['id_cellines','id_datasets','id_vanderbilts','id_citbcmsts']);
             $table->timestamps();
         });
     }

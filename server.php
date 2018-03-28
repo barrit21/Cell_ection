@@ -3,12 +3,14 @@
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
+ * @file server.php
+ * 
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
 
 $uri = urldecode(
-    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) //automatically created by Laravel
 );
 
 // This file allows us to emulate Apache's "mod_rewrite" functionality from the

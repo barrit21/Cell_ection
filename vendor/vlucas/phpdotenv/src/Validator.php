@@ -1,16 +1,20 @@
 <?php
 
+/**
+ * @file Validator.php
+ */
+
 namespace Dotenv;
 
 use Dotenv\Exception\InvalidCallbackException;
 use Dotenv\Exception\ValidationException;
 
 /**
- * This is the validator class.
+ * @class Validator
  *
  * It's responsible for applying validations against a number of variables.
  */
-class Validator
+class Validator //automatically created by Laravel
 {
     /**
      * The variables to validate.

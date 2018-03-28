@@ -1,12 +1,16 @@
 <?php
 
 /**
- * @file 
+ * @file 2018_02_21_124043_create_datasets_table.php
  */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class CreateDatastesTable
+ */
 class CreateDatasetsTable extends Migration
 {
     /**
@@ -19,7 +23,6 @@ class CreateDatasetsTable extends Migration
         Schema::create('datasets', function (Blueprint $table) {
             $table->increments('id');
             $table->char('name',45);
-            #$table->timestamps();
         });
     }
 

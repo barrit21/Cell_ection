@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file 2018_02_21_124054_create_cellines_table.php
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class CreateCellinesTable
+ */
 class CreateCellinesTable extends Migration
 {
     /**
@@ -17,7 +24,6 @@ class CreateCellinesTable extends Migration
             $table->increments('id');
             $table->char('name',45);
             $table->integer('replicate')->nullable();
-            #$table->timestamps();
         });
     }
 

@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file 2018_02_21_124153_create_citbcmsts_table.php
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class CreateCitbcmstsTable
+ */
 class CreateCitbcmstsTable extends Migration
 {
     /**

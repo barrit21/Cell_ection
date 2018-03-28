@@ -1,4 +1,6 @@
 /*!
+ * @file jquery_1.11.1.js
+ * 
  * jQuery JavaScript Library v1.11.1
  * http://jquery.com/
  *
@@ -60,8 +62,6 @@ var toString = class2type.toString;
 var hasOwn = class2type.hasOwnProperty;
 
 var support = {};
-
-
 
 var
 	version = "1.11.1",
@@ -2619,8 +2619,6 @@ return Sizzle;
 
 })( window );
 
-
-
 jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
 jQuery.expr[":"] = jQuery.expr.pseudos;
@@ -2629,13 +2627,9 @@ jQuery.text = Sizzle.getText;
 jQuery.isXMLDoc = Sizzle.isXML;
 jQuery.contains = Sizzle.contains;
 
-
-
 var rneedsContext = jQuery.expr.match.needsContext;
 
 var rsingleTag = (/^<(\w+)\s*\/?>(?:<\/\1>|)$/);
-
-
 
 var risSimple = /^.[^:#\[\.,]*$/;
 
@@ -2729,9 +2723,7 @@ jQuery.fn.extend({
 	}
 });
 
-
 // Initialize a jQuery object
-
 
 // A central reference to the root jQuery(document)
 var rootjQuery,
@@ -2854,7 +2846,6 @@ init.prototype = jQuery.fn;
 
 // Initialize central reference
 rootjQuery = jQuery( document );
-
 
 var rparentsprev = /^(?:parents|prev(?:Until|All))/,
 	// methods guaranteed to produce a unique set when starting from a unique set
@@ -3046,8 +3037,6 @@ jQuery.each({
 	};
 });
 var rnotwhite = (/\S+/g);
-
-
 
 // String to Object options format cache
 var optionsCache = {};
@@ -3247,7 +3236,6 @@ jQuery.Callbacks = function( options ) {
 	return self;
 };
 
-
 jQuery.extend({
 
 	Deferred: function( func ) {
@@ -3389,7 +3377,6 @@ jQuery.extend({
 		return deferred.promise();
 	}
 });
-
 
 // The deferred used on DOM ready
 var readyList;
@@ -3536,10 +3523,7 @@ jQuery.ready.promise = function( obj ) {
 	return readyList.promise( obj );
 };
 
-
 var strundefined = typeof undefined;
-
-
 
 // Support: IE<9
 // Iteration over object's inherited properties before its own
@@ -3589,9 +3573,6 @@ jQuery(function() {
 	body.removeChild( container );
 });
 
-
-
-
 (function() {
 	var div = document.createElement( "div" );
 
@@ -3609,7 +3590,6 @@ jQuery(function() {
 	// Null elements to avoid leaks in IE.
 	div = null;
 })();
-
 
 /**
  * Determines whether an object can have data
@@ -4098,8 +4078,6 @@ var isHidden = function( elem, el ) {
 		return jQuery.css( elem, "display" ) === "none" || !jQuery.contains( elem.ownerDocument, elem );
 	};
 
-
-
 // Multifunctional method to get and set values of a collection
 // The value/s can optionally be executed if it's a function
 var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
@@ -4153,8 +4131,6 @@ var access = jQuery.access = function( elems, fn, key, value, chainable, emptyGe
 			length ? fn( elems[0], key ) : emptyGet;
 };
 var rcheckableType = (/^(?:checkbox|radio)$/i);
-
-
 
 (function() {
 	// Minified: var a,b,c
@@ -4225,7 +4201,6 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 	}
 })();
 
-
 (function() {
 	var i, eventName,
 		div = document.createElement( "div" );
@@ -4244,7 +4219,6 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 	// Null elements to avoid leaks in IE.
 	div = null;
 })();
-
 
 var rformElems = /^(?:input|select|textarea)$/i,
 	rkeyEvent = /^key/,
@@ -6215,9 +6189,6 @@ if ( window.getComputedStyle ) {
 	};
 }
 
-
-
-
 function addGetHookIf( conditionFn, hookFn ) {
 	// Define the hook, we'll check on the first run if it's really needed.
 	return {
@@ -6244,7 +6215,6 @@ function addGetHookIf( conditionFn, hookFn ) {
 		}
 	};
 }
-
 
 (function() {
 	// Minified: var b,c,d,e,f,g, h,i
@@ -6387,7 +6357,6 @@ function addGetHookIf( conditionFn, hookFn ) {
 
 })();
 
-
 // A method for quickly swapping in/out CSS properties to get correct calculations.
 jQuery.swap = function( elem, options, callback, args ) {
 	var ret, name,
@@ -6409,7 +6378,6 @@ jQuery.swap = function( elem, options, callback, args ) {
 	return ret;
 };
 
-
 var
 		ralpha = /alpha\([^)]*\)/i,
 	ropacity = /opacity\s*=\s*([^)]*)/,
@@ -6427,7 +6395,6 @@ var
 	},
 
 	cssPrefixes = [ "Webkit", "O", "Moz", "ms" ];
-
 
 // return a css property mapped to a potentially vendor prefixed property
 function vendorPropName( style, name ) {
@@ -6888,7 +6855,6 @@ jQuery.fn.extend({
 	}
 });
 
-
 function Tween( elem, options, prop, end, easing ) {
 	return new Tween.prototype.init( elem, options, prop, end, easing );
 }
@@ -6996,9 +6962,6 @@ jQuery.fx = Tween.prototype.init;
 
 // Back Compat <1.8 extension point
 jQuery.fx.step = {};
-
-
-
 
 var
 	fxNow, timerId,
@@ -7638,7 +7601,6 @@ jQuery.fx.speeds = {
 	_default: 400
 };
 
-
 // Based off of the plugin by Clint Helfers, with permission.
 // http://blindsignals.com/index.php/2009/07/jquery-delay/
 jQuery.fn.delay = function( time, type ) {
@@ -7652,7 +7614,6 @@ jQuery.fn.delay = function( time, type ) {
 		};
 	});
 };
-
 
 (function() {
 	// Minified: var a,b,c,d,e
@@ -7708,7 +7669,6 @@ jQuery.fn.delay = function( time, type ) {
 	input.setAttribute( "type", "radio" );
 	support.radioValue = input.value === "t";
 })();
-
 
 var rreturn = /\r/g;
 
@@ -7880,9 +7840,6 @@ jQuery.each([ "radio", "checkbox" ], function() {
 		};
 	}
 });
-
-
-
 
 var nodeHook, boolHook,
 	attrHandle = jQuery.expr.attrHandle,
@@ -8274,9 +8231,6 @@ if ( !support.enctype ) {
 	jQuery.propFix.enctype = "encoding";
 }
 
-
-
-
 var rclass = /[\t\r\n\f]/g;
 
 jQuery.fn.extend({
@@ -8426,11 +8380,7 @@ jQuery.fn.extend({
 	}
 });
 
-
-
-
 // Return jQuery for attributes-only inclusion
-
 
 jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
@@ -8465,12 +8415,9 @@ jQuery.fn.extend({
 	}
 });
 
-
 var nonce = jQuery.now();
 
 var rquery = (/\?/);
-
-
 
 var rvalidtokens = /(,)|(\[|{)|(}|])|"(?:[^"\\\r\n]|\\["\\\/bfnrt]|\\u[\da-fA-F]{4})*"\s*:?|true|false|null|-?(?!0\d)\d+(?:\.\d+|)(?:[eE][+-]?\d+|)/g;
 
@@ -8515,7 +8462,6 @@ jQuery.parseJSON = function( data ) {
 		( Function( "return " + str ) )() :
 		jQuery.error( "Invalid JSON: " + data );
 };
-
 
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
@@ -9348,7 +9294,6 @@ jQuery._evalUrl = function( url ) {
 	});
 };
 
-
 jQuery.fn.extend({
 	wrapAll: function( html ) {
 		if ( jQuery.isFunction( html ) ) {
@@ -9428,9 +9373,6 @@ jQuery.expr.filters.hidden = function( elem ) {
 jQuery.expr.filters.visible = function( elem ) {
 	return !jQuery.expr.filters.hidden( elem );
 };
-
-
-
 
 var r20 = /%20/g,
 	rbracket = /\[\]$/,
@@ -9531,7 +9473,6 @@ jQuery.fn.extend({
 		}).get();
 	}
 });
-
 
 // Create the request object
 // (This is still attached to ajaxSettings for backward compatibility)
@@ -9722,9 +9663,6 @@ function createActiveXHR() {
 	} catch( e ) {}
 }
 
-
-
-
 // Install script dataType
 jQuery.ajaxSetup({
 	accepts: {
@@ -9812,9 +9750,6 @@ jQuery.ajaxTransport( "script", function(s) {
 	}
 });
 
-
-
-
 var oldCallbacks = [],
 	rjsonp = /(=)\?(?=&|$)|\?\?/;
 
@@ -9895,9 +9830,6 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 		return "script";
 	}
 });
-
-
-
 
 // data: string of html
 // context (optional): If specified, the fragment will be created in this context, defaults to document
@@ -9993,18 +9925,11 @@ jQuery.fn.load = function( url, params, callback ) {
 	return this;
 };
 
-
-
-
 jQuery.expr.filters.animated = function( elem ) {
 	return jQuery.grep(jQuery.timers, function( fn ) {
 		return elem === fn.elem;
 	}).length;
 };
-
-
-
-
 
 var docElem = window.document.documentElement;
 
@@ -10198,7 +10123,6 @@ jQuery.each( [ "top", "left" ], function( i, prop ) {
 	);
 });
 
-
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name }, function( defaultExtra, funcName ) {
@@ -10241,16 +10165,12 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 	});
 });
 
-
 // The number of elements contained in the matched element set
 jQuery.fn.size = function() {
 	return this.length;
 };
 
 jQuery.fn.andSelf = jQuery.fn.addBack;
-
-
-
 
 // Register as a named AMD module, since jQuery can be concatenated with other
 // files that may use define, but not via a proper concatenation script that
@@ -10270,9 +10190,6 @@ if ( typeof define === "function" && define.amd ) {
 		return jQuery;
 	});
 }
-
-
-
 
 var
 	// Map over jQuery in case of overwrite
@@ -10299,9 +10216,6 @@ jQuery.noConflict = function( deep ) {
 if ( typeof noGlobal === strundefined ) {
 	window.jQuery = window.$ = jQuery;
 }
-
-
-
 
 return jQuery;
 

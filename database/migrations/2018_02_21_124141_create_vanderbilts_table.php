@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file 2018_02_21_124141_create_vanderbilts_table.php
+ */
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @class
+ */
 class CreateVanderbiltsTable extends Migration
 {
     /**

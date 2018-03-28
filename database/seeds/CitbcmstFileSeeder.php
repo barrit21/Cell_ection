@@ -1,11 +1,17 @@
 <?php
 
+/**
+ * @file CitbcmstFileSeeder.php
+ */
+
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Citbcmst;
 use App\CellineDataset;
 
-
+/**
+ * @class CitbcmstFileSeeder
+ */
 class CitbcmstFileSeeder extends Seeder
 {
     /**
@@ -29,12 +35,12 @@ class CitbcmstFileSeeder extends Seeder
             
             $cellinedataset=CellineDataset::all();
     
-            #Insertion des informations dans citbcmsts sans doublons
-            if (Citbcmst::where([
+            if (Citbcmst::where([ //insert informations in citbcmsts without duplicates
                 ['class','=',$value[7]],
                 ['classmixed','=',$value[8]],
                 ['classcore','=',$value[9]]])->exists()){
             }
+
             else{
                 DB::table('citbcmsts')->insert([
                         'class'=>($value[7]),
@@ -42,29 +48,22 @@ class CitbcmstFileSeeder extends Seeder
                         'classcore'=>($value[9]),
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now(),
-
                     ]);
             }
-            #vérification que le fichier soit dans celline_dataset
-            if ($cellinedataset->contains('file',$value[2])===false){
-                //echo($value[2]);
+
+            if ($cellinedataset->contains('file',$value[2])===false){ //verifies that the file is in celline_dataset
                 DB::table('celline_dataset')->insert([
                     'file'=>($value[2]),
                 ]);
             }
 
-
-            #intégration de l'id citbcmst dans la table celline dataset
-            $citbcmst=Citbcmst::where([
+            $citbcmst=Citbcmst::where([ //integrate the citbcmst ID in the celline_dataset table
                 ['class','=',$value[7]],
                 ['classmixed','=',$value[8]],
                 ['classcore','=',$value[9]]])-> first();
             $c=$citbcmst->id;
 
-
             CellineDataset::where('file',$value[2])->update(['citbcmst_id'=>$c]);
-
         }
-
     }
 }

@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * @file NoRFCWarningsValdiation.php
+ */
+
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\Exception\InvalidEmail;
 use Egulias\EmailValidator\Validation\Error\RFCWarnings;
 
-class NoRFCWarningsValidation extends RFCValidation
+class NoRFCWarningsValidation extends RFCValidation //automatically created by Laravel
 {
     /**
      * @var InvalidEmail

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file console.php
+ */
+
 use Illuminate\Foundation\Inspiring;
 
 /*
@@ -13,6 +17,6 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
+Artisan::command('inspire', function () { //automatically created by Laravel
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');

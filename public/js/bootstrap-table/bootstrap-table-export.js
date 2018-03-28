@@ -1,4 +1,8 @@
 /**
+ * @file bootstrap-table-export.js
+ * 
+ * @brief To do dynamic tables
+ * 
  * @author zhixin wen <wenzhixin2010@gmail.com>
  * extensions: https://github.com/kayalshri/tableExport.jquery.plugin
  */

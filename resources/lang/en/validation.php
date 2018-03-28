@@ -1,7 +1,10 @@
 <?php
 
-return [
+/**
+ * @file validation.php
+ */
 
+return [ //automatically created by Laravel
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -117,5 +120,4 @@ return [
     */
 
     'attributes' => [],
-
 ];

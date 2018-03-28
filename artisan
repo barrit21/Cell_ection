@@ -1,6 +1,10 @@
 #!/usr/bin/env php
 <?php
 
+/**
+ * @file artisan 
+ */
+
 define('LARAVEL_START', microtime(true));
 
 /*

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * file Kernel.php
+ * @file Kernel.php
  */
 
 namespace App\Console;
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel //automatically created by Laravel
     ];
 
     /**
-     * Define the application's command schedule.
+     * @brief Define the application's command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void

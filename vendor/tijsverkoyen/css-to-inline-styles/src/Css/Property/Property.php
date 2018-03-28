@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * @file Property.php
+ */
+
 namespace TijsVerkoyen\CssToInlineStyles\Css\Property;
 
 use Symfony\Component\CssSelector\Node\Specificity;
 
-final class Property
+/**
+ * @class Property
+ */
+final class Property //automatically created by Laravel
 {
     /**
      * @var string
@@ -35,7 +42,7 @@ final class Property
     }
 
     /**
-     * Get name
+     * @brief Get name
      *
      * @return string
      */
@@ -45,7 +52,7 @@ final class Property
     }
 
     /**
-     * Get value
+     * @brief Get value
      *
      * @return string
      */
@@ -55,7 +62,7 @@ final class Property
     }
 
     /**
-     * Get originalSpecificity
+     * @brief Get originalSpecificity
      *
      * @return Specificity
      */
@@ -65,7 +72,7 @@ final class Property
     }
 
     /**
-     * Is this property important?
+     * @brief Is this property important?
      *
      * @return bool
      */
@@ -75,7 +82,7 @@ final class Property
     }
 
     /**
-     * Get the textual representation of the property
+     * @brief Get the textual representation of the property
      *
      * @return string
      */

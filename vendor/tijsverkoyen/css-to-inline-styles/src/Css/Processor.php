@@ -1,14 +1,21 @@
 <?php
 
+/**
+ * @file Processor.php
+ */
+
 namespace TijsVerkoyen\CssToInlineStyles\Css;
 
 use TijsVerkoyen\CssToInlineStyles\Css\Rule\Processor as RuleProcessor;
 use TijsVerkoyen\CssToInlineStyles\Css\Rule\Rule;
 
-class Processor
+/**
+ * @class Processor
+ */
+class Processor //automatically created by Laravel
 {
     /**
-     * Get the rules from a given CSS-string
+     * @brief Get the rules from a given CSS-string
      *
      * @param string $css
      * @param array  $existingRules
@@ -24,7 +31,7 @@ class Processor
     }
 
     /**
-     * Get the CSS from the style-tags in the given HTML-string
+     * @brief Get the CSS from the style-tags in the given HTML-string
      *
      * @param string $html
      * @return string

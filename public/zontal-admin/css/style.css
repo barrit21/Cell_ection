@@ -1,4 +1,7 @@
-﻿
+﻿/**
+ * @file style.css
+ */
+
 /*=============================================================
     Authour URL: www.designbootstrap.com
     
@@ -155,7 +158,6 @@ header {
     }
 
 /* MENU LINKS SECTION*/
-
 .menu-section {
     background-color: #3D3D3D;
 }
@@ -213,7 +215,6 @@ footer {
  =============================================*/
 
 /* DASHBOARD ICONS */
-
 .bk-clr-one {
     background-color: #B9B739;
 }
@@ -256,8 +257,6 @@ footer {
     }
 
 /* NOTICE BOARD */
-
-
 .notice-board .panel {
     border-radius: 0px;
     -webkit-border-radius: 0px;

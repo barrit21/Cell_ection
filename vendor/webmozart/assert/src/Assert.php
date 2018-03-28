@@ -1,6 +1,8 @@
 <?php
 
 /*
+ * @file Assert.php
+ * 
  * This file is part of the webmozart/assert package.
  *
  * (c) Bernhard Schussek <bschussek@gmail.com>
@@ -164,7 +166,7 @@ use Traversable;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class Assert
+class Assert //automatically created by Laravel
 {
     public static function string($value, $message = '')
     {

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file SpoofCheckValidation.php
+ */
+
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\EmailLexer;
@@ -7,7 +11,7 @@ use Egulias\EmailValidator\Exception\InvalidEmail;
 use Egulias\EmailValidator\Validation\Error\SpoofEmail;
 use \Spoofchecker;
 
-class SpoofCheckValidation implements EmailValidation
+class SpoofCheckValidation implements EmailValidation //automatically created by Laravel
 {
     /**
      * @var InvalidEmail

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file XdgTest.php
+ */
+
 class XdgTest extends PHPUnit_Framework_TestCase
 {
     /**

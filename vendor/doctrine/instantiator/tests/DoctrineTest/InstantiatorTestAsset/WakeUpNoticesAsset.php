@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file WakeUpNoticesAsset.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -26,7 +31,7 @@ use ArrayObject;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class WakeUpNoticesAsset extends ArrayObject
+class WakeUpNoticesAsset extends ArrayObject //automatically created by Laravel
 {
     /**
      * Wakeup method called after un-serialization

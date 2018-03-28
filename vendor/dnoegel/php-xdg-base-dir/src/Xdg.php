@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file Xdg.php
+ */
+
 namespace XdgBaseDir;
 
 /**
@@ -10,7 +14,7 @@ namespace XdgBaseDir;
  * Class Xdg
  * @package ShopwareCli\Application
  */
-class Xdg
+class Xdg //automatically created by Laravel
 {
     const S_IFDIR = 040000; // directory
     const S_IRWXO = 00007;  // rwx other
@@ -117,5 +121,4 @@ class Xdg
 
         return $fallback;
     }
-
 }

@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file XMLReaderAsset.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ use XMLReader;
  *
  * @author Dave Marshall <dave@atst.io>
  */
-class XMLReaderAsset extends XMLReader
+class XMLReaderAsset extends XMLReader //automatically created by Laravel
 {
     /**
      * Constructor - should not be called

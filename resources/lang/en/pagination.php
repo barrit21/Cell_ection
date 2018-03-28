@@ -1,7 +1,10 @@
 <?php
 
-return [
+/**
+ * @file pagination.php
+ */
 
+return [ //automatically created by Laravel
     /*
     |--------------------------------------------------------------------------
     | Pagination Language Lines
@@ -15,5 +18,4 @@ return [
 
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
-
 ];

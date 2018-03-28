@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file UnexpectedValueExceptionTest.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -31,7 +36,7 @@ use ReflectionClass;
  *
  * @covers \Doctrine\Instantiator\Exception\UnexpectedValueException
  */
-class UnexpectedValueExceptionTest extends PHPUnit_Framework_TestCase
+class UnexpectedValueExceptionTest extends PHPUnit_Framework_TestCase //automatically created by Laravel
 {
     public function testFromSerializationTriggeredException()
     {

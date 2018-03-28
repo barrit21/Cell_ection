@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file web.php
+ */
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +17,7 @@
 
 use App\cell_lines;
 
-Route::get('/', 'HomePageController@index');
+Route::get('/', 'HomePageController@index'); //automatically created by Laravel
 Route::get('/cell/{name}', 'CellineController@index');
 Route::get('/gene/{name}', 'GeneController@index');
 Route::get('/about_us', function() {

@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file UnserializableExceptionArrayObjectAsset.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ use BadMethodCallException;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class UnserializeExceptionArrayObjectAsset extends ArrayObject
+class UnserializeExceptionArrayObjectAsset extends ArrayObject //automatically created by Laravel
 {
     /**
      * {@inheritDoc}

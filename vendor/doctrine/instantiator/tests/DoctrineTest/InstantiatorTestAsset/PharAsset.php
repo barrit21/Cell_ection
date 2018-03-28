@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * @file PahrAsset.php
+ */
+
 /*
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +32,7 @@ use Phar;
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */
-class PharAsset extends Phar
+class PharAsset extends Phar //automatically created by Laravel
 {
     /**
      * Constructor - should not be called

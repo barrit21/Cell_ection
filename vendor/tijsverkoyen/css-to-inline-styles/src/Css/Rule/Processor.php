@@ -1,14 +1,21 @@
 <?php
 
+/**
+ * @file Processor.php
+ */
+
 namespace TijsVerkoyen\CssToInlineStyles\Css\Rule;
 
 use Symfony\Component\CssSelector\Node\Specificity;
 use \TijsVerkoyen\CssToInlineStyles\Css\Property\Processor as PropertyProcessor;
 
-class Processor
+/**
+ * @class Proccesor
+ */
+class Processor //automatically created by Laravel
 {
     /**
-     * Split a string into seperate rules
+     * @brief Split a string into seperate rules
      *
      * @param string $rulesString
      * @return array
@@ -39,7 +46,7 @@ class Processor
     }
 
     /**
-     * Convert a rule-string into an object
+     * @brief Convert a rule-string into an object
      *
      * @param string $rule
      * @param int    $originalOrder
@@ -74,7 +81,7 @@ class Processor
     }
 
     /**
-     * Calculate the specificity based on a CSS Selector string,
+     * @brief Calculate the specificity based on a CSS Selector string,
      * Based on the patterns from premailer/css_parser by Alex Dunae
      *
      * @see https://github.com/premailer/css_parser/blob/master/lib/css_parser/regexps.rb
@@ -133,7 +140,7 @@ class Processor
     }
 
     /**
-     * Sort an array on the specificity element in an ascending way
+     * @brief Sort an array on the specificity element in an ascending way
      * Lower specificity will be sorted to the beginning of the array
      *
      * @return int

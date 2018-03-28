@@ -1,9 +1,16 @@
 <?php
 
+/**
+ * @file UgoToUniprotFileSeeder.php
+ */
+
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Gene;
 
+/**
+ * @class UgoToUniprotFileSeeder
+ */
 class UgoToUniprotFileSeeder extends Seeder
 {
     /**
@@ -28,17 +35,10 @@ class UgoToUniprotFileSeeder extends Seeder
                     'uniprot'=>($key[0]),
                 ]);
             }
+            
             else{
                 $hugo=Gene::where('hugo',$key[1])->update(['uniprot' => $key[0]]);
             }
-
-            #DB::table('genes')->insert([
-            #    'hugo'=>($key[1]),
-            #    'uniprot'=>($key[0]),
-                #'created_at'=>Carbon::now()->format('Y-m-d H:i:s'),
-
-            #]);
-
         }
     }
 }
