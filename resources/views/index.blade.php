@@ -6,8 +6,6 @@
         <input id="searchH" class="form-control" placeholder="Search Genes or Cell Lines" name="q[entry]" style="margin-top: .5em">
     <input type="hidden" id="searchType">
     </div>
-    <div class="col-sm-4" id="sub">
-    </div>
 </div>
 
 <script type="text/javascript">

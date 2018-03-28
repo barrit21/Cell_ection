@@ -21,14 +21,17 @@ class CellineController extends Controller
 	 * 
 	 * @return     arrays  the name in the route or an error page
 	 */
-	public function index($name)
+	public function index($name) 
 	{
 		$celline = Celline::where('name',$name)->first();
 		if($celline == null){
 			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
-		$data = Celline::res_data($celline -> id);
+		$data = Celline::liste_cell_datasets($celline -> id);
 
-		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data))]);
+		$data_classif = Celline::classif($celline -> id);
+
+		//comming soon = need data $data_gsea = Celline::gsea($celline -> id);
+		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data, 'data_classif'=>$data_classif))]);
 	}
 }

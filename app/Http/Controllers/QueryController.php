@@ -24,7 +24,7 @@ class QueryController extends Controller
      */
     public function index(Request $request)
     {
-    	$term = $request->query('term');
+        $term = $request->query('term');
 
         $searchH=[];
 
@@ -38,6 +38,6 @@ class QueryController extends Controller
             array_push($searchH, ["category"=>'Genes', "value"=>$valuesgene]);
         }
 
-    	return response()->json($searchH);
+        return response()->json($searchH);
     }
 }

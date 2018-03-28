@@ -7,8 +7,8 @@
 </nav>
 
 <script type="text/javascript">
-//exporte les données sélectionnées
-//Tableau result
+//Exportation of data selected
+//Table result
 var $table = $('#table');
   $(function () {
       $('#toolbar').find('select').change(function () {
@@ -59,7 +59,7 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Number of the replicate</th>
+        <th data-field="Cell line" data-filter-control="input" data-sortable="true">File ID</th>
         <th data-field="Replicate" data-filter-control="input" data-sortable="true">Dataset</th>
         <th data-formatter="linkFormatter" >More</th>
     </tr>
@@ -67,8 +67,8 @@ function linkFormatter(value)
     <tbody>
           <?php foreach ($data as $res) : ?>     
         <tr>
-          <td>Auto_increment</td>
-          <td><?php echo trim($res, '["]'); ?></td>
+          <td><?php echo $res->id; ?></td>
+          <td><?php echo $res->name; ?></td>
         </tr>
           <?php endforeach; ?>
     </tbody>
@@ -78,7 +78,9 @@ function linkFormatter(value)
 
   <div id="MenuClassif" class="tab-pane fade">
     <div class="col-xs-12">
-      <h1><?php echo $datum->name; ?></h1>
+      <h1><?php echo $datum->name; ?>
+        <a href="/classification_info" class="glyphicon glyphicon-info-sign"></a>
+      </h1>
       <table id="table" 
       data-toggle="table"
       data-search="true"
@@ -98,9 +100,13 @@ function linkFormatter(value)
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $res) : ?>
+      <?php foreach ($data_classif as $resclassif) : ?>
           <tr>
-              <td><?php echo $res; ?></td>
+              <td><?php echo $resclassif->id; ?></td>
+              <td><?php echo $resclassif->classv; ?></td>
+              <td><?php echo $resclassif->correlation; ?></td>
+              <td><?php echo $resclassif->pval; ?></td>
+              <td><?php echo $resclassif->class; ?></td>
           </tr>
       <?php endforeach; ?>
     </tbody>
@@ -109,7 +115,10 @@ function linkFormatter(value)
   </div>
 
   <div id="MenuGSEA" class="tab-pane fade">
-    <div class="col-xs-12">
+    <div class="jumbotron">
+      <h2>Comming soon...</h2>
+    </div>
+  <!--  <div class="col-xs-12">
       <h1><?php echo $datum->name; ?></h1>
       <table id="table" 
       data-toggle="table"
@@ -127,17 +136,23 @@ function linkFormatter(value)
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $res) : ?>
+      <?php foreach ($data_classif as $resclassif) : ?>
           <tr>
-              <td><?php echo $res; ?></td>
+              <td><?php echo $resclassif->id; ?></td>
+              <td><?php echo $resclassif->classv; ?></td>
+              <td><?php echo $resclassif->correlation; ?></td>
+              <td><?php echo $resclassif->pval; ?></td>
+              <td><?php echo $resclassif->class; ?></td>
 
           </tr>
       <?php endforeach; ?>
     </tbody>
       </table>
     </div>
-  </div>
+  </div> !>
+
 
 </div>
+
 
 @stop

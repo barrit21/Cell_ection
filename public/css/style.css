@@ -70,13 +70,17 @@ a {
 	color:#C74A17;
 }
 
+a:hover {
+	color:#C74A17;
+}
+
 .btn-primary {
 	background-color: #C74A17 !important;
 	border-color: #57585A;
 }
 
 .jumbotron {
-	background-color: #F1F1F1 !important;
+	background-color: #FFFFFF !important;
 }
 
 .form-control:focus {
@@ -86,5 +90,16 @@ a {
 }
 
 ui-autocomplete-input {
-	background-color: #F1F1F1 !important;
+	background-color: #FFFFFF !important;
+}
+
+::selection{
+  background-color: #C74A17;
+  color: white;
+}
+
+/* Firefox */
+::-moz-selection {
+  background-color: #C74A17;
+  color: white;
 }

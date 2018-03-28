@@ -27,7 +27,7 @@ class GeneController extends Controller
 		if($gene == null){
 			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
-		$data = Gene::liste_gene();
+		$data = Gene::res_data_gene($gene -> id);
 		return view("layout", ["menu" => "home", "content" => view('gene', array('datum'=> $gene, 'data'=> $data))]);
 	}
 }

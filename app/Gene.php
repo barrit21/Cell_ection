@@ -26,10 +26,16 @@ class Gene extends Model
     {
         return $this->belongsToMany('App\Geneset');
     }
-    public static function liste_gene() 
-    //Plus besoin de faire les jointures à la main après, y penser !
+    public static function res_data_gene($id) 
     {
-    	$data = DB::table('genes')->select('genes.id','genes.hugo')->get();
-    	return $data;
+    	$id_gene = $id;
+        $pathways = DB::table('gene_geneset')
+        ->join('genesets', 'gene_geneset.geneset_id', '=', 'genesets.id')
+        ->select('genesets.name')
+        ->where('gene_geneset.gene_id', $id_gene)
+        ->get();
+
+        //dd($pathways);
+    	return $pathways;
     }
 }
