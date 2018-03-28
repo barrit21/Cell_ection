@@ -25,7 +25,7 @@ class ExpressionLevelFileSeeder extends Seeder
     public function run()
     {
         
-        $fichier = file('./storage/Data/expression_level_MCF7_test.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $fichier = file('./storage/Data/expression_level_MCF7.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         
         $genes_table=Gene::all();
         $celline_dataset_table=CellineDataset::all();

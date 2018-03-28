@@ -34,7 +34,6 @@ class GseaResultFileSeeder extends Seeder
             ]);
 
             if ($geneset_table->contains('name',$value[0])===false){
-                echo('hola');
                 DB::table('genesets')->insert([
                     'name'=>$value[0],
                 ]);
