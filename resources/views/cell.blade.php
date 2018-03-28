@@ -1,12 +1,14 @@
 @section('content')
 
-<a href= "/">
-    <b>Return</b>
-</a>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="/"><span aria-hidden="true">&larr;</span>Return</a></li>
+  </ul>
+</nav>
 
 <script type="text/javascript">
-//exporte les données sélectionnées
-//Tableau résult
+//Exportation of data selected
+//Table result
 var $table = $('#table');
   $(function () {
       $('#toolbar').find('select').change(function () {
@@ -57,18 +59,18 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Cell line</th>
-        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Replicate</th>
-        <th data-field="Datasets" data-filter-control="input" data-sortable="true">Datasets</th>
+        <th data-field="Cell line" data-filter-control="input" data-sortable="true">File ID</th>
+        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Dataset</th>
         <th data-formatter="linkFormatter" >More</th>
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $res) : ?>
-          <tr>
-              <td><?php echo trim($res, '["]'); ?></td>
-          </tr>
-      <?php endforeach; ?>
+          <?php foreach ($data as $res) : ?>     
+        <tr>
+          <td><?php echo $res->id; ?></td>
+          <td><?php echo $res->name; ?></td>
+        </tr>
+          <?php endforeach; ?>
     </tbody>
       </table>
     </div>
@@ -76,7 +78,9 @@ function linkFormatter(value)
 
   <div id="MenuClassif" class="tab-pane fade">
     <div class="col-xs-12">
-      <h1><?php echo $datum->name; ?></h1>
+      <h1><?php echo $datum->name; ?>
+        <a href="/classification_info" class="glyphicon glyphicon-info-sign"></a>
+      </h1>
       <table id="table" 
       data-toggle="table"
       data-search="true"
@@ -88,16 +92,21 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Cell line</th>
-        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Replicate</th>
-        <th data-field="Datasets" data-filter-control="input" data-sortable="true">Datasets</th>
-        <th data-formatter="linkFormatter" >More</th>
+        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Number of the replicate</th>
+        <th data-field="Class" data-filter-control="input" data-sortable="true">Vanderbilt's class</th>
+        <th data-field="Correlation" data-filter-control="input" data-sortable="true">Vanderbilt's correlation</th>
+        <th data-field="P-value" data-filter-control="input" data-sortable="true">Vanderbilt's p-value</th>
+        <th data-field="CITBCMST" data-filter-control="input" data-sortable="true">CITBCMST</th>
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $res) : ?>
+      <?php foreach ($data_classif as $resclassif) : ?>
           <tr>
-              <td><?php echo $res; ?></td>
+              <td><?php echo $resclassif->id; ?></td>
+              <td><?php echo $resclassif->classv; ?></td>
+              <td><?php echo $resclassif->correlation; ?></td>
+              <td><?php echo $resclassif->pval; ?></td>
+              <td><?php echo $resclassif->class; ?></td>
           </tr>
       <?php endforeach; ?>
     </tbody>
@@ -106,7 +115,10 @@ function linkFormatter(value)
   </div>
 
   <div id="MenuGSEA" class="tab-pane fade">
-    <div class="col-xs-12">
+    <div class="jumbotron">
+      <h2>Comming soon...</h2>
+    </div>
+  <!--  <div class="col-xs-12">
       <h1><?php echo $datum->name; ?></h1>
       <table id="table" 
       data-toggle="table"
@@ -119,23 +131,25 @@ function linkFormatter(value)
 
     <thead>
     <tr>
-        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Cell line</th>
-        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Replicate</th>
-        <th data-field="Datasets" data-filter-control="input" data-sortable="true">Datasets</th>
-        <th data-formatter="linkFormatter" >More</th>
+        <th data-field="Cell line" data-filter-control="input" data-sortable="true">Name of the Geneset</th>
+        <th data-field="Replicate" data-filter-control="input" data-sortable="true">Enrichissement score</th>
     </tr>
     </thead>    
     <tbody>
-      <?php foreach ($data as $res) : ?>
+      <?php foreach ($data_classif as $resclassif) : ?>
           <tr>
-              <td><?php echo $res; ?></td>
+              <td><?php echo $resclassif->id; ?></td>
+              <td><?php echo $resclassif->classv; ?></td>
+              <td><?php echo $resclassif->correlation; ?></td>
+              <td><?php echo $resclassif->pval; ?></td>
+              <td><?php echo $resclassif->class; ?></td>
 
           </tr>
       <?php endforeach; ?>
     </tbody>
       </table>
     </div>
-  </div>
+  </div> !>
 
 
 </div>

@@ -36,32 +36,38 @@ class Celline extends Model
     }
 
 
-    public static function liste_cell_dataset() 
-    {
-    	$data = DB::table('cellines')
-            ->join('celline_dataset', 'cellines.id', '=', 'celline_dataset.celline_id')
-            ->join('datasets', 'datasets.id', '=', 'celline_dataset.dataset_id')
-            ->select('cellines.id','cellines.name', 'cellines.replicate', DB::raw('group_concat(datasets.name SEPARATOR ", ") as list_dataset'))
-            ->groupBy('cellines.id')
-            ->get();
-
-    	return $data;
-    }
-
-    public static function res_data($id)
+    public static function liste_cell_datasets($id)
     {
         $id_cell = $id;
-        $id_dataset = CellineDataset::where('celline_id', $id_cell) -> pluck('dataset_id')->toArray();
+        $data = DB::table('celline_dataset')
+        ->join('datasets', 'datasets.id', '=', 'celline_dataset.dataset_id')
+        ->select('celline_dataset.id', 'datasets.name')
+        ->where('celline_dataset.celline_id', $id_cell)
+        ->get();
         
-        $resultats=[];
+        //dd($data);
 
-        foreach ($id_dataset as $cell)
-        {
-            $resu = Dataset::where('id', $cell) -> pluck('name');
-            array_push($resultats, $resu);
-        }
-        //dd($resultats);
-        return $resultats;
+        return $data;
     }
 
+    public static function classif($id)
+    {
+        $id_cell = $id;
+        $dataclassif = DB::table('celline_dataset')
+        ->join('vanderbilts', 'celline_dataset.vanderbilt_id', '=', 'vanderbilts.id')
+        ->join('citbcmsts', 'celline_dataset.citbcmst_id', '=', 'citbcmsts.id')
+        ->select('celline_dataset.id', 'vanderbilts.class as classv', 'vanderbilts.correlation', 'vanderbilts.pval', 'citbcmsts.class')
+        ->where('celline_dataset.celline_id', $id_cell)
+        ->get();
+
+        //dd($dataclassif);
+
+        return $dataclassif;
+
+    }
+
+    /*public static function gsea($id)
+    {
+        $id_cell = $id;
+    }*/
 }
