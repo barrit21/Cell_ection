@@ -33,6 +33,7 @@ class CreateEnrichementscoresTable extends Migration
             $table->foreign('celline_id')->references('id')->on('cellines')->onDelete('cascade');
             $table->integer('geneset_id')->unsigned()->nullable();
             $table->foreign('geneset_id')->references('id')->on('genesets')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
