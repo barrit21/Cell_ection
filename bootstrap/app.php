@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file app.php
+ */
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -11,7 +15,7 @@
 |
 */
 
-$app = new Illuminate\Foundation\Application(
+$app = new Illuminate\Foundation\Application( //automatically created by Laravel
     realpath(__DIR__.'/../')
 );
 

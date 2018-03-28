@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file services.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

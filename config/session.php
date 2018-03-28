@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file session.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file filesystems.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

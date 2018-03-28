@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file view.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

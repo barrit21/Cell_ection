@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file database.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

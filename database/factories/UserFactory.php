@@ -1,6 +1,10 @@
 <?php
 
-use Faker\Generator as Faker;
+/**
+ * @file UserFactory.php
+ */
+
+use Faker\Generator as Faker; //automatically created by Laravel
 
 /*
 |--------------------------------------------------------------------------

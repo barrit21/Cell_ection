@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file queue.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

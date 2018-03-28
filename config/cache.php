@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file cache.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

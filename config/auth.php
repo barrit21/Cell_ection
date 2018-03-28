@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file atuh.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

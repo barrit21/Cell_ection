@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file broadcasting.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------

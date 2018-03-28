@@ -1,6 +1,10 @@
 <?php
 
-return [
+/**
+ * @file mail.php
+ */
+
+return [ //automatically created by Laravel
 
     /*
     |--------------------------------------------------------------------------
