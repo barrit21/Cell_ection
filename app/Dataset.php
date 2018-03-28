@@ -1,12 +1,21 @@
 <?php
 
+/**
+ * @file Dataset.php
+ */
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @class Dataset
+ */
 class Dataset extends Model
 {
-    protected $fillable=['name'];
+    /**
+     * @brief Create relations between models
+     */
     public function cellines()
     {
         return $this -> belongsToMany('\App\Celline');
@@ -19,17 +28,4 @@ class Dataset extends Model
     {
         return $this->belongsToMany('App\Vanderbilt', 'celline_dataset');
     }
-    
-    // public function cellinedatasets()
-    // {
-    //  return $this->hasOne('App\Cellinedataset');
-    // }
-    // public function expressionlevels()
-    // {
-    //  return $this->hasManyThrough('App\Expressionlevel', 'App\Cellinedataset');
-    // }
-    //  public function enrichementscores()
-    // {
-    //  return $this->hasManyThrough('App\Enrichementscore','App\Cellinedataset');
-    // }
 }

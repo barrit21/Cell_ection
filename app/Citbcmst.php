@@ -1,16 +1,20 @@
 <?php
 
+/**
+ * @file Citbcmst.php
+ */
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @class Citbcmst
+ */
 class Citbcmst extends Model
 {
-   /** public function cellinedatasets()
-    {
-        return $this->hasOne('App\Cellinedataset');
-    }
-    **/
+    /**
+     * @brief Create relations between models
+     */
     public function datasets()
     {
         return $this->belongsToMany('App\Dataset', 'celline_dataset');
@@ -27,7 +31,6 @@ class Citbcmst extends Model
     {
         return $this->hasOne('App\CellineDataset');
     }
-    
     public function expressionlevels()
     {
         return $this->hasManyThrough('App\Expressionlevel', 'App\Cellinedataset');

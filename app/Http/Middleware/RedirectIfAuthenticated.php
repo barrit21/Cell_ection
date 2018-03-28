@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * @file RedirectIFAuthenticated.php
+ */
+
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+/**
+ * @class RedirectIfAuthenticated
+ */
+class RedirectIfAuthenticated //automatically created by Laravel
 {
     /**
      * Handle an incoming request.

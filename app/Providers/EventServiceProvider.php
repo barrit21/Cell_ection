@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * @file EventServiceProvider.php
+ */
+
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
-class EventServiceProvider extends ServiceProvider
+class EventServiceProvider extends ServiceProvider //automatically created by Laravel
 {
     /**
      * The event listener mappings for the application.

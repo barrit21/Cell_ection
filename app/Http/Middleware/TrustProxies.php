@@ -1,11 +1,17 @@
 <?php
 
+/**
+ * @file TrustProxies.php
+ */
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Fideloper\Proxy\TrustProxies as Middleware;
 
-class TrustProxies extends Middleware
+/**
+ * @class TrustProxies
+ */
+class TrustProxies extends Middleware //automatically created by Laravel
 {
     /**
      * The trusted proxies for this application.

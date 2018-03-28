@@ -1,11 +1,20 @@
 <?php
 
+/**
+ * \file DatabaseSeeder.php
+ * \author Lélia, Marianne & Emilie
+ * @mainpage thehdc, sfnskjfnfsjsjn 
+ * @brief hfuzhfzeu piivif
+ * 
+ * { item_description }
+ */
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * @brief Run the database seeds.
      *
      * @return void
      */

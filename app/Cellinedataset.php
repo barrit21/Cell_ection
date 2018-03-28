@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * @file Cellinedataset.php
+ */
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
+/**
+ * @class CellineDataset
+ */
 class CellineDataset extends Pivot
 {
+    /**
+     * @brief Create relations between models
+     */
     public function vanderbilts()
     {
         return $this->belongsTo('App\Vanderbilt');

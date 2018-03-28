@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * @file Handler.php
+ */
+
 namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-class Handler extends ExceptionHandler
+/**
+ * @class Handler
+ */
+class Handler extends ExceptionHandler //automatically created by Laravel
 {
     /**
      * A list of the exception types that are not reported.

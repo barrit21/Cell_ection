@@ -1,11 +1,18 @@
 <?php
 
+/**
+ * @file AuthServiceProvider.php
+ */
+
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
-class AuthServiceProvider extends ServiceProvider
+/**
+ * @class AuthServiceProvider
+ */
+class AuthServiceProvider extends ServiceProvider //automatically created by Laravel
 {
     /**
      * The policy mappings for the application.

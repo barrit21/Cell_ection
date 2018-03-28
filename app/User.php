@@ -1,11 +1,17 @@
 <?php
 
+/**
+ * @file User.php
+ */
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+/**
+ * @class User
+ */
+class User extends Authenticatable //automatically created by Laravel
 {
     use Notifiable;
 

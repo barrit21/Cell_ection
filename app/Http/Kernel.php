@@ -1,10 +1,17 @@
 <?php
 
+/**
+ * @file Kernel.php
+ */
+
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel
+/**
+ * @class Kernel
+ */
+class Kernel extends HttpKernel //automatically created by Laravel
 {
     /**
      * The application's global HTTP middleware stack.

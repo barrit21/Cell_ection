@@ -1,12 +1,21 @@
 <?php
 
+/**
+ * @file Vanderbilt.php
+ */
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
+/**
+ * @class Vanderbilt
+ */
 class Vanderbilt extends Model
 {
+    /**
+     * @brief Create relations between models
+     */
     public function datasets()
     {
         return $this->belongsToMany('App\Dataset', 'celline_dataset');

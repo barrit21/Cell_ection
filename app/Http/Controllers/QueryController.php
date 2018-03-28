@@ -1,13 +1,27 @@
 <?php
 
+/**
+ * @file QueryController.php
+ */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Celline;
 use App\Gene;
 
+/**
+ * @class QueryController
+ */
 class QueryController extends Controller
 {
+    /**
+     * Controller that allows to request on a page and get the informations
+     *
+     * @param      \Illuminate\Http\Request  $request  The request
+     *
+     * @return     array                     The answer of research
+     */
     public function index(Request $request)
     {
     	$term = $request->query('term');
