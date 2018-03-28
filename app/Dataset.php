@@ -22,10 +22,10 @@ class Dataset extends Model
     }
     public function citbcmsts()
     {
-        return $this->belongsToMany('App\Citbcmst', 'celline_dataset');
+        return $this->belongsToMany('App\Citbcmst', 'CellineDataset');
     }
     public function vanderbilts()
     {
-        return $this->belongsToMany('App\Vanderbilt', 'celline_dataset');
+        return $this->belongsToMany('App\Vanderbilt', 'CellineDataset');
     }
 }

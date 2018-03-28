@@ -1,0 +1,15 @@
+---
+title: "CELL'ECTION"
+author: "Marianne, Emilie et Lélia"
+date: "`r Sys.Date()`"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+##Framework Laravel
+
+Laravel est un framework d'application web. 
+Il permet facilement d'implémenter des fonctionnalités courantes utilisées dans des projets web tels que: 
+* 

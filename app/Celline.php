@@ -40,11 +40,11 @@ class Celline extends Model
     }
     public function expressionlevels()
     {
-        return $this->hasManyThrough('App\Expressionlevel', 'App\Celline_dataset');
+        return $this->hasManyThrough('App\Expressionlevel', 'App\CellineDataset');
     }
      public function enrichementscores()
     {
-        return $this->hasManyThrough('App\Enrichementscore','App\Celline_dataset');
+        return $this->hasManyThrough('App\Enrichementscore','App\CellineDataset');
     }
 
     public static function liste_cell_datasets($id)

@@ -18,7 +18,7 @@ class Expressionlevel extends Model
 	 */
      public function celline_dataset()
     {
-    	return $this->belongsTo('App\Cellinedataset');
+    	return $this->belongsTo('App\CellineDataset');
     }
     public function genes()
     {

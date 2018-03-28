@@ -17,15 +17,15 @@ class Citbcmst extends Model
      */
     public function datasets()
     {
-        return $this->belongsToMany('App\Dataset', 'celline_dataset');
+        return $this->belongsToMany('App\Dataset', 'CellineDataset');
     }
     public function cellines()
     {
-        return $this->belongsToMany('App\Celline', 'celline_dataset');
+        return $this->belongsToMany('App\Celline', 'CellineDataset');
     }
     public function vanderbilts()
     {
-        return $this->belongsToMany('App\Vanderbilt', 'celline_dataset');
+        return $this->belongsToMany('App\Vanderbilt', 'CellineDataset');
     }
     public function celline_dataset()
     {
@@ -33,10 +33,10 @@ class Citbcmst extends Model
     }
     public function expressionlevels()
     {
-        return $this->hasManyThrough('App\Expressionlevel', 'App\Cellinedataset');
+        return $this->hasManyThrough('App\Expressionlevel', 'App\CellineDataset');
     }
     public function enrichementscores()
     {
-        return $this->hasManyThrough('App\Enrichementscore','App\Cellinedataset');
+        return $this->hasManyThrough('App\Enrichementscore','App\CellineDataset');
     }
 }

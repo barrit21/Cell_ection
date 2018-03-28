@@ -16,9 +16,9 @@ class Enrichementscore extends Model
 	/**
 	 * @brief Create relations between models
 	 */
-    public function cellinedataset()
+    public function celline_dataset()
     {
-    	return $this->belongsTo('App\Cellinedataset');
+    	return $this->belongsTo('App\CellineDataset');
     }
     public function genesets()
     {
