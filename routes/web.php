@@ -24,3 +24,14 @@ Route::get('/error', function(){
 Route::get('/classification_info', function(){
 	return view("layout", ["menu" => "home", "content" => view('info_classif')]);
 });
+
+//Auth::routes('/admintest', 'HomeController@index');
+
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+
+Route::get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
+
+Route::get('/home', 'HomeController@index');
