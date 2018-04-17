@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
@@ -13,7 +14,6 @@ class RegistrationController extends Controller
 
     public function store(){
     	//Validate the form
-
     	$this->validate(request(), [
     		'name' => 'required',
     		'email' => 'required|email',
@@ -21,11 +21,12 @@ class RegistrationController extends Controller
 
     	]);
 
-    	//Create and save the user
-
-    	$user = User::create(request(['name', 'email', 'password']));
-
-    	//Sign them in
+    	//Create and save the user + Encryption
+    	$user = User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password'))
+        ]);
 
     	auth()->login($user);
 
@@ -35,4 +36,5 @@ class RegistrationController extends Controller
     	return redirect()->home();
 
     }
+
 }

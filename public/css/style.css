@@ -103,3 +103,24 @@ ui-autocomplete-input {
   background-color: #C74A17;
   color: white;
 }
+
+.admin{
+	float:right;
+	position:relative;
+}
+
+.bg-primary {
+  color: #fff !important;
+  background-color: rgba(0,0,0,.075) !important;
+}
+
+a.bg-primary:hover {
+  background-color: rgba(0,0,0,.075) !important;
+}
+
+
+.shrink {
+	width: 100px;
+	height: 100px;;
+}
+

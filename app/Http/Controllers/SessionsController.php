@@ -12,7 +12,7 @@ class SessionsController extends Controller
     }
 
     public function create(){
-    	return view("layout", ["menu" => "home", "content'"=>view('sessions.create')]);
+    	return view("layout", ["menu" => "sign", "content'"=>view('sessions.create')]);
     }
 
 
@@ -21,6 +21,7 @@ class SessionsController extends Controller
     	//Attempt to authentificate the user.
     	//If not, redirect back ++ send an email to the administrators ?
     	//If so, sign them in
+
     	if (!auth()->attempt(request(['email', 'password']))) {
     		return back()->withErrors([
     			'message' => 'You are trying to log in as an administrator. A report will be sent to the administrator of this website.'
@@ -28,7 +29,7 @@ class SessionsController extends Controller
     	}
 
     	//Redirect to the admin page
-    	return redirect('layoutadmin');
+    	return redirect('/');
     }
     
     public function destroy(){
