@@ -2,7 +2,7 @@
 
 <nav aria-label="...">
   <ul class="pager">
-    <li class="previous"><a href="/"><span aria-hidden="true">&larr;</span>Return</a></li>
+    <li class="previous"><a href="/"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
   </ul>
 </nav>
 

@@ -46,11 +46,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <strong> <p class="glyphicon glyphicon-envelope" aria-hidden="true">Email:</p> cellection@univ-lyon1.fr </strong>
+                    <strong> 
+                        <p class="glyphicon glyphicon-envelope" aria-hidden="true">Email:</p> cellection@univ-lyon1.fr 
+                    </strong>
                     &nbsp;&nbsp;
-                    <!-- <strong> <p class="glyphicon glyphicon-earphone" aria-hidden="true">Support:</p> Tel. </strong> -->
+                     <strong> 
+                        <p class="glyphicon glyphicon-earphone" aria-hidden="true">Support:</p> Tel. 
+                    </strong>
                 </div>
-
             </div>
         </div>
     </header>
@@ -123,41 +126,17 @@
         </div>
     </section>
     <!-- MENU SECTION END-->
-    <div class="content-wrapper">
-        <div class="container">
-            @yield('content')
+    @yield('content')
 
-        </div>
-    </div>
 
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="containerwide">
             <div class="row" id="footerbox">
-                <div class="col-md-4 " id="foot1">
-                    <center><h5>Contact Us</h5>
-                    <p>cellection@univ-lyon1.fr</p></center>
-                </div>
-            
-            <div class="col-md-4" id="foot1">
-                <h5><center>Funders</center></h5>
-                <!-- <a href="http://www.chu-lyon.fr/fr" target="_blank"> -->
-                    <img class="img-responsive img-rounded col-md-6" src="/img/logo_HCL.png" alt="HCL"/ href="http://www.chu-lyon.fr/fr" target="_blank">
-                <!-- </a>
-                <a href="https://www.univ-lyon1.fr/" target="_blank"> -->
-                    <img class="col-md-6" src="/img/logo_ucbl_lyon1.png" alt="UNIVL1"/>
-                <!-- </a> -->
-            </div>
-            
-            <div class="col-md-4" id="foot1">
-                <center><h5>Legal</h5>
-                        <a href="/">Terms of Use</a>  
-                </center>
-            </div>
-            </div>      
+
             <div class="row">
                 <center><div id="disc">
-            &copy; CELL'ECTION | All Rights Reserved | Web Desing by <a href="http://getbootstrap.com/docs/3.3/">Bootstrap</a> | Site maintained by <a href="http://www.chu-lyon.fr/fr">HCL</a> and <a href="https://www.univ-lyon1.fr/">Lyon 1 University</a> 
+            &copy; CELL'ECTION | All Rights Reserved | Web Desing thanks to <a href="http://getbootstrap.com/docs/3.3/">Bootstrap</a> | Site maintained by <a href="http://www.chu-lyon.fr/fr" target="_blanck">HCL</a> and <a href="https://www.univ-lyon1.fr/" target="_blanck">Lyon 1 University</a> 
              </div></center>
     </div>  
      </div>

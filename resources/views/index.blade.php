@@ -1,13 +1,31 @@
 @section('content')
 
-<h2>Please, enter your research :</h2>
-<div class="col-xs-12">
-    <div class="col-xs-8">
-        <input id="searchH" class="form-control" placeholder="Search Genes or Cell Lines" name="q[entry]" style="margin-top: .5em">
-    <input type="hidden" id="searchType">
-    </div>
+<!-- Home -->
+<div class="content-wrapper" id="home1">
+  <div class="container">
+    <div class="col-md-12 text-center" id="home1text">
+      <h1 id="maintitle">CELL'ECTION</h1>
+      <p id="mainp">Database of specific researches of breast cancer cell lines</p>
+      <a href="#research" ><div class="glyphicon glyphicon-menu-down" id="target"></div></a>
+    </div>    
+
+  </div>
 </div>
 
+<div class="content-wrapper" >
+<!-- Research -->
+  <div id="research" class="col-md-8">
+    <h2>Please, enter your research : <a href="/about_us" class="glyphicon glyphicon-info-sign"></a></h2>
+    <div class="col-xs-12">
+        <div class="col-xs-8">
+            <input id="searchH" class="form-control" placeholder="Search Genes, Cell Lines or Pathways" name="q[entry]" style="margin-top: .5em">
+            <input type="hidden" id="searchType">
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script for autocomplete research -->
 <script type="text/javascript">
 $( function() {
   $.widget( "custom.catcomplete", $.ui.autocomplete, {

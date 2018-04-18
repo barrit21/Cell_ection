@@ -2,7 +2,7 @@
 
 <nav aria-label="...">
   <ul class="pager">
-    <li class="previous"><a href="#null" onclick="javascript:history.back();"><span aria-hidden="true">&larr;</span>Return</a></li>
+    <li class="previous"><a href="#null" onclick="javascript:history.back();"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
   </ul>
 </nav>
 
