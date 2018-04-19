@@ -1,5 +1,8 @@
 @section('content')
 
+<div class="content-wrapper">
+  <div class="container" id="gene">
+
 <nav aria-label="...">
   <ul class="pager">
     <li class="previous"><a href="/"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
@@ -121,6 +124,8 @@ function linkFormatter(value)
   </div> -->
 
 
+</div>
+</div>
 </div>
 
 

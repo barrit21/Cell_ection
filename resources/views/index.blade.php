@@ -15,13 +15,13 @@
 <div class="content-wrapper" >
 <!-- Research -->
   <div id="research" class="col-md-8">
-    <h2>Please, enter your research : <a href="/about_us" class="glyphicon glyphicon-info-sign"></a></h2>
-    <div class="col-xs-12">
-        <div class="col-xs-8">
-            <input id="searchH" class="form-control" placeholder="Search Genes, Cell Lines or Pathways" name="q[entry]" style="margin-top: .5em">
+    <h2 class="text-center">Please, enter your research <a href="/about_us" class="glyphicon glyphicon-info-sign"></a></h2>
+    <div class="col-xs-12"><center>
+        <div class="col-xs-8 text-center" id="research_bar">
+            <input id="searchH" class="form-control text-center" placeholder="Search Genes, Cell Lines or Pathways" name="q[entry]" style="margin-top: .5em">
             <input type="hidden" id="searchType">
         </div>
-    </div>
+    </center></div>
   </div>
 </div>
 
@@ -87,4 +87,20 @@ $( function() {
   })
 });
 </script>
+
+<script>
+$('a[href*="#"]:not([href="#"])').click(function() {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+</script>
+
 @endsection

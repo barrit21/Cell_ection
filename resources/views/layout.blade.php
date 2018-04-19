@@ -136,7 +136,7 @@
 
             <div class="row">
                 <center><div id="disc">
-            &copy; CELL'ECTION | All Rights Reserved | Web Desing thanks to <a href="http://getbootstrap.com/docs/3.3/">Bootstrap</a> | Site maintained by <a href="http://www.chu-lyon.fr/fr" target="_blanck">HCL</a> and <a href="https://www.univ-lyon1.fr/" target="_blanck">Lyon 1 University</a> 
+            &copy; CELL'ECTION | All Rights Reserved | Web Desing thanks to <a href="http://getbootstrap.com/docs/3.3/">Bootstrap</a> | Image Desing by <a href="https://fr.freepik.com/">Freepik</a> | Site maintained by <a href="http://www.chu-lyon.fr/fr" target="_blanck">HCL</a> and <a href="https://www.univ-lyon1.fr/" target="_blanck">Lyon 1 University</a> 
              </div></center>
     </div>  
      </div>
