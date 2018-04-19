@@ -1,6 +1,6 @@
 @section('content')
 
-<!-- Home -->
+<!-- Home 1 -->
 <div class="content-wrapper" id="home1">
   <div class="container">
     <div class="col-md-12 text-center" id="home1text">
@@ -14,14 +14,14 @@
 
 <div class="content-wrapper" >
 <!-- Research -->
-  <div id="research" class="col-md-8">
+  <div id="research" class="col-xs-6 col-sm-4 center">
     <h2 class="text-center">Please, enter your research <a href="/about_us" class="glyphicon glyphicon-info-sign"></a></h2>
-    <div class="col-xs-12"><center>
-        <div class="col-xs-8 text-center" id="research_bar">
-            <input id="searchH" class="form-control text-center" placeholder="Search Genes, Cell Lines or Pathways" name="q[entry]" style="margin-top: .5em">
+    <div class="col-xs-12 center" id="divresearch">
+        <div class="col-xs-6 col-sm-6 center" id="research_bar">
+            <input id="searchH" class="form-control center" placeholder="Search Genes, Cell Lines or Pathways" name="q[entry]" style="margin-top: .5em">
             <input type="hidden" id="searchType">
         </div>
-    </center></div>
+    </div>
   </div>
 </div>
 
@@ -88,6 +88,7 @@ $( function() {
 });
 </script>
 
+<!-- Scroll down on click -->
 <script>
 $('a[href*="#"]:not([href="#"])').click(function() {
   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -102,5 +103,6 @@ $('a[href*="#"]:not([href="#"])').click(function() {
   }
 });
 </script>
+
 
 @endsection

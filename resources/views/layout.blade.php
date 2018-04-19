@@ -50,9 +50,9 @@
                         <p class="glyphicon glyphicon-envelope" aria-hidden="true">Email:</p> cellection@univ-lyon1.fr 
                     </strong>
                     &nbsp;&nbsp;
-                     <strong> 
+                     <!-- <strong> 
                         <p class="glyphicon glyphicon-earphone" aria-hidden="true">Support:</p> Tel. 
-                    </strong>
+                    </strong> -->
                 </div>
             </div>
         </div>
@@ -131,18 +131,8 @@
 
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
-        <div class="containerwide">
-            <div class="row" id="footerbox">
-
-            <div class="row">
-                <center><div id="disc">
-            &copy; CELL'ECTION | All Rights Reserved | Web Desing thanks to <a href="http://getbootstrap.com/docs/3.3/">Bootstrap</a> | Image Desing by <a href="https://fr.freepik.com/">Freepik</a> | Site maintained by <a href="http://www.chu-lyon.fr/fr" target="_blanck">HCL</a> and <a href="https://www.univ-lyon1.fr/" target="_blanck">Lyon 1 University</a> 
-             </div></center>
-    </div>  
-     </div>
-   
-  </div>
-</footer>
+            <center>&copy; CELL'ECTION | All Rights Reserved | Web Desing thanks to <a href="http://getbootstrap.com/docs/3.3/">Bootstrap</a> | Image Desing by <a href="https://fr.freepik.com/">Freepik</a> | Site maintained by <a href="http://www.chu-lyon.fr/fr" target="_blanck">HCL</a> and <a href="https://www.univ-lyon1.fr/" target="_blanck">Lyon 1 University</a> </center>
+    </footer>
 
 </body>
 </html>

@@ -22,30 +22,26 @@
   padding-bottom: 60px;
 }
 
-#research_bar {
-  margin-right: 20%;
-  padding-left: 300px;
-  padding-right: 0px;
+#divresearch {
+  float:none;
 }
 
-
-
 #maintitle {
-  font-size: 150px;
+  font-size: 13vw;
   color: #C74A17;
 }
 
 #mainp {
-  font-size: 25px;
+  font-size: 2vw;
   color: #C74A17;
 }
 
 #target {
-  font-size: 25px;
+  font-size: 8vw;
 }
 
 #research {
-  margin-left: 10%;
+  margin-left: 0%;
 }
 
 #gene {
@@ -140,7 +136,11 @@ a:focus {
 .form-control:focus {
 	border-color:#C74A17 !important;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);	
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
+}
+
+#searchH {
+  margin-left:50%;
 }
 
 ui-autocomplete-input {
@@ -322,7 +322,26 @@ fieldset[disabled] .btn-info.active {
 }
 
 
-
 #cell {
   background-color: #fff;
+}
+
+#research {
+  width:100%;
+}
+
+#name {
+  float : left;
+}
+
+#email {
+  float:left;
+}
+
+#password {
+  float:left;
+}
+
+#password_confirmation {
+  float:left;
 }

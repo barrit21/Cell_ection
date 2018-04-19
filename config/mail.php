@@ -60,7 +60,7 @@ return [ //automatically created by Laravel
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'cellection@univ-lyon1.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
