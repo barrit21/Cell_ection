@@ -9,14 +9,16 @@
 		</nav>
 
 		<div class="jumbotron">
-			<h2><b>About classification Vanderbilt/CITBCMST</b></h2>
+			<h1 class="text-center">About classification Vanderbilt/CITBCMST</h1>
 
-			<div align="justify">
+			<div class="media" align="justify">
 				CIT and Vanderbilt are classification tools. By means of statistical tests, these tools are able to give the class of the cell line. However, there are disagreements at the level of classifications. In addition, the classification is named in different ways between these two tools. </br>
 			</div>
-		
-			<h3>Vanderbilt</h3>
-			<div align="justify">
+
+			<div class="page-header">
+  				<h3>Vanderbilt</h3>
+			</div>
+			<div class="media" align="justify">
 				There are 6 subtypes of classification :
 				<ul>
 					<li>2 basals : BL1 and BL2</li>
@@ -28,8 +30,10 @@
 				<div align="center"><img class="img-responsive" src="/img/VBT.png"/></div>
 			</div>
 
-			<h3>CITBCMST</h3>
-			<div align="justify">
+			<div class="page-header">
+  				<h3>CITBCMST</h3>
+			</div>
+			<div class="media" align="justify">
 				There are 6 subtypes of classification :
 				<ul>
 					<li>BasL</li>
@@ -41,8 +45,18 @@
 				</ul>
 				<div align="center"><img class="img-responsive" src="/img/CITB.png"/></div>
 			</div>
+
 		</div>
+
 	</div>
+
 </div>
+
+
+
+</div>
+
+
+
 
 @stop

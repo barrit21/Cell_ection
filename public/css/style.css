@@ -4,54 +4,26 @@
  * @brief Modifications that will complete bootstrap
  */
 
-#home1text {
-  margin-top: 10%;
-  color: #C74A17 !important;
+/* ----- Global ----- */
+
+/* Global font */
+@font-face {
+    font-family: "roboto";
+    src: url("Roboto-Regular.ttf") format("truetype");
 }
 
-#home1 {
-  background-image: url("../../img/7596.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  position: relative;
-  height: 100vh;
-  margin-top: 0px;
-  min-height: 600px;
-  padding-bottom: 60px;
+@font-face {
+  font-family: "roboto";
+  font-style: italic;
+  src: url('Roboto-Italic.ttf');
+}
+@font-face {
+  font-family: "roboto";
+  font-weight: bold;
+  src: url('Roboto-Bold.ttf');
 }
 
-#divresearch {
-  float:none;
-}
-
-#maintitle {
-  font-size: 13vw;
-  color: #C74A17;
-}
-
-#mainp {
-  font-size: 2vw;
-  color: #C74A17;
-}
-
-#target {
-  font-size: 8vw;
-}
-
-#research {
-  margin-left: 0%;
-}
-
-#gene {
-  background-color: #fff;
-}
-
-#investigators {
-  padding-bottom: 90px;
-}
-
+/* Global Desing */
 .navbar-inverse {
     background-color: #FFFFFF;
 }
@@ -61,33 +33,33 @@ header {
 }
 
 .navbar-brand {
-	padding:0;
-	height:2%;
-	width:auto;
+  padding:0;
+  height:2%;
+  width:auto;
 }
 
 .navbar .container span {
-	color: #FFF!important;
-	font-size:400%!important;
-	display:block;
-	margin:10px 0;
-	text-align:right;
+  color: #FFF!important;
+  font-size:400%!important;
+  display:block;
+  margin:10px 0;
+  text-align:right;
 }
 
 .navbar-header{
-	float:left;
+  float:left;
 }
 
 footer {
-	background-color:#57585A;
+  background-color:#57585A;
 }
 
 .menu-section .nav > li > a:hover{
-	background-color: #C74A17 !important;
+  background-color: #C74A17 !important;
 }
 
 .menu-top-active {
-	background-color: #C74A17 !important;
+  background-color: #C74A17 !important;
 }
 
 .menu-section .nav > li > a:focus {
@@ -103,19 +75,11 @@ footer {
 }
 
 .fixed-table-loading {
-	display:none;
-}
-
-.ui-autocomplete-category
-{
-    font-weight: bold;
-    padding: .2em .4em;
-    margin: .8em 0 .2em;
-    line-height: 1.5;
+  display:none;
 }
 
 a {
-	color:#C74A17;
+  color:#C74A17;
 }
 
 a:hover,
@@ -130,52 +94,13 @@ a:focus {
 }
 
 .jumbotron {
-	background-color: #FFFFFF !important;
+  background-color: #FFFFFF !important;
 }
 
 .form-control:focus {
-	border-color:#C74A17 !important;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
-}
-
-#searchH {
-  margin-left:50%;
-}
-
-ui-autocomplete-input {
-	background-color: #FFFFFF !important;
-}
-
-::selection{
-  background-color: #C74A17;
-  color: white;
-}
-
-/* Firefox */
-::-moz-selection {
-  background-color: #C74A17;
-  color: white;
-}
-
-.admin{
-	float:right;
-	position:relative;
-}
-
-.bg-primary {
-  color: #fff !important;
-  background-color: rgba(0,0,0,.075) !important;
-}
-
-a.bg-primary:hover {
-  background-color: rgba(0,0,0,.075) !important;
-}
-
-
-.shrink {
-	width: 100px;
-	height: 100px;;
+  border-color:#C74A17 !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0,0,0,.075);
 }
 
 .bg-primary {
@@ -188,8 +113,8 @@ a.bg-primary:hover {
 
 .btn-primary {
   color: #fff;
-	background-color: #C74A17 !important;
-	border-color: #1F252AFF;
+  background-color: #C74A17 !important;
+  border-color: #1F252AFF;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -198,8 +123,8 @@ a.bg-primary:hover {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #fff;
-  background-color: #1F252AFF;
-  border-color: #57585A;
+  background-color: #fff;
+  border-color: #fff;
 }
 .btn-primary.disabled,
 .btn-primary[disabled],
@@ -219,14 +144,14 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #1F252AFF;
-  border-color: #1F252AFF;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .btn-info {
   color: #fff;
-  background-color: #1F252AFF;
-  border-color: #1F252AFF;
+  background-color: #fff;
+  border-color: #fff;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -235,8 +160,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #fff;
-  background-color: #1F252AFF;
-  border-color: #1F252AFF;
+  background-color: #fff;
+  border-color: #fff;
 }
 .btn-info.disabled,
 .btn-info[disabled],
@@ -256,8 +181,8 @@ fieldset[disabled] .btn-info:active,
 .btn-info.disabled.active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
-  background-color: #1F252AFF;
-  border-color: #1F252AFF;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .dropdown-menu > .active > a,
@@ -265,7 +190,7 @@ fieldset[disabled] .btn-info.active {
 .dropdown-menu > .active > a:focus {
   color: #fff;
   text-decoration: none;
-  background-color: #1F252AFF;
+  background-color: #fff;
   outline: 0;
 }
 
@@ -273,7 +198,7 @@ fieldset[disabled] .btn-info.active {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #fff;
-  background-color: #1F252AFF;
+  background-color: #fff;
 }
 
 .pagination > .active > a,
@@ -285,24 +210,24 @@ fieldset[disabled] .btn-info.active {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #1F252AFF;
-  border-color: #1F252AFF;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .label-primary {
-  background-color: #57585A;
+  background-color: #fff;
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
-  background-color: #1F252AFF;
+  background-color: #fff;
 }
 
 .label-info {
-  background-color: #57585A;
+  background-color: #fff;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
-  background-color: #1F252AFF;
+  background-color: #fff;
 }
 
 .progress-bar {
@@ -321,15 +246,128 @@ fieldset[disabled] .btn-info.active {
           transition: width .6s ease;
 }
 
+.shrink {
+  width: 100px;
+  height: 100px;;
+}
 
-#cell {
-  background-color: #fff;
+/* ----- Index ----- */
+
+/*Title home */
+#home1text {
+  margin-top: 10%;
+  color: #C74A17 !important;
+}
+
+#maintitle {
+  font-size: 13vw;
+  color: #C74A17;
+  font-family: "roboto",arial,sans-serif;
+  font-style: normal;
+}
+
+#mainp {
+  font-size: 2vw;
+  color: #C74A17;
+}
+
+/* Background image*/
+#home1 {
+  background-image: url("../../img/7596.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  position: relative;
+  height: 100vh;
+  margin-top: 0px;
+  min-height: 600px;
+  padding-bottom: 60px;
+}
+
+/* Drop down menu */
+#target {
+  font-size: 8vw;
+  border: 1px solid #C74A17;
+  border-radius: 48%;
+  padding-top : 2%;
+  padding-right: 1%;
+  padding-left: 1%;
+}
+
+/* Research bar */
+#divresearch {
+  float:none;
+}
+
+#research {
+  margin-left: 0%;
+}
+
+.ui-autocomplete-category
+{
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+}
+
+#searchH {
+  margin-left:50%;
+}
+
+ui-autocomplete-input {
+  background-color: #FFFFFF !important;
+}
+
+::selection{
+  background-color: #C74A17;
+  color: white;
+}
+
+/* Firefox */
+::-moz-selection {
+  background-color: #C74A17;
+  color: white;
 }
 
 #research {
   width:100%;
 }
 
+
+/* ----- About ----- */
+
+/* Investigators */
+#investigators {
+  padding-bottom: 90px;
+}
+
+#investigator {
+  color: #1F252AFF;
+  font-family: "roboto",arial,sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  border-bottom: 1px solid #C74A17;
+}
+
+/* ----- Sing In / Register ----- */
+
+.admin{
+  float:right;
+  position:relative;
+}
+
+.bg-primary {
+  color: #fff !important;
+  background-color: rgba(0,0,0,.075) !important;
+}
+
+a.bg-primary:hover {
+  background-color: rgba(0,0,0,.075) !important;
+}
+
+/* Registration */
 #name {
   float : left;
 }
@@ -344,4 +382,16 @@ fieldset[disabled] .btn-info.active {
 
 #password_confirmation {
   float:left;
+}
+
+/* ----- Results ----- */
+
+/* Gene Page Results */
+#gene {
+  background-color: #fff;
+}
+
+/* Cell Page Results */
+#cell {
+  background-color: #fff;
 }

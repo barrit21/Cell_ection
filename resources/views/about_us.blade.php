@@ -122,20 +122,20 @@
               <h1 class="text-center">Investigators</h1> </br>
               <div class="col-md-12" id="investigators">
                 <div class="col-xs-6 col-sm-4 text-center">
-                  Konstantinn Bonnet </br> 
-                  Sylvain Picard </br> 
-                  François Ducray </br>
+                  <p id="investigator"> Konstantinn Bonnet </br> </p>
+                  <p id="investigator"> Sylvain Picard </br> </p>
+                  <p id="investigator"> François Ducray </br> </p>
                 </div>
                 <div class="col-xs-6 col-sm-4 text-center">
-                  Claire Bardel </br> 
-                  Mathieu Gabut </br> 
-                  David Meyronet </br>
+                  <p id="investigator"> Claire Bardel </br> </p>
+                  <p id="investigator"> Mathieu Gabut </br> </p>
+                  <p id="investigator"> David Meyronet </br> </p>
                 </div>
                 <div class="col-xs-6 col-sm-4 text-center">
-                  Marc Barritault </br> 
-                  Marianne Taupin </br> 
-                  Lélia Debornes </br> 
-                  Emilie Gérard-Marchant </br>
+                  <p id="investigator"> Marc Barritault </br> </p>
+                  <p id="investigator"> Marianne Taupin </br> </p>
+                  <p id="investigator"> Lélia Debornes </br> </p>
+                  <p id="investigator"> Emilie Gérard-Marchant </br> </p>
                 </div>
               </div>
             </div>

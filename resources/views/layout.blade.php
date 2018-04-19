@@ -39,6 +39,7 @@
     <script src="{{asset('js/bootstrap-table/bootstrap-table-export.js')}}"></script>
     <script src="{{asset('js/bootstrap-table/tableExport.js')}}"></script>
     <script src="{{asset('js/bootstrap-table/bootstrap-table-filter-control.js')}}"></script>
+    <script src="{{asset('js/bootstrap-table/jquery.base64.js')}}"></script>
 
 </head>
 <body>
@@ -46,9 +47,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <strong> 
-                        <p class="glyphicon glyphicon-envelope" aria-hidden="true">Email:</p> cellection@univ-lyon1.fr 
-                    </strong>
                     &nbsp;&nbsp;
                      <!-- <strong> 
                         <p class="glyphicon glyphicon-earphone" aria-hidden="true">Support:</p> Tel. 

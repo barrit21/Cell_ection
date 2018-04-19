@@ -29,9 +29,9 @@ class CellineController extends Controller
 		}
 		$data = Celline::liste_cell_datasets($celline -> id);
 
-		$data_classif = Celline::classif($celline -> id);
+		//$data_classif = Celline::classif($celline -> id);
 
 		//comming soon = need data $data_gsea = Celline::gsea($celline -> id);
-		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data, 'data_classif'=>$data_classif))]);
+		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data, 'data_classif'=>$data))]);
 	}
 }

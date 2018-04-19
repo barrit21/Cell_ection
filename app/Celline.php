@@ -51,30 +51,16 @@ class Celline extends Model
     {
         $id_cell = $id;
         $data = DB::table('celline_dataset')
+        ->join('vanderbilts', 'celline_dataset.vanderbilt_id', '=', 'vanderbilts.id')
+        ->join('citbcmsts', 'celline_dataset.citbcmst_id', '=', 'citbcmsts.id')
         ->join('datasets', 'datasets.id', '=', 'celline_dataset.dataset_id')
-        ->select('celline_dataset.id', 'datasets.name')
+        ->select('datasets.name', 'vanderbilts.class as classv', 'vanderbilts.correlation', 'vanderbilts.pval', 'citbcmsts.class')
         ->where('celline_dataset.celline_id', $id_cell)
-        ->get();
+        ->get();        
         
         //dd($data);
 
         return $data;
-    }
-
-    public static function classif($id)
-    {
-        $id_cell = $id;
-        $dataclassif = DB::table('celline_dataset')
-        ->join('vanderbilts', 'celline_dataset.vanderbilt_id', '=', 'vanderbilts.id')
-        ->join('citbcmsts', 'celline_dataset.citbcmst_id', '=', 'citbcmsts.id')
-        ->select('celline_dataset.id', 'vanderbilts.class as classv', 'vanderbilts.correlation', 'vanderbilts.pval', 'citbcmsts.class')
-        ->where('celline_dataset.celline_id', $id_cell)
-        ->get();
-
-        //dd($dataclassif);
-
-        return $dataclassif;
-
     }
 
     /*public static function gsea($id)
