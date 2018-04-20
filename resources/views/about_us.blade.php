@@ -96,15 +96,30 @@
               <div class="form-group">
                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="email@example.com">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
                 </div>
               </div>
+
               <div class="form-group">
-                <label for="inputMail" class="col-sm-2 control-label">Corpse</label>
+                <label for="inputSubject" class="col-sm-2 control-label">Subject</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputSubject" placeholder="Your subject here.">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputMessage" class="col-sm-2 control-label" placeholder="Your message here.">Message</label>
                 <div class="col-sm-10">
                   <textarea class="form-control" rows="3"></textarea>
                 </div>
               </div>
+
+              <div class="form-group">
+                <div class="col-sm-10">
+                  <label class="col-sm-4 control-label">Retype the characters from the picture</label>
+                </div>
+              </div>
+
               <div class="form-group" align="right">
                 <button class="btn btn-default" type="submit">Send</button>
               </div>

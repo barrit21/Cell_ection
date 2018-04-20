@@ -4,7 +4,7 @@
 		<div class="col-sm-8">
 			<h1>Register</h1>
 
-			<form method="POST" action="/register">
+			<form method="POST" action="/register" id="registerform">
 				{{csrf_field() }}
 				<div class="form-group">
 					<label for="name">Name : </label>
@@ -29,10 +29,22 @@
 				
 				</div>
 
+				<div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Register</button>
 				</div>
-
+			
+				<script>
+					$(function(){
+						$('#registerform').submit(function(event) {
+							var verified = grecaptcha.getResponse();
+							if (verified.length === 0) {
+								event.preventDefault();
+							}
+						});
+					});
+				</script>
 
 			@include('layouts.errors')	
 

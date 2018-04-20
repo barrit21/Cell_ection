@@ -13,7 +13,7 @@ class RegistrationController extends Controller
     	return view("layout", ["menu" => "home", "content'"=>view('registrations.create')]);	
     }
 
-    public function store(){
+    public function store(Request $request){
     	//Validate the form
     	$this->validate(request(), [
     		'name' => 'required',
@@ -22,21 +22,36 @@ class RegistrationController extends Controller
 
     	]);
 
-    	//Create and save the user + Encryption
-    	$user = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => bcrypt(request('password'))
-        ]);
+        //Validate that you're not a robot
+        $token = $request->input('g-recaptcha-response');
+        //dd($token);
 
-    	auth()->login($user);
+        if ($token) {
+            #we know it was succesfully submitted !! -> basic protection
+            
+            //Create and save the user + Encryption
+            $user = User::create([
+                'name' => request('name'),
+                'email' => request('email'),
+                'password' => bcrypt(request('password'))
+            ]);
 
-        \Mail::to($user)->send(new Welcome($user));
+            auth()->login($user);
+
+            \Mail::to($user)->send(new Welcome($user));
 
 
-    	//Redirect to a special page
+            //Redirect to a special page
 
-    	return redirect()->home();
+            return redirect()->home();
+        }
+        else {
+            return redirect('/');
+        }
+
+
+
+    	
 
     }
 
