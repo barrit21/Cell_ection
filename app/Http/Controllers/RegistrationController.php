@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function create(){
     	return view("layout", ["menu" => "home", "content'"=>view('registrations.create')]);	
     }

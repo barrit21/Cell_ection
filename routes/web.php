@@ -6,12 +6,19 @@
 
 use App\cell_lines;
 
+//Index
 Route::get('/', 'HomePageController@index');
+
+//Results
 Route::get('/cell/{name}', 'CellineController@index');
 Route::get('/gene/{name}', 'GeneController@index');
+
+//About include form for contacting us
 Route::get('/about_us', function() {
 	return view("layout", ["menu" => "about", "content" => view('about_us')]);
 });
+
+
 Route::get('/data', function() {
 	return view("layout", ["menu" => "data", "content" => view('data')]);
 });
