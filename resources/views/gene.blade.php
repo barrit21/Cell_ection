@@ -49,7 +49,7 @@ function linkFormatter(value)
   <div class="tab-content" id="TabContent">
   <div id="MenuPathways" class="tab-pane fade active in">
     <div class="jumbotron">
-      <h2>Comming soon...</h2>
+      <h2>Coming soon...</h2>
     </div>
     <!--
     <h1><?php echo $datum->hugo; ?></h1>

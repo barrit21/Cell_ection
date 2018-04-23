@@ -92,7 +92,7 @@ function linkFormatter(value)
 
       <div id="MenuGSEA" class="tab-pane fade">
         <div class="jumbotron">
-          <h2>Comming soon...</h2>
+          <h2>Coming soon...</h2>
         </div>
       </div>
     </div>
