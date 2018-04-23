@@ -94,6 +94,9 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="/contact_us" @if ($menu == 'contact') class='menu-top-active' @endif>Contact</a>
+                            </li>                            
+                            <li>
                                 <a href='/data' @if ($menu == 'data') class='menu-top-active' @endif>
                                     Data
                                 </a>

@@ -1,15 +1,6 @@
 @section('content')
 
-<script>
-  $(function(){
-    $('#emailform').submit(function(event) {
-      var verified = grecaptcha.getResponse();
-      if (verified.length === 0) {
-        event.preventDefault();
-      }
-    });
-  });
-</script>
+
 
 <div class="content-wrapper">
   <div class="container">
@@ -24,8 +15,7 @@
       <li class="active"><a data-toggle="tab" href="#menu01">Paper/How to cite us</a></li>
       <li><a data-toggle="tab" href="#menu02">How to use</a></li>
       <li><a data-toggle="tab" href="#menu03">Terms of Access</a></li>
-      <li><a data-toggle="tab" href="#menu04">Contact Us</a></li>
-      <li><a data-toggle="tab" href="#menu05">Investigators</a></li>
+      <li><a data-toggle="tab" href="#menu04">Investigators</a></li>
     </ul>
  
     <div class="tab-content" id="myTabContent">
@@ -94,53 +84,8 @@
         </div>
 
 
-        <!-- Contact us menu -->
-        <div id="menu04" class="tab-pane fade">
-            <div class="jumbotron">
-              <h1 class="text-center">Contact Us</h1> </br>
-              <div class="col-sm-12">
-                <blockquote class="blockquote-reverse">
-                  <p>For any questions, please fill in the fields below. We will be happy to answer you as soon as possible.</p>
-                </blockquote>
-              </div> 
-
-            <form class="form-horizontal" id="emailform">
-              <div class="form-group">
-                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="inputSubject" class="col-sm-2 control-label">Subject</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputSubject" placeholder="Your subject here.">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="inputMessage" class="col-sm-2 control-label" placeholder="Your message here.">Message</label>
-                <div class="col-sm-10">
-                  <textarea class="form-control" rows="3"></textarea>
-                </div>
-              </div>
-
-              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-
-              <div class="form-group" align="right">
-                <button type="submit" class="btn btn-default" type="submit">Send</button>
-              </div>
-
-            </form>
-
-            </div>
-        
-        </div>
-
-
         <!-- Investigators menu -->
-        <div id="menu05" class="tab-pane fade">
+        <div id="menu04" class="tab-pane fade">
             <div class="jumbotron">
               <h1 class="text-center">Investigators</h1> </br>
               <div class="col-md-12" id="investigators">

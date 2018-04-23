@@ -13,9 +13,14 @@ Route::get('/', 'HomePageController@index');
 Route::get('/cell/{name}', 'CellineController@index');
 Route::get('/gene/{name}', 'GeneController@index');
 
-//About include form for contacting us
-Route::get('/about_us', 'ContactController@create');
-Route::post('/about_us', 'ContactController@send');
+//Contact us
+Route::get('/contact_us', 'ContactController@create')->name('createcontact');
+Route::post('/contact_us', 'ContactController@store')->name('storecontact');
+
+//About us
+Route::get('/about_us', function(){
+	return view("layout", ["menu" => "about", "content" => view('about_us')]);
+});
 
 
 // Onglet data en attente de contenu ???
