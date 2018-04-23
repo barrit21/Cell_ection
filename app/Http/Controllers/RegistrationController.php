@@ -52,10 +52,7 @@ class RegistrationController extends Controller
         else {
             return redirect('/');
         }
-
-
-
-    	
+ 	
 
     }
 

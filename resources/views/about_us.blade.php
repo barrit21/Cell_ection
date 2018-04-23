@@ -1,4 +1,16 @@
 @section('content')
+
+<script>
+  $(function(){
+    $('#emailform').submit(function(event) {
+      var verified = grecaptcha.getResponse();
+      if (verified.length === 0) {
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+
 <div class="content-wrapper">
   <div class="container">
     <nav aria-label="...">
@@ -92,7 +104,7 @@
                 </blockquote>
               </div> 
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="emailform">
               <div class="form-group">
                 <label for="inputEmail" class="col-sm-2 control-label">Email</label>
                 <div class="col-sm-10">
@@ -114,14 +126,10 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <div class="col-sm-10">
-                  <label class="col-sm-4 control-label">Retype the characters from the picture</label>
-                </div>
-              </div>
+              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
 
               <div class="form-group" align="right">
-                <button class="btn btn-default" type="submit">Send</button>
+                <button type="submit" class="btn btn-default" type="submit">Send</button>
               </div>
 
             </form>
