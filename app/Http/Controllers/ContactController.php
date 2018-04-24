@@ -39,7 +39,16 @@ class ContactController extends Controller
                 $mail->to('cellection@univ-lyon1.fr')->subject("You've got a new Email from a guest");
             });
 
-	    	return redirect()->back()->with('flash_message', "You're message has been correctly send.");
+            Mail::send('emails.mailconfirm', [
+                'email'=>$request->email,
+                'subject'=>$request->subject,
+                'msg'=>$request->subject
+            ], function($mailconfirm) use($request){
+                $mailconfirm->from("no-response@univ-lyon1.fr");
+                $mailconfirm->to($request->email)->subject("Cell'ection : mail confirmation");
+            });
+
+	    	return redirect()->back()->with('flash_message', "You're message has been correctly send. You will receive a mail confirmation.");
 	    }
         else {
             return view("layout", ["menu" => "data", "content" => view('data')]);
