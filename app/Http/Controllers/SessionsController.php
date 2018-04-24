@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mail;
 
 class SessionsController extends Controller
 {
@@ -12,19 +13,24 @@ class SessionsController extends Controller
     }
 
     public function create(){
-    	return view("layout", ["menu" => "sign", "content'"=>view('sessions.create')]);
+    	return view("sessions.layoutsessions", ["sessionscontent'"=>view('sessions.create')]);
     }
 
-
-
-    public function store(){
+    public function store(Request $request){
     	//Attempt to authentificate the user.
     	//If not, redirect back ++ send an email to the administrators ?
     	//If so, sign them in
+        
+        $this->validate(request(), [
+            'email' => 'required|email',
+            'password'=>'required'
 
-    	if (!auth()->attempt(request(['email', 'password']))) {
+        ]);
+
+    	if (!auth()->attempt(request(['email', 'password']))) 
+        {
     		return back()->withErrors([
-    			'message' => 'You are trying to log in as an administrator. A report will be sent to the administrator of this website.'
+    			'message' => "You are trying to log in as an administrator. Please do not try if you're not an administrator."
     		]);
     	}
 

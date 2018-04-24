@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layoutadmin');
+        return view('admin.layoutadmin', ["contentadmin" => view('admin.index')]);
     }
 }

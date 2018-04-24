@@ -6,6 +6,8 @@
 
 use App\cell_lines;
 
+/* ----- GUEST PAGE ----- */
+
 // Index
 Route::get('/', 'HomePageController@index');
 
@@ -41,19 +43,50 @@ Route::get('/classification_info', function(){
 	return view("layout", ["menu" => "home", "content" => view('info_classif')]);
 });
 
-// Middleware AUTH
-Auth::routes('/home', 'HomeController@index');
 
-// Registration
-Route::get('/register', 'RegistrationController@create');
-Route::post('/register', 'RegistrationController@store');
 
-// Session
-Route::get('/login', 'SessionsController@create');
-Route::post('/login', 'SessionsController@store');
+
+
+/* ----- ADMIN PAGE ----- */
+// Session / Login
+Route::get('/admin/login', 'SessionsController@create');
+Route::post('/admin/login', 'SessionsController@store');
 
 //Log out
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/admin/logout', 'SessionsController@destroy');
 
 //Home Admin
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/home', 'HomeController@index');
+
+// Middleware AUTH
+Auth::routes('/admin/home', 'HomeController@index');
+
+//General : Home
+Route::get('/admin/inbox', function(){
+	return view("admin.layoutadmin", ["contentadmin"=>view('admin.inbox')]);
+});
+Route::get('/admin/calendar', function(){
+	return view("admin.layoutadmin", ["contentadmin"=>view('admin.calendar')]);
+});
+
+//General : Contacts
+	// Registration
+Route::get('/admin/register', 'RegistrationController@create');
+Route::post('/admin/register', 'RegistrationController@store');
+
+Route::get('/admin/actual_admins', function(){
+	return view("admin.layoutadmin", ["contentadmin"=>view('admin.actual_admins')]);	
+});
+
+//Database : View & Update
+Route::get('/admin/database/view_tables', function() {
+	return view("admin.layoutadmin", ["contentadmin"=>view('admin.view_tables')]);	
+});
+Route::get('/admin/database/update_data', function(){
+	return view("admin.layoutadmin", ["contentadmin"=>view('admin.update_data')]);	
+});
+
+//Help
+Route::get('/admin/help', function(){
+	return view("admin.layoutadmin", ["contentadmin"=>view('admin.help')]);	
+});

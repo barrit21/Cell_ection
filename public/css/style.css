@@ -252,6 +252,11 @@ fieldset[disabled] .btn-info.active {
   height: 100px;;
 }
 
+#loginbutton{
+  float:right;
+  color:#fff;
+}
+
 /* ----- Index ----- */
 
 /*Title home */

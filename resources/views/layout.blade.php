@@ -48,10 +48,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    &nbsp;&nbsp;
-                     <!-- <strong> 
-                        <p class="glyphicon glyphicon-earphone" aria-hidden="true">Support:</p> Tel. 
-                    </strong> -->
+                    <span id="admin">
+                        @if (! Auth::check())
+                            <a href="/admin/login" @if ($menu == 'sign') class='menu-top-active' @endif><i class="glyphicon glyphicon-off" id="loginbutton"></i></a>
+                        @endif
+                    </span>
+                    <span>
+                        @if (Auth::check())
+                            <a href="/admin/logout"><i class="glyphicon glyphicon-off" id="loginbutton"></i></a>
+                        @endif
+                    </span>
                 </div>
             </div>
         </div>
@@ -60,17 +66,9 @@
     <div class="navbar navbar-inverse set-radius-zero">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="/">
-
                     <img class="img-responsive" src="/gif/logo.gif" />
-
-                </a>
-                
+                </a>               
             </div>
 
         </div>
@@ -101,19 +99,9 @@
                                     Data
                                 </a>
                             </li>
-                            <li id="admin">
-                                @if (! Auth::check())
-                                <a href="/login" @if ($menu == 'sign') class='menu-top-active' @endif>Sign In</a>
-                                @endif
-                            </li>
                             <li>
                                 @if (Auth::check())
-                                <a href="/home">{{Auth::user()->name}}</a>
-                                @endif
-                            </li>
-                            <li>
-                                @if (Auth::check())
-                                <a href="/logout">Log out</a>
+                                    <a href="/admin/home">{{Auth::user()->name}}</a>
                                 @endif
                             </li>
                             <!-- <li><a href="forms.html">Forms</a></li>*/

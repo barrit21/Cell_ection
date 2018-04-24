@@ -1,0 +1,74 @@
+/* ----- Side Bar ----- */
+
+/* Backgrounds */
+.left_col {
+	background-color: #1F252AFF;
+}
+
+.site_title {
+	background-color: #57585A;
+}
+
+.nav_title {
+	background-color: #343D46FF;
+}
+
+/* Footer */
+.sidebar-footer {
+	background-color: #343D46FF;
+}
+
+.sidebar-footer a {
+	background: #57585A;
+}
+
+a {
+	color:#fff;
+}
+
+.sidebar-footer a:hover {
+	background: #7E7E7E;
+}
+
+a:focus, a:hover {
+    color: #C74A17 !important;
+}
+
+/* Menus */
+.nav.side-menu > li.active > a {
+    text-shadow: rgba(0,0,0,.25) 0 -1px 0;
+    background: linear-gradient(#57585A,#7E7E7E),#1F252AFF;
+    background-color: #7E7E7E;
+    background-image: linear-gradient(#57585A, #7E7E7E), none;
+}
+
+.nav.side-menu > li.active, .nav.side-menu > li.current-page {
+    border-right: 5px solid #C74A17;
+}
+
+.nav-md ul.nav.child_menu li::before {
+    background: #C74A17;
+}
+
+.nav-md ul.nav.child_menu li::after {
+    border-left: 1px solid #C74A17;
+}
+
+/* Navbar Top */
+#menu_toggle {
+	color: #1F252AFF;
+}
+
+/* Profile Infos */
+.profile_info{
+	width:100%;
+}
+
+/* Side Bar Hidden */
+.nav-sm .nav.child_menu li.active, .nav-sm .nav.side-menu li.active-sm {
+    border-right: 5px solid #C74A17;
+}
+
+.nav-sm ul.nav.child_menu li {
+	background-color: #7E7E7E;
+}
