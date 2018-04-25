@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file DomainPart.php
- */
-
 namespace Egulias\EmailValidator\Parser;
 
 use Egulias\EmailValidator\EmailLexer;
@@ -36,7 +32,7 @@ use Egulias\EmailValidator\Warning\LabelTooLong;
 use Egulias\EmailValidator\Warning\ObsoleteDTEXT;
 use Egulias\EmailValidator\Warning\TLD;
 
-class DomainPart extends Parser //automatically created by Laravel
+class DomainPart extends Parser
 {
     const DOMAIN_MAX_LENGTH = 254;
     protected $domainPart = '';

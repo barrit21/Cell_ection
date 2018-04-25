@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file CRLFatTheEnd.php
- */
-
 namespace Egulias\EmailValidator\Exception;
 
 class CRLFAtTheEnd extends InvalidEmail

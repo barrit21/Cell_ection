@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @file DotAtEnd.php
- */
-
 namespace Egulias\EmailValidator\Exception;
 
-class DotAtEnd extends InvalidEmail //automatically created by Laravel
+class DotAtEnd extends InvalidEmail
 {
     const CODE = 142;
     const REASON = "Dot at the end";

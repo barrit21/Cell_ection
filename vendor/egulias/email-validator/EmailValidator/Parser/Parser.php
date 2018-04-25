@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file Parser.php
- */
-
 namespace Egulias\EmailValidator\Parser;
 
 use Egulias\EmailValidator\EmailLexer;

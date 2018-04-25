@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file ConsecutiveDot.php
- */
-
 namespace Egulias\EmailValidator\Exception;
 
 class ConsecutiveDot extends InvalidEmail

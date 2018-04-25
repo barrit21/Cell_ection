@@ -27,6 +27,7 @@
     <link href="/gentelella/build/css/custom.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styleadmin.css" rel="stylesheet" />
+
   </head>
 
   <body class="nav-md">
@@ -59,6 +60,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="/admin/home">Dashboard</a></li>
                       <li><a href="/admin/inbox">Inbox</a></li>
                       <li><a href="/admin/calendar">Calendar</a></li>
                     </ul>
@@ -194,7 +196,7 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="col-md-12" role="main">
           @yield('contentadmin')
         </div>
         <!-- /page content -->
@@ -249,6 +251,8 @@
     <script src="{{asset('gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
     <!-- Custom Theme Scripts -->
     <script src="{{asset('gentelella/build/js/custom.min.js')}}"></script>
+
+
 
 <!-- Google Analytics -->
 <script>

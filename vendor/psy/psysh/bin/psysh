@@ -2,8 +2,6 @@
 <?php
 
 /*
- * @file psysh
- *  
  * This file is part of Psy Shell.
  *
  * (c) 2012-2017 Justin Hileman
@@ -14,7 +12,7 @@
 
 // Try to find an autoloader for a local psysh version.
 // We'll wrap this whole mess in a Closure so it doesn't leak any globals.
-call_user_func(function () { //automatically created by Laravel
+call_user_func(function () {
     $cwd = null;
 
     // Find the cwd arg (if present)

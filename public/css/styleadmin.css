@@ -72,3 +72,40 @@ a:focus, a:hover {
 .nav-sm ul.nav.child_menu li {
 	background-color: #7E7E7E;
 }
+
+/* ----- Registration -----*/
+/* Alter success */
+.alert-success {
+    color: #fff;
+    background-color: #58B749FF;
+    border-color: #528C49FF;
+}
+
+/* Btn Cancle */
+.btn-primary {
+    color: #fff;
+    background-color: #343D46;
+    border-color: #1A1E23;
+}
+.btn-primary:hover {
+    color: #fff !important;
+    background-color: #AAAA7F;
+    border-color: #1A1E23;
+}
+
+
+/* Btn Register */
+.btn-success {
+    background-color: #58B749FF;
+    border-color: #528C49FF;
+}
+.btn-success:hover {
+    color: #fff;
+    background-color: #005500;
+    border-color: #528C49FF;	
+}
+
+/* ----- Body ----- */
+body{
+    background: #FFFFFF;
+}

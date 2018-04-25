@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file DNSCheckValidation.php
- */
-
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\EmailLexer;
@@ -11,7 +7,7 @@ use Egulias\EmailValidator\Exception\InvalidEmail;
 use Egulias\EmailValidator\Warning\NoDNSMXRecord;
 use Egulias\EmailValidator\Exception\NoDNSRecord;
 
-class DNSCheckValidation implements EmailValidation //automatically created by Laravel
+class DNSCheckValidation implements EmailValidation
 {
     /**
      * @var array
@@ -48,7 +44,7 @@ class DNSCheckValidation implements EmailValidation //automatically created by L
 
     protected function checkDNS($host)
     {
-        $host = rtrim($host, '.') . '.';
+        $host = rtrim(idn_to_ascii($host, IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46), '.') . '.';
 
         $Aresult = true;
         $MXresult = checkdnsrr($host, 'MX');

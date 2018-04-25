@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file CharNot Allowed.php
- */
-
 namespace Egulias\EmailValidator\Exception;
 
 class CharNotAllowed extends InvalidEmail

@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file MultipleErrors.php
- */
-
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\Exception\InvalidEmail;

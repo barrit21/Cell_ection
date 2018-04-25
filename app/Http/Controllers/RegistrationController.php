@@ -14,7 +14,7 @@ class RegistrationController extends Controller
     }
 
     public function create(){
-    	return view("layout", ["menu" => "home", "content'"=>view('registrations.create')]);	
+    	return view("admin.layoutadmin", ["contentadmin"=>view('registrations.create')]);	
     }
 
     public function store(Request $request){
@@ -23,37 +23,20 @@ class RegistrationController extends Controller
     		'name' => 'required',
     		'email' => 'required|email',
     		'password'=>'required|confirmed'
-
     	]);
-
-        //Validate that you're not a robot
-        $token = $request->input('g-recaptcha-response');
-        //dd($token);
-
-        if ($token) {
-            #we know it was succesfully submitted !! -> basic protection
             
-            //Create and save the user + Encryption
-            $user = User::create([
-                'name' => request('name'),
-                'email' => request('email'),
-                'password' => bcrypt(request('password'))
-            ]);
+        //Create and save the user + Encryption
+        $user = User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password'))
+        ]);
 
-            auth()->login($user);
-
-            \Mail::to($user)->send(new Welcome($user));
+        \Mail::to($user)->send(new Welcome($user));
 
 
-            //Redirect to a special page
-
-            return redirect()->home();
-        }
-        else {
-            return redirect('/');
-        }
- 	
-
+        //Redirect to a special page
+        return redirect()->back()->with('flash_message', "You have correctly register a new administrator.");
     }
 
 }

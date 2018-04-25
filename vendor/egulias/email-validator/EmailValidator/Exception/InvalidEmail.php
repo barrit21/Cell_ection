@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @file InvalidEmail.php
- */
-
 namespace Egulias\EmailValidator\Exception;
 
-abstract class InvalidEmail extends \InvalidArgumentException //automatically created by Laravel
+abstract class InvalidEmail extends \InvalidArgumentException
 {
     const REASON = "Invalid email";
     const CODE = 0;

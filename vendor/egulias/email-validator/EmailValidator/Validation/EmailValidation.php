@@ -1,16 +1,12 @@
 <?php
 
-/**
- * @file EmailValidation.php
- */
-
 namespace Egulias\EmailValidator\Validation;
 
 use Egulias\EmailValidator\EmailLexer;
 use Egulias\EmailValidator\Exception\InvalidEmail;
 use Egulias\EmailValidator\Warning\Warning;
 
-interface EmailValidation //automatically created by Laravel
+interface EmailValidation
 {
     /**
      * Returns true if the given email is valid.

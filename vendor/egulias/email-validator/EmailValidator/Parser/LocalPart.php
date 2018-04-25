@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file LocalPart.php
- */
-
 namespace Egulias\EmailValidator\Parser;
 
 use Egulias\EmailValidator\Exception\DotAtEnd;
@@ -17,7 +13,7 @@ use Egulias\EmailValidator\Exception\UnopenedComment;
 use Egulias\EmailValidator\Warning\CFWSWithFWS;
 use Egulias\EmailValidator\Warning\LocalTooLong;
 
-class LocalPart extends Parser //automatically created by Laravel
+class LocalPart extends Parser
 {
     public function parse($localPart)
     {
