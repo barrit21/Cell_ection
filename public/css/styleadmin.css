@@ -108,4 +108,31 @@ a:focus, a:hover {
 /* ----- Body ----- */
 body{
     background: #FFFFFF;
+    color:#343434FF;
+}
+
+/* ------ Calendar -----*/
+.fc-content {
+    background-color:#959595FF !important;
+    border-color: #464646FF ;
+    z-index: 0 !important;
+}
+.fc-event-container {
+    border-color: #464646FF ;
+}
+.fc-event {
+    border: 1px solid #464646FF !important;
+    background-color: #464646FF !important;
+}
+
+.fc-unthemed td.fc-today {
+    background: #FFCD90FF !important;
+}
+
+.fc-time-grid-event {
+    background-color:#959595FF !important;
+}
+
+.fc-event-dot {
+    background-color: #C74A17 !important;
 }

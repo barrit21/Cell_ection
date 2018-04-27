@@ -65,9 +65,8 @@ Auth::routes('/admin/home', 'HomeController@index');
 Route::get('/admin/inbox', function(){
 	return view("admin.layoutadmin", ["contentadmin"=>view('admin.inbox')]);
 });
-Route::get('/admin/calendar', function(){
-	return view("admin.layoutadmin", ["contentadmin"=>view('admin.calendar')]);
-});
+Route::get('/admin/calendar', 'EventController@index');
+
 
 //General : Contacts
 	// Registration
