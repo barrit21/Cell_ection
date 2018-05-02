@@ -168,6 +168,7 @@ return [ //automatically created by Laravel
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        'Collective\Html\HtmlServiceProvider',
 
         /*
          * Package Service Providers...
@@ -231,7 +232,8 @@ return [ //automatically created by Laravel
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
-
+        'Form' => 'Collective\Html\FormFacade',
+        'Html' => 'Collective\Html\HtmlFacade',
     ],
 
 ];

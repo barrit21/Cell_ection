@@ -10,6 +10,12 @@
 
     <div class="clearfix"></div>
 
+    @if (Session::has('flash_message'))
+      <div class="alert alert-success" role="alert">
+        {{Session::get('flash_message')}}
+      </div>
+    @endif
+
     <div class="row">
       <div class="col-md-12">
         <div class="x_panel">
@@ -31,14 +37,10 @@
                     </div>
                   </div>
                   <div class="col-xs-12 bottom text-center">
-                    
-                    <div class="col-xs-12 col-sm-6 emphasis">
-                      <button type="button" class="btn btn-primary btn-xs">
-                        <i class="fa fa-user"> </i> Delete Admin
-                      </button>
-                    </div>
-                    
-                  </div>
+                    <a type="button" href="{{ url('/admin/actual_admins',$user->id) }}" class="remove_item btn btn-primary btn-xs">
+                      Delete Admin <i class="fa fa-times"></i>
+                    </a>
+                  </div>                   
                 </div>
               </div>
               <?php endforeach; ?>
@@ -49,5 +51,7 @@
     </div>
   </div>
 </div>
+
 <!-- /page content -->
 @endsection
+

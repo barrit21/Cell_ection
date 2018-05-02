@@ -16,6 +16,7 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -98,6 +99,7 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
         ),
         'A' => 
         array (
@@ -260,6 +262,10 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -320,6 +326,7 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Dataset' => __DIR__ . '/../..' . '/app/Dataset.php',
         'App\\Enrichementscore' => __DIR__ . '/../..' . '/app/Enrichementscore.php',
+        'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Expressionlevel' => __DIR__ . '/../..' . '/app/ExpressionLevel.php',
         'App\\Gene' => __DIR__ . '/../..' . '/app/Gene.php',
@@ -334,6 +341,7 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DatasetController' => __DIR__ . '/../..' . '/app/Http/Controllers/DatasetController.php',
         'App\\Http\\Controllers\\EnrichementScoreController' => __DIR__ . '/../..' . '/app/Http/Controllers/EnrichementScoreController.php',
+        'App\\Http\\Controllers\\EventController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventController.php',
         'App\\Http\\Controllers\\ExpressionLevelController' => __DIR__ . '/../..' . '/app/Http/Controllers/ExpressionLevelController.php',
         'App\\Http\\Controllers\\GeneController' => __DIR__ . '/../..' . '/app/Http/Controllers/GeneController.php',
         'App\\Http\\Controllers\\GenesetController' => __DIR__ . '/../..' . '/app/Http/Controllers/GenesetController.php',
@@ -342,6 +350,7 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         'App\\Http\\Controllers\\QueryController' => __DIR__ . '/../..' . '/app/Http/Controllers/QueryController.php',
         'App\\Http\\Controllers\\RegistrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegistrationController.php',
         'App\\Http\\Controllers\\SessionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SessionsController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VanderbiltController' => __DIR__ . '/../..' . '/app/Http/Controllers/VanderbiltController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -367,6 +376,13 @@ class ComposerStaticInitb31d5183d118abce58b7ed483642184e
         'CelDatasetLigneeFileSeeder' => __DIR__ . '/../..' . '/database/seeds/CelDatasetLigneeFileSeeder.php',
         'CellinesFileSeeder' => __DIR__ . '/../..' . '/database/seeds/CellinesFileSeeder.php',
         'CitbcmstFileSeeder' => __DIR__ . '/../..' . '/database/seeds/CitbcmstFileSeeder.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',

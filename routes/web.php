@@ -69,11 +69,15 @@ Route::get('/admin/calendar', 'EventController@index');
 
 
 //General : Contacts
-	// Registration
+
+// Registration
 Route::get('/admin/register', 'RegistrationController@create');
 Route::post('/admin/register', 'RegistrationController@store');
 
 Route::get('/admin/actual_admins', 'UserController@index');
+
+//Delete Admins
+Route::get('/admin/actual_admins/{id}', 'UserController@destroy');
 
 //Database : View & Update
 Route::get('/admin/database/datasets_table', 'DatasetController@index');

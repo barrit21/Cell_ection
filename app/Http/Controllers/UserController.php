@@ -12,7 +12,11 @@ class UserController extends Controller
 		return view("admin.layoutadmin", ["contentadmin" => view('admin.actual_admins', array('users'=> $users))]);    	
     }
 
-    public function destroy($id){
-    	
+    public function destroy(Request $request)
+    {
+    	$users = User::find($request['id']);
+    	$users->delete();
+
+    	return redirect()->back()->with('flash_message', "You have successfully deleted this administrator.");
     }
 }
