@@ -6,6 +6,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 /**
  * @class Citbcmst
@@ -38,5 +39,10 @@ class Citbcmst extends Model
     public function enrichementscores()
     {
         return $this->hasManyThrough('App\Enrichementscore','App\CellineDataset');
+    }
+    public static function citbcmst_table(){
+        $citbcmsts=DB::table('citbcmsts')->get();
+        //dd($citbcmsts);
+        return $citbcmsts;        
     }
 }

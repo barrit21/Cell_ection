@@ -7,6 +7,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 /**
  * @class Expressionlevel
@@ -23,5 +24,10 @@ class Expressionlevel extends Model
     public function genes()
     {
     	return $this->belongsTo('App\Gene');
+    }
+    public static function expressionlevel_table(){
+        $explevels=DB::table('expressionlevels')->get();
+        //dd($explevels);
+        return $explevels;        
     }
 }

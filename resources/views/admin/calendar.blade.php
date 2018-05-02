@@ -25,7 +25,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-            <div id='calendar'>{{$calendar->calendar()}}</div>
+            <div id='calendar'></div>
           </div>
         </div>
       </div>

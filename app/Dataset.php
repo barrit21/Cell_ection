@@ -7,6 +7,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
+use App\Quotation;
 
 /**
  * @class Dataset
@@ -27,5 +29,11 @@ class Dataset extends Model
     public function vanderbilts()
     {
         return $this->belongsToMany('App\Vanderbilt', 'CellineDataset');
+    }
+
+
+    public static function index(){
+        $datasets=DB::table('datasets')->get();
+        return $datasets;
     }
 }

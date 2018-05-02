@@ -15,15 +15,11 @@
 
 /* Footer */
 .sidebar-footer {
-	background-color: #343D46FF;
+	background-color: #343D46FF !important;
 }
 
 .sidebar-footer a {
 	background: #57585A;
-}
-
-a {
-	color:#fff;
 }
 
 .sidebar-footer a:hover {
@@ -73,6 +69,10 @@ a:focus, a:hover {
 	background-color: #7E7E7E;
 }
 
+#footersettings{
+    color:#fff;
+}
+
 /* ----- Registration -----*/
 /* Alter success */
 .alert-success {
@@ -93,22 +93,28 @@ a:focus, a:hover {
     border-color: #1A1E23;
 }
 
+.btn-primary:focus {
+    color: #fff !important;
+    background-color: #444433;
+    border-color: #010102;
+}
+
 
 /* Btn Register */
 .btn-success {
-    background-color: #58B749FF;
-    border-color: #528C49FF;
+    background-color: #C74A17 !important;
+    border-color: #8D3310 !important; 
 }
 .btn-success:hover {
     color: #fff;
-    background-color: #005500;
-    border-color: #528C49FF;	
+    background-color: #EA975F !important;
+    border-color: #E8511A !important;	
 }
 
 /* ----- Body ----- */
 body{
     background: #FFFFFF;
-    color:#343434FF;
+    color:#343434FF !important;
 }
 
 /* ------ Calendar -----*/
@@ -135,4 +141,31 @@ body{
 
 .fc-event-dot {
     background-color: #C74A17 !important;
+}
+
+#text {
+    color:#1F252AFF !important;
+}
+
+.mail_list {
+    color:#1F252AFF !important;    
+}
+
+.attachment {
+    color:#1F252AFF !important;     
+}
+
+/* ----- Mail Box -----*/
+#compose {
+    background-color: #C74A17 !important;
+    border-color: #8D3310 !important;    
+}
+
+.compose-header {
+   background-color: #EE8348 !important; 
+}
+
+#send {
+    background-color: #C74A17 !important;
+    border-color: #8D3310 !important;     
 }

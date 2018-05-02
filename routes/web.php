@@ -73,14 +73,19 @@ Route::get('/admin/calendar', 'EventController@index');
 Route::get('/admin/register', 'RegistrationController@create');
 Route::post('/admin/register', 'RegistrationController@store');
 
-Route::get('/admin/actual_admins', function(){
-	return view("admin.layoutadmin", ["contentadmin"=>view('admin.actual_admins')]);	
-});
+Route::get('/admin/actual_admins', 'UserController@index');
 
 //Database : View & Update
-Route::get('/admin/database/view_tables', function() {
-	return view("admin.layoutadmin", ["contentadmin"=>view('admin.view_tables')]);	
-});
+Route::get('/admin/database/datasets_table', 'DatasetController@index');
+Route::get('/admin/database/cellines_table', 'CellineController@show');
+Route::get('/admin/database/genes_table', 'GeneController@show');
+Route::get('/admin/database/vanderbilt_table', 'VanderbiltController@index');	
+Route::get('/admin/database/genesets_table', 'GenesetController@index');
+Route::get('/admin/database/citbcmst_table', 'CitbcmstController@index');
+Route::get('/admin/database/enrichementscores_table', 'EnrichementScoreController@index');
+Route::get('/admin/database/expressionlevel_table', 'ExpressionLevelController@index');
+
+//Update
 Route::get('/admin/database/update_data', function(){
 	return view("admin.layoutadmin", ["contentadmin"=>view('admin.update_data')]);	
 });

@@ -7,6 +7,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 /**
  * @class Vanderbilt
@@ -39,5 +40,10 @@ class Vanderbilt extends Model
      public function enrichementscores()
     {
         return $this->hasManyThrough('app\Enrichementscore','App\CellineDataset');
+    }
+    public static function vanderbilt_table(){
+        $vanderbilts=DB::table('vanderbilts')->get();
+        //dd($cell_lines);
+        return $vanderbilts;        
     }
 }

@@ -38,4 +38,9 @@ class Gene extends Model
         //dd($pathways);
     	return $pathways;
     }
+    public static function gene_table(){
+        $genes=DB::table('genes')->get();
+        //dd($genes);
+        return $genes;        
+    }
 }

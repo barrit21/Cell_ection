@@ -30,4 +30,9 @@ class GeneController extends Controller
 		$data = Gene::res_data_gene($gene -> id);
 		return view("layout", ["menu" => "home", "content" => view('gene', array('datum'=> $gene, 'data'=> $data))]);
 	}
+
+	public function show(){
+		$genes=Gene::gene_table();
+		return view("admin.layoutadmin", ["contentadmin" => view('admin.genes_table', array('genes'=> $genes))]);		
+	}
 }

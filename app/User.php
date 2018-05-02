@@ -7,6 +7,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 /**
  * @class User
@@ -32,4 +33,10 @@ class User extends Authenticatable //automatically created by Laravel
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function users(){
+        $users=DB::table('users')->get();
+        //dd($users);
+        return $users;        
+    }
 }

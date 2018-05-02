@@ -67,4 +67,10 @@ class Celline extends Model
     {
         $id_cell = $id;
     }*/
+
+    public static function celline_table(){
+        $cell_lines=DB::table('cellines')->get();
+        //dd($cell_lines);
+        return $cell_lines;
+    }
 }

@@ -34,4 +34,9 @@ class CellineController extends Controller
 		//comming soon = need data $data_gsea = Celline::gsea($celline -> id);
 		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data, 'data_classif'=>$data))]);
 	}
+
+	public function show(){
+		$cell_lines=Celline::celline_table();
+		return view("admin.layoutadmin", ["contentadmin" => view('admin.celline_table', array('cell_lines'=> $cell_lines))]);
+	}
 }

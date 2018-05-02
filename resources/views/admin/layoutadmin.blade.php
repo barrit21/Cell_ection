@@ -30,7 +30,20 @@
     <!-- FullCalendar -->
     <link href="/gentelella/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="/gentelella/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
-
+    <!-- bootstrap-wysiwyg -->
+    <link href="/gentelella/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="/gentelella/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="/gentelella/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- PNotify -->
+    <link href="/gentelella/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="/gentelella/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="/gentelella/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -80,7 +93,26 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-database"></i> Manage Database <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="/admin/database/view_tables">View tables</a></li>
+                      <li><a href="#level1_1">View tables <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                          <li class="sub_menu"><a href="/admin/database/datasets_table">Datasets Table</a>
+                          </li>
+                          <li><a href="/admin/database/cellines_table">Cell lines Table</a>
+                          </li>
+                          <li><a href="/admin/database/genes_table">Genes Table</a>
+                          </li>
+                          <li><a href="/admin/database/genesets_table">Genesets Table</a>
+                          </li>
+                          <li><a href="/admin/database/vanderbilt_table">Vanderbilt Table</a>
+                          </li>
+                          <li><a href="/admin/database/citbcmst_table">CITBCMST Table</a>
+                          </li>
+                          <li><a href="/admin/database/enrichementscores_table">Enrichement Score Table</a>
+                          </li>      
+                          <li><a href="/admin/database/expressionlevel_table">Expression Level Table</a>
+                          </li>                                                                       
+                        </ul>
+                      </li>
                       <li><a href="/admin/database/update_data">Update data</a></li>
                     </ul>
                   </li>
@@ -89,18 +121,21 @@
             </div>
             <!-- /sidebar menu -->
 
+
+
+
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small menu_fixed">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
+              <a data-toggle="tooltip" data-placement="top" title="Settings" id="footersettings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen" id="footersettings">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
+              <a data-toggle="tooltip" data-placement="top" title="Lock" id="footersettings">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/admin/logout">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="/admin/logout" id="footersettings">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -253,13 +288,35 @@
     <!-- bootstrap-daterangepicker -->
     <script src="{{asset('gentelella/vendors/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="{{asset('gentelella/build/js/custom.min.js')}}"></script>
     <!-- FullCalendar -->
     <script src="{{asset('gentelella/vendors/moment/min/moment.min.js')}}"></script>
     <script src="{{asset('gentelella/vendors/fullcalendar/dist/fullcalendar.min.js')}}"></script>
-
-
+    <!-- bootstrap-wysiwyg -->
+    <script src="{{asset('gentelella/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/jquery.hotkeys/jquery.hotkeys.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/google-code-prettify/src/prettify.js')}}"></script>
+    <!-- Datatables -->
+    <script src="{{asset('gentelella/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/jszip/dist/jszip.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="{{asset('gentelella/build/js/custom.min.js')}}"></script>    
+    <!-- PNotify -->
+    <script src="{{asset('gentelella/vendors/pnotify/dist/pnotify.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/pnotify/dist/pnotify.buttons.js')}}"></script>
+    <script src="{{asset('gentelella/vendors/pnotify/dist/pnotify.nonblock.js')}}"></script>
 
     <!-- Google Analytics -->
     <script>
