@@ -6,7 +6,7 @@
 
     <div class="page-title">
       <div class="title_left">
-        <h3>You're Mail Box</h3>
+        <h3>Your Mail Box</h3>
       </div>
 
     <div class="clearfix"></div>

@@ -48,7 +48,7 @@ class ContactController extends Controller
                 $mailconfirm->to($request->email)->subject("Cell'ection : mail confirmation");
             });
 
-	    	return redirect()->back()->with('flash_message', "You're message has been correctly send. You will receive a mail confirmation.");
+	    	return redirect()->back()->with('flash_message', "Your message has been correctly sent. You will receive a mail confirmation.");
 	    }
         else {
             return view("layout", ["menu" => "data", "content" => view('data')]);
