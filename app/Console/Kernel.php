@@ -46,4 +46,5 @@ class Kernel extends ConsoleKernel //automatically created by Laravel
 
         require base_path('routes/console.php');
     }
+    
 }
