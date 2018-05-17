@@ -407,6 +407,12 @@ a.bg-primary:hover {
   background-color: #fff;
 }
 
+/* Cell Page Results -> GSEA */
+#infos_GSEA > .jumbotron {
+  padding: 6px 12px;
+  background-color: # !important;
+}
+
 /* Geneset Page Results */
 #link-gene {
   color:#8B2E00FF;

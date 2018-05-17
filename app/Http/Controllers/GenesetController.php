@@ -22,12 +22,9 @@ class GenesetController extends Controller
 		}
 		
 		$genes = Geneset::get_genes($geneset -> id);
-		//$gene_titles=Geneset::get_genetitle($geneset -> id);
+		$ES = Geneset::getES($geneset -> id);
 
-		//$data_classif = Celline::classif($geneset -> id);
-
-		//comming soon = need data $data_gsea = Celline::gsea($geneset -> id);
-		return view("layout", ["menu" => "home", "content" => view('geneset', array('datum'=> $geneset, 'genes'=> $genes))]);
+		return view("layout", ["menu" => "home", "content" => view('geneset', array('datum'=> $geneset, 'genes'=> $genes, 'ES' => $ES))]);
 	}
 
     public function show(){

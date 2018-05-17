@@ -54,7 +54,7 @@ function linkFormatterGeneset(value)
         <a data-toggle="tab" href="#MenuData">Data</a>
       </li>
       <li>
-        <a data-toggle="tab" href="#MenuGenes">Expression level of oncogenic signatures genes</a>
+        <a data-toggle="tab" href="#MenuGenes">Expression level</a>
       </li>      
       <li>
         <a data-toggle="tab" href="#MenuGSEA">GSEA</a>
@@ -117,7 +117,7 @@ function linkFormatterGeneset(value)
           <?php if(!$genes_actives->count() > 0) {
               echo '<div class="alert alert-warning" id="warningexp">No GSEA has been proceed on this cell line, so there is no data of genes expressions available.</div>';
             } else {
-              echo '<h4>There is '.count($genes_actives).' genes in this oncogenic signature.</h4>';
+              echo '<h4>There is '.count($genes_actives).' genes.</h4>';
             } ?> 
         </blockquote>
 
@@ -165,16 +165,23 @@ function linkFormatterGeneset(value)
     <!-- Third Menu -->
     <div id="MenuGSEA" class="tab-pane">
         <div class="col-xs-12" id="cell">
-          <h1><?php echo $cell->name; ?></h1>
+          <h1>Enrichment in phenotype : <?php echo $cell->name; ?></h1>
         </div>
         <blockquote class="blockquote">
-          <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://software.broadinstitute.org/gsea/doc/GSEAUserGuideFrame.html">here</a> to see more informations about GSEA results.</h3>
+          <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html?_Interpreting_GSEA_Results">here</a> to see more informations about GSEA results.</h3>
+        </blockquote>
+
+        <div class="jumbotron" id="infos_GSEA">
           <?php if(!$gsea_results->count() > 0) {
               echo '<div class="alert alert-warning" id="warningexp">No GSEA has been proceed on this cell line.</div>';
-            } else {
-              echo '<h4>'.count($gsea_results).' pathways have been studied in this cell line.</h4>';
-            } ?> 
-        </blockquote>
+
+          } else {
+              echo '<li>'.count($gsea_results).' / '.$nbpathways.' gene sets are upregulated in phenotype MCF7.</li>';
+              echo '<li>'.count($validation).' gene sets are significant at FDR < 25%.</li>';
+              echo '<li>'.count($pval1percent).' gene sets are significantly enriched at nominal pvalue < 1%.</li>';
+              echo '<li>'.count($pval5percent).' gene sets are significantly enriched at nominal pvalue < 1%.</li>';              
+          } ?> 
+        </div>
 
         <table id="table" 
           data-toggle="table"

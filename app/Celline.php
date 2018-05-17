@@ -86,9 +86,53 @@ class Celline extends Model
         return($gsea_results);
     }
 
+    public static function valide_results($id)
+    {
+        $id_cell=$id;
+        $validation = DB::table('enrichementscores')
+        ->where('celline_id', $id)
+        ->where('enrichementscores.FDRqval', '<', 0.25)
+        ->get();
+
+        //dd($validation);
+        return($validation);
+    }
+
+    public static function fpval1percent($id)
+    {
+        $id_cell=$id;
+        $pval1percent = DB::table('enrichementscores')
+        ->where('celline_id', $id)
+        ->where('enrichementscores.NOMpval', '<', 0.01)
+        ->get();
+
+        //dd($validation);
+        return($pval1percent);        
+    }
+
+    public static function fpval5percent($id)
+    {
+        $id_cell=$id;
+        $pval5percent = DB::table('enrichementscores')
+        ->where('celline_id', $id)
+        ->where('enrichementscores.NOMpval', '<', 0.05)
+        ->get();
+
+        //dd($validation);
+        return($pval5percent);        
+    }    
+
+    public static function get_nb_pathways()
+    {
+        $nbpathways = DB::table('genesets')
+        ->count();
+        return $nbpathways;
+    }
+
     public static function celline_table(){
         $cell_lines=DB::table('cellines')->get();
         //dd($cell_lines);
         return $cell_lines;
     }
+
 }

@@ -39,6 +39,17 @@ class Geneset extends Model
         return $genes;
     }
 
+    public static function getES($id){
+        $id_geneset=$id;
+        $ES = DB::table('enrichementscores')
+        ->join('genesets', 'enrichementscores.geneset_id', '=', 'genesets.id')
+        ->join('cellines', 'enrichementscores.celline_id', '=', 'cellines.id')
+        ->where('genesets.id', $id_geneset)
+        ->get();
+        //dd($ES);
+        return $ES;       
+    }
+
     public static function geneset_table(){
         $genesets=DB::table('genesets')->get();
         //dd($genesets);
