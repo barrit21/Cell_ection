@@ -79,6 +79,8 @@ $( function() {
         window.location.href = "/cell/" + value;
       } else if (cat == "Genes"){
         window.location.href = "/gene/" + value;
+      } else if (cat == "Genesets"){
+        window.location.href = "/geneset/" + value;
       }
     }
     });

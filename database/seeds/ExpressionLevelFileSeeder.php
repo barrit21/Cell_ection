@@ -24,77 +24,82 @@ class ExpressionLevelFileSeeder extends Seeder
      */
     public function run()
     {
+        $file1=file('storage/Data/ranked_gene_list_BT474_versus_REST.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         
-        $fichier = file('./storage/Data/expression_level_MCF7.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        
-        $genes_table=Gene::all();
-        $celline_dataset_table=CellineDataset::all();
+        unset($file1[0]);
 
-        $tab_result = array();
+        foreach ($file1 as $value) {
+            $value=explode("\t",$value);
+            
+            DB::table('expressionlevels')->insert([
+                'celline_id'=>(2),
+                'name'=>($value[0]),
+                'gene_symbol'=>($value[2]),
+                'gene_title'=>($value[3]),
+                'score'=>($value[4]),
+                'created_at'=>Carbon::now(),
+                'updated_at'=>Carbon::now(),
 
-        $raw_files=[];
-
-        foreach ($fichier as $line) {
-            if(!empty($line)){
-                $row= explode("\t", $line);
-                if(preg_match('/^Raw\sFile/',$row[0])){
-                    unset($row[0]);
-                    foreach ($row as $filename) {
-                        $filename= str_replace('"', '', $filename);
-                        if ($celline_dataset_table->contains('file',$filename)===false){
-                            DB::table('celline_dataset')->insert([
-                                'file'=>$filename]);
-                        }
-                        array_push($raw_files, $filename);
-                    }
-                }
-            }
+            ]);
         }
-                
-        $datasets=[];
 
-        foreach ($fichier as $line) {
-            if (!empty($line)){
-                
-                $row= explode("\t", $line);
+        $file2=file('storage/Data/ranked_gene_list_HCC38_versus_REST.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        
+        unset($file2[0]);
 
-                if(preg_match('/^Raw\sFile/',$row[0])){
-                    //echo("rawfile");
-                    unset($row[0]);
-                }
+        foreach ($file2 as $value) {
+            $value=explode("\t",$value);
+            
+            DB::table('expressionlevels')->insert([
+                'celline_id'=>(9),
+                'name'=>($value[0]),
+                'gene_symbol'=>($value[2]),
+                'gene_title'=>($value[3]),
+                'score'=>($value[4]),
+                'created_at'=>Carbon::now(),
+                'updated_at'=>Carbon::now(),
 
-                elseif (preg_match('/^Dataset/',$row[0])){
-                    //echo('dataset');
-                    unset($row[0]);
-                }
-                
-                else{
-                    $data =explode("\t", $line);
-                    $gene_name= str_replace('"', '',$data[0]);
-                    if($genes_table->contains('hugo', $gene_name)===false){
-                        DB::table('genes')->insert([
-                            'hugo'=> ($gene_name),
-                        ]);
-                    }
+            ]);
+        }
 
-                    $gene=Gene::where('hugo', $gene_name)->first();
+        $file3=file('storage/Data/ranked_gene_list_MCF7_versus_REST.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        
+        unset($file3[0]);
 
-                    unset($data[0]);
+        foreach ($file3 as $value) {
+            $value=explode("\t",$value);
+            
+            DB::table('expressionlevels')->insert([
+                'celline_id'=>(1),
+                'name'=>($value[0]),
+                'gene_symbol'=>($value[2]),
+                'gene_title'=>($value[3]),
+                'score'=>($value[4]),
+                'created_at'=>Carbon::now(),
+                'updated_at'=>Carbon::now(),
 
-                    $index=count($data);
+            ]);
+        }
 
-                    for ($i=0 ; $i < $index ; $i++){
-                        //echo($i);
-                        $celline_dataset=CellineDataset::where('file', $raw_files[$i])->first();
-                        
-                        $Exp = Expressionlevel::firstOrCreate([
-                            "expression" => round($data[$i+1],3),
-                            "gene_id" => $gene -> id, 
-                            "celline_dataset_id" => $celline_dataset -> id ,
-                             ]); 
-                    }
-                }
-            }
+        $file4=file('storage/Data/ranked_gene_list_MDAMB453_versus_REST.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        
+        unset($file4[0]);
+
+        foreach ($file4 as $value) {
+            $value=explode("\t",$value);
+            
+            DB::table('expressionlevels')->insert([
+                'celline_id'=>(3),
+                'name'=>($value[0]),
+                'gene_symbol'=>($value[2]),
+                'gene_title'=>($value[3]),
+                'score'=>($value[4]),
+                'created_at'=>Carbon::now(),
+                'updated_at'=>Carbon::now(),
+
+            ]);
+
+            //dd($value);
         }
     }
 }

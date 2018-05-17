@@ -24,7 +24,7 @@ class CreateGenesTable extends Migration
             $table->increments('id');
             $table->char('hugo',45)->nullable();
             $table->char('info',100)->nullable();
-            $table->integer('uniprot')->nullable();
+            $table->integer('entrez')->nullable();
             $table->timestamps();
         });
     }

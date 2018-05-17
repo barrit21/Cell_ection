@@ -14,6 +14,7 @@ Route::get('/', 'HomePageController@index');
 // Results
 Route::get('/cell/{name}', 'CellineController@index');
 Route::get('/gene/{name}', 'GeneController@index');
+Route::get('/geneset/{name}', 'GenesetController@index');
 
 //Contact us
 Route::get('/contact_us', 'ContactController@create')->name('createcontact');
@@ -56,26 +57,25 @@ Route::post('/admin/login', 'SessionsController@store');
 //Log out
 Route::get('/admin/logout', 'SessionsController@destroy');
 
+// Middleware AUTH
 Route::middleware('auth')->group(function () {
+	
 	//Home Admin
 	Route::get('/admin/home', 'HomeController@index');
-
-	// Middleware AUTH
+	
 	Auth::routes('/admin/home', 'HomeController@index');
 
-	//General : Home
+	//General : Inbox
 	Route::get('/admin/inbox', function(){
 		return view("admin.layoutadmin", ["contentadmin"=>view('admin.inbox')]);
 	});
 	Route::get('/admin/calendar', 'EventController@index');
 
-
-	//General : Contacts
-
 	// Registration
 	Route::get('/admin/register', 'RegistrationController@create');
 	Route::post('/admin/register', 'RegistrationController@store');
 
+	//Admins
 	Route::get('/admin/actual_admins', 'UserController@index');
 
 	//Delete Admins
@@ -86,7 +86,7 @@ Route::middleware('auth')->group(function () {
 	Route::get('/admin/database/cellines_table', 'CellineController@show');
 	Route::get('/admin/database/genes_table', 'GeneController@show');
 	Route::get('/admin/database/vanderbilt_table', 'VanderbiltController@index');	
-	Route::get('/admin/database/genesets_table', 'GenesetController@index');
+	Route::get('/admin/database/genesets_table', 'GenesetController@shpw');
 	Route::get('/admin/database/citbcmst_table', 'CitbcmstController@index');
 	Route::get('/admin/database/enrichementscores_table', 'EnrichementScoreController@index');
 	Route::get('/admin/database/expressionlevel_table', 'ExpressionLevelController@index');

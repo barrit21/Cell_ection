@@ -30,7 +30,7 @@ class CelDatasetLigneeFileSeeder extends Seeder
         unset($fichier[0]); //deletion of the first line (columns' name)
         foreach ($fichier as $value) {
             $value=explode("\t",$value);
-            $value[2]=trim($value[2]);            
+            $value[2]=trim($value[2]);
             $dataset=Dataset::all();
             if ($dataset->contains('name', $value[0])===false){ //verification that the dataset is already in 'dataset'
                 DB::table('datasets')->insert([

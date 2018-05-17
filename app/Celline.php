@@ -59,14 +59,32 @@ class Celline extends Model
         ->get();        
         
         //dd($data);
-
         return $data;
     }
 
-    /*public static function gsea($id)
+    public static function genes_active($id)
     {
         $id_cell = $id;
-    }*/
+        $genes_actives = DB::table('expressionlevels')
+        ->join('cellines', 'expressionlevels.celline_id', '=', 'cellines.id' )
+        ->where('cellines.id', $id_cell)
+        ->select('expressionlevels.name', 'expressionlevels.gene_symbol', 'expressionlevels.gene_title', 'expressionlevels.score')
+        ->get();
+
+        //dd($genes_actives);
+        return($genes_actives);
+    }
+
+    public static function get_gsea_results($id)
+    {
+        $id_cell = $id;
+        $gsea_results = DB::table('enrichementscores')
+        ->where('celline_id', $id)
+        ->get();
+
+        //dd($gsea_results);
+        return($gsea_results);
+    }
 
     public static function celline_table(){
         $cell_lines=DB::table('cellines')->get();

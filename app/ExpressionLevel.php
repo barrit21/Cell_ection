@@ -17,13 +17,13 @@ class Expressionlevel extends Model
 	/**
 	 * @brief Create relations between models
 	 */
-     public function celline_dataset()
+     public function celline()
     {
-    	return $this->belongsTo('App\CellineDataset');
+    	return $this->belongsTo('App\Celline');
     }
-    public function genes()
+    public function enrichementscores()
     {
-    	return $this->belongsTo('App\Gene');
+    	return $this->belongsTo('App\Enrichementscore');
     }
     public static function expressionlevel_table(){
         $explevels=DB::table('expressionlevels')->get();

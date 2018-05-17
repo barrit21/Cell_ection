@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="/css/bootstrap-editable.css">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -12,13 +11,13 @@
         <![endif]-->
     <title>CELL'ECTION</title>
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="/zontal-admin/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/zontal-admin/css/bootstrap.css"/>
     <!-- FONT AWESOME ICONS  -->
-    <link href="/zontal-admin/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/zontal-admin/css/font-awesome.css"/>
     <!-- CUSTOM STYLE  -->
-    <link href="/zontal-admin/css/style.css" rel="stylesheet" />
-    <link href="/css/style.css" rel="stylesheet" />
-    <link href="/css/bootstrap-editable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/zontal-admin/css/style.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-editable.css"/>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,6 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="/css/bootstrap-editable.css">
 
     <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->

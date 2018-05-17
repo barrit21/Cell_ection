@@ -406,3 +406,36 @@ a.bg-primary:hover {
 #cell {
   background-color: #fff;
 }
+
+/* Geneset Page Results */
+#link-gene {
+  color:#8B2E00FF;
+}
+#more_info {
+  color:#939393FF;
+  text-align: right;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #8B2E00FF;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    color: #FF5500;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+/* Expression Level Page Result */
+#warningexp {
+  background-color:#FF443EFF;
+  color:#000000FF;
+}

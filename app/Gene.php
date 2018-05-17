@@ -38,6 +38,30 @@ class Gene extends Model
         //dd($pathways);
     	return $pathways;
     }
+
+    public static function get_expressionlevel($id){
+        $id_gene = $id;
+        $expressionlevels = DB::table('expressionlevels')
+        ->join('genes', 'expressionlevels.gene_symbol', 'LIKE', 'genes.hugo')
+        ->join('cellines', 'cellines.id', '=', 'expressionlevels.celline_id')
+        ->where('genes.id', $id_gene)
+        ->get();
+
+        //dd($expressionlevels);
+        return($expressionlevels);
+    }
+
+    public static function get_genetitle($id){
+        $id_gene = $id;
+        $gene_title = DB::table('expressionlevels')
+        ->join('genes', 'expressionlevels.gene_symbol', 'LIKE', 'genes.hugo')
+        ->where('genes.id', $id_gene)
+        ->first();
+
+        //dd($gene_title);
+        return($gene_title);
+    }
+
     public static function gene_table(){
         $genes=DB::table('genes')->get();
         //dd($genes);

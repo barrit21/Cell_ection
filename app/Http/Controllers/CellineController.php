@@ -29,10 +29,14 @@ class CellineController extends Controller
 		}
 		$data = Celline::liste_cell_datasets($celline -> id);
 
+		$genes_actives = Celline::genes_active($celline -> id);
+
+		$gsea_results = Celline::get_gsea_results($celline -> id);
+
 		//$data_classif = Celline::classif($celline -> id);
 
 		//comming soon = need data $data_gsea = Celline::gsea($celline -> id);
-		return view("layout", ["menu" => "home", "content" => view('cell', array('datum'=> $celline, 'data'=> $data, 'data_classif'=>$data))]);
+		return view("layout", ["menu" => "home", "content" => view('cell', array('cell'=> $celline, 'data'=> $data, 'data_classif'=>$data, 'genes_actives' => $genes_actives, 'gsea_results' => $gsea_results))]);
 	}
 
 	public function show(){

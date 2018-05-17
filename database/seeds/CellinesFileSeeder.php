@@ -17,16 +17,14 @@ class CellinesFileSeeder extends Seeder
      */
     public function run()
     {   
-        $fichier=file('./storage/Data/cell_lines.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES); // get file's datas
+        $file=file('./storage/Data/cellines.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES); // get file's datas
 
-        unset($fichier[0]); //delete the first line = columns' name
+        unset($file[0]); //delete the first line = columns' name
 
-        foreach($fichier as $key){
-            $infos=explode("\t", $key);
-            $infos[0]=str_replace('"','',$infos[0]);
-            $infos[2]=trim($infos[2]);
+        foreach($file as $key){
+            $infos=explode(',', $key);
             DB::table('cellines')->insert([
-                'name'=>($infos[0]),
+                'name'=>($infos[1]),
                 'replicate'=>intval($infos[2]),
             ]);
         }

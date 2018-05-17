@@ -23,12 +23,13 @@
             <div class="clearfix"></div>
           </div>
           <div class="x_content">
-            <table id="datatable" class="table table-striped table-bordered">
+            <table id="datatable" 
+            class="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>ID</th>
                   <th>Hugo </th>
-                  <th>Code</th>
+                  <th>Entrez ID</th>
                 </tr>
               </thead>
 
@@ -37,7 +38,7 @@
                 <tr>
                   <td><?php echo $gene->id; ?></td>
                   <td><?php echo $gene->hugo; ?></td>
-                  <td><?php echo $gene->uniprot; ?></td>
+                  <td><?php echo $gene->entrez; ?></td>
                 </tr>
                 <?php endforeach; ?>
               </tbody>

@@ -23,12 +23,14 @@ class GeneController extends Controller
 	 */
     public function index($hugo) 
 	{
-		$gene = Gene::where('hugo', $hugo)->first();
-		if($gene == null){
+		$genes = Gene::where('hugo', $hugo)->first();
+		if($genes == null){
 			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
-		$data = Gene::res_data_gene($gene -> id);
-		return view("layout", ["menu" => "home", "content" => view('gene', array('datum'=> $gene, 'data'=> $data))]);
+		$data = Gene::res_data_gene($genes -> id);
+		$expressionlevels = Gene::get_expressionlevel($genes -> id);
+		$gene_title = Gene::get_genetitle($genes -> id);
+		return view("layout", ["menu" => "home", "content" => view('gene', array('genes'=> $genes, 'data'=> $data, 'expressionlevels' => $expressionlevels, 'gene_title' => $gene_title))]);
 	}
 
 	public function show(){

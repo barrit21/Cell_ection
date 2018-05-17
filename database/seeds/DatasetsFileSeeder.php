@@ -20,16 +20,15 @@ class DatasetsFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('./storage/Data/datasets.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $file=file('./storage/Data/datasets.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-        unset($fichier[1]);
-        unset($fichier[0]);
+        unset($file[0]);
 
-        foreach ($fichier as $line) {
-            $line=str_replace('"', '', $line);
-            $line=trim($line);
+        foreach ($file as $value) {
+            $value=explode(',',$value);
+          
             DB::table('datasets')->insert([
-                'name'=>($line),
+                'name'=>$value[1],
             ]);
         }
     }

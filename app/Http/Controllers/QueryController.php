@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Celline;
 use App\Gene;
+use App\Geneset;
 
 /**
  * @class QueryController
@@ -36,6 +37,11 @@ class QueryController extends Controller
         $valuesgenes=Gene::where('hugo', 'LIKE', '%'.$term.'%')->get()->pluck('hugo')->take(5);
         foreach ($valuesgenes as $valuesgene) {
             array_push($searchH, ["category"=>'Genes', "value"=>$valuesgene]);
+        }
+
+        $valuesgenesets=Geneset::where('name', 'LIKE', '%'.$term.'%')->get()->pluck('name')->take(5);
+        foreach ($valuesgenesets as $valuesgeneset) {
+            array_push($searchH, ["category"=>'Genesets', "value"=>$valuesgeneset]);
         }
 
         return response()->json($searchH);
