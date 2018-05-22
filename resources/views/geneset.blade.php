@@ -3,6 +3,19 @@
 <?php
 $nbcol = 2;
 $nombre_ligne = ceil(count($genes)/$nbcol);
+
+function validGSEA($pval){
+  if($pval < 0.01)
+    {
+      $class = 'class="valid-GSEA"';
+      return $class;
+    }
+  elseif ($pval < 0.05) {
+      $class = 'class="hypothetical-valid-GSEA"';
+      return $class;
+  }
+}
+
 ?>
 
 <script type="text/javascript">
@@ -22,13 +35,14 @@ var $table = $('#table');
   $(trBoldBlue).on("click", "tr", function (){
           $(this).toggleClass("bold-blue");
   });
+
 function linkFormatter(value)
 {
-    return '<a href="/gene/'+value+'" target="_blank">'+value+'</a>';
+    return '<a href="/gene/'+value+'">'+value+'</a>';
 }
 function linkFormatterCell(value)
 {
-    return '<a href="/cell/'+value+'" target="_blank">'+value+'</a>';
+    return '<a href="/cell/'+value+'">'+value+'</a>';
 }
  function imgFormatter(value) 
  {
@@ -44,7 +58,7 @@ function linkFormatterCell(value)
  	<div class="container">
 	  <nav aria-label="...">
 	    <ul class="pager">
-	      <li class="previous"><a href="/"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
+        	<li class="previous"><a href="#null" onclick="javascript:history.back();"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
 	    </ul>
 	  </nav>
 
@@ -64,7 +78,7 @@ function linkFormatterCell(value)
         		<div class="col-xs-12" id="cell">
           			<h1><?php echo $datum->name; ?></h1>
 			            <blockquote class="blockquote">
-			            	<h4>There are <?=count($genes);?> genes are involved in this pathway.</h4>
+			            	<h4>There are <?=count($genes);?> genes involved in this pathway.</h4>
 			              	<p><i>More informations are available on the Broad Institute website.</i><a href="http://software.broadinstitute.org/gsea/msigdb/cards/<?=$datum->name; ?>" class="glyphicon glyphicon-info-sign" target="_blank"></a></p>
 			            </blockquote>
 
@@ -112,6 +126,8 @@ function linkFormatterCell(value)
           			<h1><?php echo $datum->name; ?></h1>
 			            <blockquote class="blockquote">
 							<h4><?php echo $datum->name; ?> is enrich in <?=count($ES);?> cell line(s).</h4>
+      						<h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html?_Interpreting_GSEA_Results" target="_blank">here</a> to see more informations about GSEA results.</h3>
+      						<h3>You will find <a href="/GSEA/parameters">here</a> more informations about our GSEA analysis' parameters.</h3>						
 			            </blockquote>
 
 				          <table id="table" 
@@ -149,7 +165,7 @@ function linkFormatterCell(value)
 					        </thead>    
 					        <tbody>
 					            <?php foreach ($ES as $oneES) : ?>
-					                <tr>
+					                <tr <?php echo validGSEA($oneES->NOMpval); ?>>
 					                    <td><?php echo $oneES->name; ?></td>
 					                    <td><?php echo $oneES->size; ?></td>
 					                    <td><?php echo $oneES->ES; ?></td>

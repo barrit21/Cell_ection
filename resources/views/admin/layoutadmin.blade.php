@@ -312,7 +312,8 @@
     <script src="{{asset('gentelella/vendors/pdfmake/build/pdfmake.min.js')}}"></script>
     <script src="{{asset('gentelella/vendors/pdfmake/build/vfs_fonts.js')}}"></script>
     <!-- Custom Theme Scripts -->
-    <script src="{{asset('gentelella/build/js/custom.min.js')}}"></script>    
+    <!-- <script src="{{asset('gentelella/build/js/custom.min.js')}}"></script> -->
+    <script src="{{asset('gentelella/build/js/custom.js')}}"></script>
     <!-- PNotify -->
     <script src="{{asset('gentelella/vendors/pnotify/dist/pnotify.js')}}"></script>
     <script src="{{asset('gentelella/vendors/pnotify/dist/pnotify.buttons.js')}}"></script>

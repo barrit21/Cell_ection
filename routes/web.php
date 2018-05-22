@@ -44,6 +44,10 @@ Route::get('/classification_info', function(){
 	return view("layout", ["menu" => "home", "content" => view('info_classif')]);
 });
 
+// GSEA analysis parameters
+Route::get('/GSEA/parameters', function(){
+	return view("layout", ["menu"=>"home", "content"=> view('GSEA_parameters')]);
+});
 
 
 
@@ -92,9 +96,8 @@ Route::middleware('auth')->group(function () {
 	Route::get('/admin/database/expressionlevel_table', 'ExpressionLevelController@index');
 
 	//Update
-	Route::get('/admin/database/update_data', function(){
-		return view("admin.layoutadmin", ["contentadmin"=>view('admin.update_data')]);	
-	});
+	Route::get('/admin/database/update_data', 'UpdateDataController@index');
+	Route::post('/admin/database/update_data', 'UpdateDataController@store');
 
 	//Help
 	Route::get('/admin/help', function(){

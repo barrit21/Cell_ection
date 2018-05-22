@@ -36,7 +36,7 @@ class ContactController extends Controller
                 'msg'=>$request->message
             ], function($mail) use($request){
                 $mail->from($request->email);
-                $mail->to('cellection@univ-lyon1.fr')->subject("You've got a new Email from a guest");
+                $mail->to('cellection69@gmail.com')->subject("You've got a new Email from a guest");
             });
 
             Mail::send('emails.mailconfirm', [
@@ -44,7 +44,7 @@ class ContactController extends Controller
                 'subject'=>$request->subject,
                 'msg'=>$request->subject
             ], function($mailconfirm) use($request){
-                $mailconfirm->from("no-response@univ-lyon1.fr");
+                $mailconfirm->from("cellection69@gmail.com");
                 $mailconfirm->to($request->email)->subject("Cell'ection : mail confirmation");
             });
 

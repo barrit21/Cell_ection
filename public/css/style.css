@@ -326,6 +326,12 @@ ui-autocomplete-input {
   background-color: #FFFFFF !important;
 }
 
+.ui-menu-item-wrapper.ui-state-active {
+  background-color: #FF5500FF !important;
+  border-color: #C74A17 !important;
+  color: white !important;
+}
+
 ::selection{
   background-color: #C74A17;
   color: white;
@@ -412,6 +418,20 @@ a.bg-primary:hover {
   padding: 6px 12px;
   background-color: # !important;
 }
+
+.color-sample {
+  display:inline-block;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.valid-GSEA {
+  background-color: rgba(112, 196, 100, 0.5) !important;
+}
+
+.hypothetical-valid-GSEA {
+  background-color: rgba(255, 170, 0, 0.5) !important;
 
 /* Geneset Page Results */
 #link-gene {

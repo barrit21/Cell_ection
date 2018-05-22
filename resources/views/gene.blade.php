@@ -25,7 +25,7 @@ var $table = $('#table');
 
 function linkFormatterOther(value)
 {
-    return '<a href="/geneset/'+value+'" target="_blank">'+value+'</a>';
+    return '<a href="/geneset/'+value+'">'+value+'</a>';
 }
 function linkFormatterBI(value)
 {
@@ -33,7 +33,7 @@ function linkFormatterBI(value)
 }
 function linkFormatterCell(value)
 {
-    return '<a href="/cell/'+value+'" target="_blank">'+value+'</a>';
+    return '<a href="/cell/'+value+'">'+value+'</a>';
 }
  function imgFormatter(value) 
  {
@@ -58,7 +58,7 @@ function linkFormatterCell(value)
 
     <ul class="nav nav-tabs" id="Tabs">
       <li class="active">
-        <a data-toggle="tab" href="#MenuPathways">Patwhays</a>
+        <a data-toggle="tab" href="#MenuPathways">Pathways</a>
       </li>
       <li>
         <a data-toggle="tab" href="#GeneExp">Gene Expression</a>
@@ -78,7 +78,7 @@ function linkFormatterCell(value)
                 </h1>
                 <blockquote class="blockquote">
                   <h3>Entrez ID : <?= $genes->entrez; ?></h3>
-                  <h4><?= $genes->hugo;?> is involve into <?= count($data);?> pathways.</h4>
+                  <h4><?= $genes->hugo;?> is involved in <?= count($data);?> pathways.</h4>
                 </blockquote>
 
                 <table id="table" 
@@ -95,7 +95,7 @@ function linkFormatterCell(value)
 
               <thead>
               <tr>
-                  <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Patwhay</th>
+                  <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway</th>
                   <th data-formatter="linkFormatterBI">Broad Institute website</th>
               </tr>
               </thead>    
@@ -127,7 +127,7 @@ function linkFormatterCell(value)
             <?php if(is_null($gene_title)) {
               echo '<div class="alert alert-warning" id="warningexp">No probsets were found for this gene.</div>';
             } else {
-              echo '<h4>'.$genes->hugo.' has been found into '.$nbcell.' cell lines.</h4>';
+              echo '<h4>'.$genes->hugo.' has been found in '.$nbcell.' cell lines.</h4>';
             } ?> 
             </blockquote>
 

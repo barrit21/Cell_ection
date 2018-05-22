@@ -2,6 +2,11 @@
 
 <div class="content-wrapper">
  	<div class="container">
+		<nav aria-label="...">
+			<ul class="pager">
+	        <li class="previous"><a href="#null" onclick="javascript:history.back();"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
+			</ul>
+		</nav>
 		<div class="jumbotron">
 		  <h1>Something went wrong</h1>
 		  <p>The search you tried to perform does not work. It seems that the gene or the cell line you are looking for is not present in our database.</p>

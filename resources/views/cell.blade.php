@@ -2,6 +2,19 @@
 
 <?php
 $nbreplicate=count($data);
+
+function GSEA($pval){
+  if($pval < 0.01)
+    {
+      $class = 'class="valid-GSEA"';
+      return $class;
+    }
+  elseif ($pval < 0.05) {
+      $class = 'class="hypothetical-valid-GSEA"';
+      return $class;
+  }
+}
+
 ?>
 
 <div class="content-wrapper">
@@ -9,7 +22,7 @@ $nbreplicate=count($data);
 
   <nav aria-label="...">
     <ul class="pager">
-      <li class="previous"><a href="/"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
+      <li class="previous"><a href="#null" onclick="javascript:history.back();"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
     </ul>
   </nav>
 
@@ -33,11 +46,11 @@ var $table = $('#table');
 
 function linkFormatterGene(value) 
 {
-    return '<a href="/gene/'+value+'" target="_blank">'+value+'</a>';
+    return '<a href="/gene/'+value+'">'+value+'</a>';
 }
 function linkFormatterGeneset(value) 
 {
-    return '<a href="/geneset/'+value+'" target="_blank">'+value+'</a>';
+    return '<a href="/geneset/'+value+'">'+value+'</a>';
 }
  function imgFormatter(value) 
  {
@@ -99,7 +112,7 @@ function linkFormatterGeneset(value)
                   <td><?php echo $datum->name; ?></td>
                   <td><?php echo $datum->classv; ?></td>
                   <td><?php echo $datum->correlation; ?></td>
-                  <td><?php echo $datum->pval; ?></td>
+                  <td><?php echo utf8_encode($datum->pval); ?></td>
                   <td><?php echo $datum->class; ?></td>
               </tr>
           <?php endforeach; ?>
@@ -168,7 +181,8 @@ function linkFormatterGeneset(value)
           <h1>Enrichment in phenotype : <?php echo $cell->name; ?></h1>
         </div>
         <blockquote class="blockquote">
-          <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html?_Interpreting_GSEA_Results">here</a> to see more informations about GSEA results.</h3>
+          <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html?_Interpreting_GSEA_Results" target="_blank">here</a> to see more informations about GSEA results.</h3>
+          <h3>You will find <a href="/GSEA/parameters">here</a> more informations about our GSEA analysis' parameters.</h3>
         </blockquote>
 
         <div class="jumbotron" id="infos_GSEA">
@@ -178,8 +192,8 @@ function linkFormatterGeneset(value)
           } else {
               echo '<li>'.count($gsea_results).' / '.$nbpathways.' gene sets are upregulated in phenotype MCF7.</li>';
               echo '<li>'.count($validation).' gene sets are significant at FDR < 25%.</li>';
-              echo '<li>'.count($pval1percent).' gene sets are significantly enriched at nominal pvalue < 1%.</li>';
-              echo '<li>'.count($pval5percent).' gene sets are significantly enriched at nominal pvalue < 1%.</li>';              
+              echo '<li>'.count($pval1percent).' gene sets are significantly enriched at nominal pvalue < 1%.  <span class="color-sample valid-GSEA"></span></li>';
+              echo '<li>'.count($pval5percent).' gene sets are significantly enriched at nominal pvalue < 5%.  <span class="color-sample hypothetical-valid-GSEA"></span></li>';              
           } ?> 
         </div>
 
@@ -218,17 +232,17 @@ function linkFormatterGeneset(value)
           </thead>    
           <tbody>
             <?php foreach ($gsea_results as $gsea_result) : ?>
-                <tr>
+                <tr <?php echo GSEA($gsea_result->NOMpval); ?>>
                     <td><?php echo $gsea_result->link; ?></td>
-                    <td><?php echo $gsea_result->size; ?></td>
-                    <td><?php echo $gsea_result->ES; ?></td>
-                    <td><?php echo $gsea_result->NES; ?></td>
-                    <td><?php echo $gsea_result->NOMpval; ?></td>
-                    <td><?php echo $gsea_result->FDRqval; ?></td>
+                    <td ><?php echo $gsea_result->size; ?></td>
+                    <td ><?php echo $gsea_result->ES; ?></td>
+                    <td ><?php echo $gsea_result->NES; ?></td>
+                    <td ><?php echo $gsea_result->NOMpval; ?></td>
+                    <td ><?php echo $gsea_result->FDRqval; ?></td>
                     <td><?php echo $gsea_result->FWERqval; ?></td>
-                    <td><?php echo $gsea_result->rank_at_max; ?></td>
+                    <td ><?php echo $gsea_result->rank_at_max; ?></td>
                     <td><?php echo $gsea_result->tags; ?></td>
-                    <td><?php echo $gsea_result->list; ?></td>
+                    <td ><?php echo $gsea_result->list; ?></td>
                     <td><?php echo $gsea_result->signal; ?></td>
                 </tr>
             <?php endforeach; ?>
