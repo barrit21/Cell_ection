@@ -77,8 +77,6 @@
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/admin/home">Dashboard</a></li>
-                      <li><a href="/admin/inbox">Inbox</a></li>
-                      <li><a href="/admin/calendar">Calendar</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Contacts <span class="fa fa-chevron-down"></span></a>
@@ -93,26 +91,6 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-database"></i> Manage Database <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#level1_1">View tables <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                          <li class="sub_menu"><a href="/admin/database/datasets_table">Datasets Table</a>
-                          </li>
-                          <li><a href="/admin/database/cellines_table">Cell lines Table</a>
-                          </li>
-                          <li><a href="/admin/database/genes_table">Genes Table</a>
-                          </li>
-                          <li><a href="/admin/database/genesets_table">Genesets Table</a>
-                          </li>
-                          <li><a href="/admin/database/vanderbilt_table">Vanderbilt Table</a>
-                          </li>
-                          <li><a href="/admin/database/citbcmst_table">CITBCMST Table</a>
-                          </li>
-                          <li><a href="/admin/database/enrichementscores_table">Enrichement Score Table</a>
-                          </li>      
-                          <li><a href="/admin/database/expressionlevel_table">Expression Level Table</a>
-                          </li>                                                                       
-                        </ul>
-                      </li>
                       <li><a href="/admin/database/update_data">Update data</a></li>
                     </ul>
                   </li>
@@ -164,68 +142,9 @@
                 </li>
 
                 <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                  <a href="https://mail.google.com/mail/u/1/#inbox" target="_blank">
                     <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
                   </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
                 </li>
               </ul>
             </nav>

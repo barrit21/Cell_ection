@@ -24,7 +24,7 @@
         <div id="menu01" class="tab-pane fade active in">
             <div class="jumbotron">
               <h1 class="text-center">How to cite us</h1>
-              <div>Waiting for the publication...</div>
+              <div>Coming soon...</div>
             </div>
         </div>
 
@@ -34,7 +34,11 @@
             <div class="jumbotron">
               <h1 class="text-center">How to use</h1>
               <div align="justify">
-                Cell'ection is a website for the display of specific data of cell lines, genes and pathways concerning breast cancer. The goal is to be able to bring you the maximum information concerning your request.
+                <a href="http://cellection.univ-lyon1.fr"><b>Cell'ection</b></a> is a website for the display of specific data of cell lines, genes and pathways concerning breast cancer. The goal is to be able to bring you the maximum information concerning your request. </br>
+                <div class="jumbotron">
+                  <h2>Prerequisites</h2>
+                  We recommend you to use Google Chrome or Firefox for this website.
+                </div>
               </div>
             </div>
         </div>

@@ -42,20 +42,21 @@
     <script src="{{asset('js/bootstrap-table/jquery.base64.js')}}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119551106-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119771968-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      gtag('config', 'UA-119551106-1');
-    </script>
+  gtag('config', 'UA-119771968-1');
+</script>
+
 </head>
 <body>
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12">                
                     <span id="admin">
                         @if (! Auth::check())
                             <a href="/admin/login" @if ($menu == 'sign') class='menu-top-active' @endif><i class="glyphicon glyphicon-off" id="loginbutton"></i></a>
@@ -66,6 +67,11 @@
                             <a href="/admin/logout"><i class="glyphicon glyphicon-off" id="loginbutton"></i></a>
                         @endif
                     </span>
+                    @if (Auth::check())
+                        <div class="col-sm">
+                            <a href="/admin/home" id="author-check">{{Auth::user()->name}}</a>
+                        </div> 
+                    @endif                       
                 </div>
             </div>
         </div>
@@ -100,22 +106,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/contact_us" @if ($menu == 'contact') class='menu-top-active' @endif>Contact</a>
+                                <a href="/contact_us" @if ($menu == 'contact') class='menu-top-active' @endif>Contact Us</a>
                             </li>                            
                             <li>
                                 <a href='/data' @if ($menu == 'data') class='menu-top-active' @endif>
                                     Data
                                 </a>
                             </li>
-                            <li>
-                                @if (Auth::check())
-                                    <a href="/admin/home">{{Auth::user()->name}}</a>
-                                @endif
-                            </li>
-                            <!-- <li><a href="forms.html">Forms</a></li>*/
-                             <li><a href="login.html">Login Page</a></li>
-                            <li><a href="blank.html">About Us</a></li>-->
-
                         </ul>
                     </div>
                 </div>

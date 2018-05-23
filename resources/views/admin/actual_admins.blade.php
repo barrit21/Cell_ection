@@ -37,9 +37,15 @@
                     </div>
                   </div>
                   <div class="col-xs-12 bottom text-center">
-                    <a type="button" href="{{ url('/admin/actual_admins',$user->id) }}" class="remove_item btn btn-primary btn-xs">
-                      Delete Admin <i class="fa fa-times"></i>
-                    </a>
+                  
+                  <?php 
+                    $currentuser = Auth::user();
+
+                    if($currentuser->name !== $user->name){
+                      echo '<a type="button" href="{{ url('.'/admin/actual_admins'.',$user->id) }}" class="remove_item btn btn-primary btn-xs">Delete Admin <i class="fa fa-times"></i></a>';
+                    }
+                  ?>    
+
                   </div>                   
                 </div>
               </div>

@@ -66,14 +66,7 @@ Route::middleware('auth')->group(function () {
 	
 	//Home Admin
 	Route::get('/admin/home', 'HomeController@index');
-	
 	Auth::routes('/admin/home', 'HomeController@index');
-
-	//General : Inbox
-	Route::get('/admin/inbox', function(){
-		return view("admin.layoutadmin", ["contentadmin"=>view('admin.inbox')]);
-	});
-	Route::get('/admin/calendar', 'EventController@index');
 
 	// Registration
 	Route::get('/admin/register', 'RegistrationController@create');
@@ -84,16 +77,6 @@ Route::middleware('auth')->group(function () {
 
 	//Delete Admins
 	Route::get('/admin/actual_admins/{id}', 'UserController@destroy');
-
-	//Database : View & Update
-	Route::get('/admin/database/datasets_table', 'DatasetController@index');
-	Route::get('/admin/database/cellines_table', 'CellineController@show');
-	Route::get('/admin/database/genes_table', 'GeneController@show');
-	Route::get('/admin/database/vanderbilt_table', 'VanderbiltController@index');	
-	Route::get('/admin/database/genesets_table', 'GenesetController@shpw');
-	Route::get('/admin/database/citbcmst_table', 'CitbcmstController@index');
-	Route::get('/admin/database/enrichementscores_table', 'EnrichementScoreController@index');
-	Route::get('/admin/database/expressionlevel_table', 'ExpressionLevelController@index');
 
 	//Update
 	Route::get('/admin/database/update_data', 'UpdateDataController@index');
