@@ -145,7 +145,7 @@ function linkFormatterCell(value)
           <thead>
           <tr>
               <th data-field="Cell" data-formatter="linkFormatterCell" data-filter-control="select" data-sortable="true">Cell line</th>
-              <th data-field="Score" data-sortable="true">Expression Level</th>
+              <th data-field="Score" data-sortable="true">Ranked Gene score</th>
           </tr>
           </thead>    
           <tbody>

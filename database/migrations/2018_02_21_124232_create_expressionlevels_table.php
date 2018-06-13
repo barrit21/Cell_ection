@@ -27,6 +27,8 @@ class CreateExpressionlevelsTable extends Migration
             $table->char('gene_symbol');
             $table->char('gene_title');
             $table->float('score');
+            $table->float('meanexp');
+            $table->float('sdexp');
             $table->timestamps();
         });
 

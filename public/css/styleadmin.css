@@ -1,5 +1,11 @@
 /* ----- Side Bar ----- */
 
+/* Global font */
+@font-face {
+    font-family: "roboto";
+    src: url("Roboto-Regular.ttf") format("truetype");
+}
+
 /* Backgrounds */
 .left_col {
 	background-color: #1F252AFF;
@@ -121,55 +127,136 @@ body{
     color:#343434FF !important;
 }
 
-/* ------ Calendar -----*/
-.fc-content {
-    background-color:#959595FF !important;
-    border-color: #464646FF ;
-    z-index: 0 !important;
-}
-.fc-event-container {
-    border-color: #464646FF ;
-}
-.fc-event {
-    border: 1px solid #464646FF !important;
-    background-color: #464646FF !important;
+/* ----- Help Page ----- */
+/*== H nav ==*/
+#op-horizontalnav {
+    background:#1F252AFF; 
+    position:fixed; 
+    top:7%; 
+    right:0; 
+    left:0;
 }
 
-.fc-unthemed td.fc-today {
-    background: #FFCD90FF !important;
+#op-horizontalnav .op-sectionlist {
+    width:100%; 
+    max-width:1280px; 
+    margin:auto;
+    padding:0; 
+    text-align:center !important; 
+    display:table;
 }
 
-.fc-time-grid-event {
-    background-color:#959595FF !important;
+#op-horizontalnav .op-v-item {
+    list-style:none; 
+    display:table-cell;
+    text-align:center !important;
+    font-size:16px
 }
 
-.fc-event-dot {
-    background-color: #C74A17 !important;
+#op-horizontalnav .op-v-item .op-v-link {
+    color:#fff; 
+    padding:16px 100px;
+    display:block;
+    text-decoration:none;
+    text-align:center !important;
 }
 
-#text {
-    color:#1F252AFF !important;
+#op-horizontalnav .op-v-item .op-v-link:hover, #op-horizontalnav .op-v-link.active {
+    background-color:#fff;
+    color:#171717;
+    text-align:center !important;
 }
 
-.mail_list {
-    color:#1F252AFF !important;    
+.navbar-fixed {
+    top: 0 !important;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
 }
 
-.attachment {
-    color:#1F252AFF !important;     
+/*== V nav ==*/
+#op-verticalnav {
+    position:fixed; 
+    top:0; 
+    right:0; 
+    left: auto;
+    height: 100%;
+    display:table
 }
 
-/* ----- Mail Box -----*/
-#compose {
-    background-color: #C74A17 !important;
-    border-color: #8D3310 !important;    
+#op-verticalnav .op-sectionlist {
+    height:100%; 
+    text-align:center; 
+    display:table-cell; 
+    vertical-align:middle
 }
 
-.compose-header {
-   background-color: #EE8348 !important; 
+#op-verticalnav .op-v-item {
+    display:block
 }
 
-#send {
-    background-color: #C74A17 !important;
-    border-color: #8D3310 !important;     
+#op-verticalnav .justify-height {
+
+}
+
+#op-verticalnav .op-v-link {
+    display:block; 
+    margin:12px 0
+}
+
+#op-verticalnav .v-marker {
+    width:15px; 
+    height:15px; 
+    border-radius:50%; 
+    background-color:rgba(255, 85, 0, .4);   
+    display:inline-block; 
+    vertical-align:middle; 
+    margin-bottom:-2px; 
+    margin-right:10px;border: 1px solid #FFAA00;
+}
+
+#op-verticalnav .op-v-link:hover .v-marker, #op-verticalnav .op-v-item .op-v-link.active .v-marker {
+    background-color:rgba(255, 141, 10, 1.)1); 
+}
+
+#op-verticalnav .op-v-itemdesc {
+    display:inline-block; 
+    font-size:14px; 
+    position:absolute; 
+    white-space:nowrap; 
+    line-height:normal; 
+    padding:0 34px 0 0;
+    vertical-align:middle
+}
+
+#op-verticalnav .op-v-itemdesc .op-v-itembg{
+    display:inline-block; 
+    background-color:rgba(0,0,0,.5); 
+    color:#fff; 
+    padding:4px 10px 6px 10px; 
+    border:1px solid rgba(160,160,160,.2); 
+    border-radius:4px; 
+}
+
+#op-verticalnav .op-v-link:hover .op-v-itemdesc {
+    right:0px; 
+}
+
+/* ----- Update Data Page -----*/
+#warning_order {
+    background-color: rgba(255,142,49,.5);
+    color:#1F252AFF;
+}
+
+#reminder {
+    background-color: #FFFFFFFF;
+    color:#000000FF;
+    font-family: "roboto",arial,sans-serif;
+
+}
+
+/* ----- Table of errors -----*/
+#table-error-cell {
+    background-color: #FFFFFFFF;
+    color: #2F2F2FFF;
 }

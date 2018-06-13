@@ -1,7 +1,7 @@
 @section('contentsessions')
 <form method="POST" action="/admin/login">
 	{{csrf_field()}}
-	<h1>Sing In</h1>
+	<h1>Sign In</h1>
 	<div class="form-group">
 		<input type="email" class="form-control" id="email" name="email">
 	</div>
@@ -16,7 +16,7 @@
 
 	<div class="separator">
         <p class="change_link">Wrong direction ?
-                  <a href="/" class="to_register"><i class="fa fa-home"></i> Go back to our website </a>
+                  <a href="/" class="to_register"><i class="fa fa-home"></i> Go back to our website. </a>
         </p>
     </div>
 

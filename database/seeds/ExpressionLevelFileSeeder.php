@@ -24,7 +24,7 @@ class ExpressionLevelFileSeeder extends Seeder
      */
     public function run()
     {
-        $file1=file('storage/Data/ranked_gene_list_BT474_versus_REST.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        /* $file1=file('storage/Data/ranked_gene_list_BT474_versus_REST.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         
         unset($file1[0]);
 
@@ -99,7 +99,30 @@ class ExpressionLevelFileSeeder extends Seeder
 
             ]);
 
-            //dd($value);
+            //dd($value); */
+
+
+        //New file about means
+        $filemean=file('storage/Data/cline.means.symbols.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $header = $filemean[0];
+        
+        unset($filemean[0]);
+        
+        dd($filemean);
+
+        /* foreach ($filemean as $value) {
+            $gene = explode(",", $value);
+
+            echo $gene[0];
+            
+            
+
+            //echo $col;
         }
+
+        */
+        //New file about sd
+        //$filesd=file('storage/Data/cline.sd.symbols.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        //}
     }
 }

@@ -223,6 +223,24 @@ fieldset[disabled] .btn-info.active {
   background-color: #fff;
 }
 
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    color: #C74A17 !important;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #C74A17 !important;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
 .label-info {
   background-color: #fff;
 }

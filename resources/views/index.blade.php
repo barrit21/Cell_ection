@@ -18,7 +18,7 @@
     <h2 class="text-center">Please, enter your research <a href="/about_us" target="_blanck" class="glyphicon glyphicon-info-sign"></a></h2>
     <div class="col-xs-12 center" id="divresearch">
         <div class="col-xs-6 col-sm-6 center" id="research_bar">
-            <input id="searchH" class="form-control center" placeholder="Search Genes, Cell Lines or Pathways" name="q[entry]" style="margin-top: .5em">
+            <input id="searchH" class="form-control center" placeholder="Search Genes (BRCA1), Cell Lines (MCF7) or Pathways (ERB2_UP.V1_DN)" name="q[entry]" style="margin-top: .5em">
             <input type="hidden" id="searchType">
         </div>
     </div>
