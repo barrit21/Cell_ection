@@ -28,6 +28,35 @@
     background-color: #FFFFFF;
 }
 
+/* Notification */
+#notification {
+  position:fixed;
+  top:0px;
+  width:35%;
+  z-index:105;
+  text-align:center;
+  font-weight:normal;
+  font-size:14px;
+  font-weight:bold;
+  color:white;
+  background-color:#FF8000;
+  opacity: 0.8;
+  padding:10px;
+  border-radius: 3px;
+}
+#notification span.dismiss {
+  padding:0 5px;
+  cursor:pointer;
+  float:right;
+  margin-right:10px;
+  border-radius: 7px;
+}
+#notification a {
+  color:white;
+  text-decoration:none;
+  font-weight:bold
+}
+
 header {
     background-color: #57585A;
 }
@@ -383,6 +412,12 @@ ui-autocomplete-input {
   font-style: normal;
   font-weight: bold;
   border-bottom: 1px solid #C74A17;
+}
+
+#prerequisities{
+  margin: 20px 0;
+  padding-left: 1.5rem;
+  border-left: 5px solid #FF5500;
 }
 
 /* ----- Contact Us ----- */

@@ -33,10 +33,12 @@
               <h1 class="text-center">How to use</h1>
               <div align="justify">
                 <a href="http://cellection.univ-lyon1.fr"><b>Cell'ection</b></a> is a website for the display of specific data of cell lines, genes and pathways concerning breast cancer. The goal is to be able to bring you the maximum information concerning your request. </br>
-                <div class="jumbotron">
-                  <h2>Prerequisites</h2>
+                <blockquote class="blockquote" id="prerequisities">
+                  <h3>Prerequisites</h3>
                   We recommend you to use Google Chrome or Firefox for this website.
-                </div>
+                </blockquote>
+              <h2>Research</h2>
+              When you are on the index page, scroll down the page by clicking on the arrow or manually. You will find a search bar that allows you to enter a gene, a pathway or a cell line for your search.
               </div>
             </div>
         </div>

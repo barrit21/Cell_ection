@@ -1,5 +1,10 @@
 @section('content')
 
+
+<div id="notification" style="display: none;">
+  <span class="dismiss"><a title="dismiss this notification" class="glyphicon glyphicon-remove"></a></span>
+</div>
+
 <!-- Home 1 -->
 <div class="content-wrapper" id="home1">
   <div class="container">
@@ -104,6 +109,13 @@ $('a[href*="#"]:not([href="#"])').click(function() {
     }
   }
 });
+</script>
+
+<script>
+  $("#notification").fadeIn("slow").append('We recommend you to use Google Chrome or Firefox for this website.');
+  $(".dismiss").click(function(){
+         $("#notification").fadeOut("slow");
+  });
 </script>
 
 
