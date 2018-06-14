@@ -116,6 +116,7 @@ class ExpressionLevelFileSeeder extends Seeder
             echo $gene[0];
             
             //ICI UNE MODIFICATION.
+            //DEUXIEME
 
             //echo $col;
         }
