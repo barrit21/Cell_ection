@@ -1,7 +1,5 @@
 @section('content')
 
-<!-- <ul class="nav nav-pills" id="myTab"> -->
-
 <div class="content-wrapper">
   <div class="container">
     <nav aria-label="...">
