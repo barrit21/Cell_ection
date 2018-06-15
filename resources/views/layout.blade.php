@@ -41,8 +41,10 @@
     <script src="{{asset('js/bootstrap-table/bootstrap-table-filter-control.js')}}"></script>
     <script src="{{asset('js/bootstrap-table/jquery.base64.js')}}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119771968-1"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119771968-1"></script>
+    <!-- Captcha -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

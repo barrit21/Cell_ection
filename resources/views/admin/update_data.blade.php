@@ -128,6 +128,13 @@
          	</div>
         @endif
 
+		<!-- Success -->
+		@if (Session::has('flash_message_success_cell'))
+			<div class="alert alert-success" role="alert">
+				<h2>{{Session::get('flash_message_success_cell')}}</h2>				
+			</div>
+		@endif
+
 		<div class="jumbotron">
 			<h2>Reminder CSV format :</h2>
 			<div class="col-md-12" id="reminder">
@@ -192,25 +199,17 @@
 	</form>
 </div>
 
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
-	/* ====== Add Smooth effect ===== */
-	$(function() {
-	  var scrollToAnchor = function( id ) {
-	    var elem = $("section[id='"+ id +"']"); // on crée une balise d'ancrage
-	    if ( typeof elem.offset()  === "undefined" ) { // on verifie si l'élément existe
-			elem = $("#"+id); }
-	    if ( typeof elem.offset()  !== "undefined" ) { // si l'élément existe, on continue
-	      $('html, body').animate({
-	              scrollTop: elem.offset().top }, 600 );} // on défini un temps de défilement de page
-	  };
-	  $("a").click(function( event ) { // on attache la fonction au click
-	    if ( $(this).attr("href").match("#") ) { // on vérifie qu'il s'agit d'une ancre
-	      event.preventDefault();
-	      var href = $(this).attr('href').replace('#', '') // on scroll vers la cible
-	      scrollToAnchor( href ); }
-	  });
-	});
+
+<script>
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 </script>
 
 @endsection

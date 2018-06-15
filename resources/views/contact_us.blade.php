@@ -67,7 +67,8 @@
             </div>
           </div>
 
-          <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+          <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+          </div>
 
           <div class="form-group" align="right">
             <button type="submit" class="btn btn-default" type="submit">Send</button>

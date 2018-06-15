@@ -136,8 +136,8 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="/admin/help">Help</a></li>
-                    <li><a href="/admin/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="/admin/help" id="dropdown">Help</a></li>
+                    <li><a href="/admin/logout" id="dropdown"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 

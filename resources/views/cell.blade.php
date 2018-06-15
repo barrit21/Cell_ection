@@ -157,7 +157,7 @@ function linkFormatterGeneset(value)
             <th data-formatter="linkFormatterGene">Gene name</th>
             <th data-field="Gene symbol" data-filter-control="input" data-sortable="true">Gene symbol</th>
             <th data-field="Gene Title" data-filter-control="input" data-sortable="true">Gene Title</th>
-            <th data-field="Score" data-sortable="true">Expression Level</th>
+            <th data-field="Score" data-sortable="true">Ranked gene level</th>
         </tr>
         </thead>    
         <tbody>

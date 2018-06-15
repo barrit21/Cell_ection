@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
-use Celline;
-use Vanderbilt;
-use Citbcmst;
-use Cellinedataset;
+use App\Celline;
+use App\Vanderbilt;
+use App\Citbcmst;
+use App\Cellinedataset;
+use DB;
 
 class UpdateDataController extends Controller
 {
@@ -37,22 +37,37 @@ class UpdateDataController extends Controller
                 $colums = count($value, COUNT_RECURSIVE);
                 //dd($colums);
 
+                //good number of columns
                 if ($colums == 12) {
+                    //good file format
                     if(filter_var($value[2], FILTER_VALIDATE_INT) === false){
                         
                         return redirect()->back()->with('flash_message_cell_format', "The file is not formatted correctly (wrong format) at line ".$i.".");
-                    }
-                    else {
+                    } else {
 
-                        //Here we passed all the conditions for a good file format for cell files.
+                        //Passed all conditions for a good file format
                         $i++;
-                        echo "OK";
+                        
+                        $DBcell=DB::table('cellines')
+                        ->where('cellines.name', $value[1])
+                        ->select('cellines.name')
+                        ->first();
+
+                        //dd($DBcell);
+
+                        if (! $DBcell){                 
+                            //dd($DBcell);
+                            DB::table('cellines')->insert([
+                                'name'=>$value[1], 
+                                'replicate'=>$value[2]
+                            ]);
+                        } else {}
                     }
-                }
-                else {
+                } else {
                     return redirect()->back()->with('flash_message_cell', "The file is not formatted correctly (wrong number of colums) at line ".$i.".");
                 };
             }
+            return redirect()->back()->with('flash_message_success_cell', "The database has been correctly updated.");
         }
     }
 }
