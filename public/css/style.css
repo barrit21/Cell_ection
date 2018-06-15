@@ -529,3 +529,7 @@ a.bg-primary:hover {
 #GSEAblockquote {
   border-left-color: #EE7436FF !important;
 }
+
+#itemize {
+  margin-left:4em;
+}

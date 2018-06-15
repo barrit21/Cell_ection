@@ -39,6 +39,15 @@
                 </blockquote>
               <h2>Research</h2>
               When you are on the index page, scroll down the page by clicking on the arrow or manually. You will find a search bar that allows you to enter a gene, a pathway or a cell line for your search.
+              
+              <div align="center"><img class="img-responsive" src="/img/structure.png"/></div>
+              <br />
+              The most important aspect we focus on is to make the site easily navigable and to establish simple links for the user. So, all pages return data in a variety of ways :
+
+                <li id="itemize">A page on a cell line (eg HCC38) will return GSEA-related classification, gene expression, and analysis information to itself,</li>
+                <li id="itemize">A page on a metabolic pathway (eg GLI1) will return all the genes involved in that pathway and the GSEA results of that pathway for all cell lines,</li>
+                <li id="itemize">A page on a gene (eg TPD52) will return all the metabolic pathways in which it is involved as well as its expression levels for all cell lines.</li>
+
               </div>
             </div>
         </div>
