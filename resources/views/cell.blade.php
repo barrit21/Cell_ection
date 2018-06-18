@@ -58,7 +58,8 @@ function linkFormatterGeneset(value)
 }
   function commFormatter(value) 
 {
-    return '<pre>'+value+'</pre>';
+    value=value.replace("&amp;", "&");
+    return value;
 }
 </script>
 
@@ -102,7 +103,7 @@ function linkFormatterGeneset(value)
             <th data-field="Dataset" data-filter-control="select" data-sortable="true">Dataset</th>
             <th data-field="Class" data-sortable="true">Vanderbilt's class</th>
             <th data-field="Correlation" data-sortable="true">Vanderbilt's correlation</th>
-            <th data-field="P-value" data-sortable="true">Vanderbilt's p-value</th>
+            <th data-field="P-value" data-sortable="true" data-formatter="commFormatter">Vanderbilt's p-value</th>
             <th data-field="CITBCMST" data-sortable="true">CITBCMST</th>
         </tr>
         </thead>    
@@ -112,7 +113,7 @@ function linkFormatterGeneset(value)
                   <td><?php echo $datum->name; ?></td>
                   <td><?php echo $datum->classv; ?></td>
                   <td><?php echo $datum->correlation; ?></td>
-                  <td><?php echo utf8_encode($datum->pval); ?></td>
+                  <td><?php echo $datum->pval; ?></td>
                   <td><?php echo $datum->class; ?></td>
               </tr>
           <?php endforeach; ?>

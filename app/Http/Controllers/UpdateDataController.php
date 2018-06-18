@@ -61,7 +61,10 @@ class UpdateDataController extends Controller
                                 'name'=>$value[1], 
                                 'replicate'=>$value[2]
                             ]);
-                        } else {}
+                        } else {
+
+                            
+                        }
                     }
                 } else {
                     return redirect()->back()->with('flash_message_cell', "The file is not formatted correctly (wrong number of colums) at line ".$i.".");

@@ -104,24 +104,82 @@ class ExpressionLevelFileSeeder extends Seeder
 
         //New file about means
         $filemean=file('storage/Data/cline.means.symbols.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        $header = $filemean[0];
+        $header = explode(',', $filemean[0]);
         
+        //dd($header);
+        $error=array();
+
         unset($filemean[0]);
         
-        dd($filemean);
 
-        /* foreach ($filemean as $value) {
+        foreach ($filemean as $value) {
             $gene = explode(",", $value);
 
-            echo $gene[0];
-            
-            //ICI UNE MODIFICATION.
-            //DEUXIEME
+            //dd($gene);
 
-            //echo $col;
+            for ($i=1; $i< count($header); $i++){
+                $cell=$header[$i]; 
+                $means=$gene[$i];
+
+                echo("\n".$gene[0]." ".$cell." ".$means." ");
+
+                //cell line exist
+                $ligneselect=DB::table('cellines')
+                ->select('id')
+                ->where('cellines.name', '=', $cell)
+                ->get();
+
+                $idcell=$ligneselect[0]->id;
+
+
+                if (empty($idcell)) {
+                    //ERROR, cell line no referencied
+                    $error[]=$cell." unknown";
+                } else {
+                    //if couple gene/cell value exist
+                    $ligneselect=DB::table('expressionlevels')
+                    ->select('id')
+                    ->where([
+                        ['celline_id', '=', $idcell],
+                        ['name', '=', $gene[0]]
+                    ])
+                    ->get();
+
+                    //dd($ligneselect);
+
+                    if ($ligneselect->isEmpty()) {
+                        DB::table('expressionlevels')->insert([
+                            'celline_id'=>$idcell,
+                            'name'=>$gene[0],
+                            'meanexp'=>$means,
+                            'created_at'=>date("Y-m-d h:i:s")
+                        ]);
+                        echo "INSERTION...";
+                    }
+                    else {
+                        echo "MAJ...";
+                        $id=$ligneselect[0]->id;
+                        echo "recherche du couple :".$id;
+
+                        DB::table('expressionlevels')
+                        ->where('id','=',$id)
+                        ->update([
+                            'meanexp'=>$means,
+                            'updated_at'=>date("Y-m-d h:i:s")
+                        ]);
+                    }
+
+                }
+
+            }
+            
         }
 
-        */
+        if (count($error)>0) {
+            echo implode('\n', $error);
+        }
+
+        
         //New file about sd
         //$filesd=file('storage/Data/cline.sd.symbols.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         //}
