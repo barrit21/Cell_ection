@@ -20,11 +20,7 @@ function GSEA($pval){
 <div class="content-wrapper">
   <div class="container">
 
-  <nav aria-label="...">
-    <ul class="pager">
-      <li class="previous"><a href="#null" onclick="javascript:history.back();"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
-    </ul>
-  </nav>
+
 
 <script type="text/javascript">
 //Exportation of data selected
@@ -82,10 +78,11 @@ function linkFormatterGeneset(value)
           <h1><?php echo $cell->name; ?></h1>
 
           <blockquote class="blockquote">
-              <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="/classification_info">here</a> to see more informations about Vanderbilt and CITBCMST's classification.</h3>
-              <h4><?= $cell->name; ?> has <?= count($data); ?> replicates in our data for this meta-analysis.</h4>
-          </blockquote>
+              <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="/classification_info">here</a> for more information about the Vanderbilt and CITBCMST molecular classifications</h3>
+         </blockquote>
 
+          <h4><?= $cell->name; ?> has <?= count($data); ?> replicates in our data for this meta-analysis.</h4>
+          
           <table id="table" 
             data-toggle="table"
             data-search="true"
@@ -131,7 +128,7 @@ function linkFormatterGeneset(value)
           <?php if(!$genes_actives->count() > 0) {
               echo '<div class="alert alert-warning" id="warningexp">No GSEA has been proceed on this cell line, so there is no data of genes expressions available.</div>';
             } else {
-              echo '<h4>There is '.count($genes_actives).' genes.</h4>';
+              echo '<h4>There are '.count($genes_actives).' genes across '. count($data) .' replicates.</h4>';
             } ?> 
         </blockquote>
 
@@ -155,16 +152,14 @@ function linkFormatterGeneset(value)
 
         <thead>
         <tr>
-            <th data-formatter="linkFormatterGene">Gene name</th>
-            <th data-field="Gene symbol" data-filter-control="input" data-sortable="true">Gene symbol</th>
-            <th data-field="Gene Title" data-filter-control="input" data-sortable="true">Gene Title</th>
+            <th data-formatter="linkFormatterGene" data-filter-control="input">Gene Symbol</th>
+            <th data-field="Gene Title" data-filter-control="input" data-sortable="true">Gene Name</th>
             <th data-field="Score" data-sortable="true">Ranked gene level</th>
         </tr>
         </thead>    
         <tbody>
           <?php foreach ($genes_actives as $genes_active) : ?>
               <tr>
-                  <td><?php echo $genes_active->name; ?></td>
                   <td><?php echo $genes_active->gene_symbol; ?></td>
                   <td><?php echo $genes_active->gene_title; ?></td>
                   <td><?php echo $genes_active->score; ?></td>
@@ -179,10 +174,10 @@ function linkFormatterGeneset(value)
     <!-- Third Menu -->
     <div id="MenuGSEA" class="tab-pane">
         <div class="col-xs-12" id="cell">
-          <h1>Enrichment in phenotype : <?php echo $cell->name; ?></h1>
+          <h1>Enrichement off <?php echo $cell->name; ?> compared to all other cell lines in database</h1>
         </div>
         <blockquote class="blockquote">
-          <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html?_Interpreting_GSEA_Results" target="_blank">here</a> to see more informations about GSEA results.</h3>
+          <h3><span  class="glyphicon glyphicon-info-sign"></span> Click <a href="http://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html?_Interpreting_GSEA_Results" target="_blank">here</a> for the BROAD Institute’s guide on interpreting GSEA results</h3>
           <h3>You will find <a href="/GSEA/parameters">here</a> more informations about our GSEA analysis' parameters.</h3>
         </blockquote>
 

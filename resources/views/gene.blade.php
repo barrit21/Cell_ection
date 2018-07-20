@@ -29,7 +29,7 @@ function linkFormatterOther(value)
 }
 function linkFormatterBI(value)
 {
-    return '<a href="http://software.broadinstitute.org/gsea/msigdb/cards/'+value+'" target="_blank">Broad Institute</a>';
+    return '<a href="http://software.broadinstitute.org/gsea/msigdb/cards/'+value+'" target="_blank">Link</a>';
 }
 function linkFormatterCell(value)
 {
@@ -50,11 +50,7 @@ function linkFormatterCell(value)
 <div class="content-wrapper">
   <div class="container">
 
-    <nav aria-label="...">
-      <ul class="pager">
-        <li class="previous"><a href="#null" onclick="javascript:history.back();"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
-      </ul>
-    </nav>
+
 
     <ul class="nav nav-tabs" id="Tabs">
       <li class="active">
@@ -96,7 +92,7 @@ function linkFormatterCell(value)
               <thead>
               <tr>
                   <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway</th>
-                  <th data-formatter="linkFormatterBI">Broad Institute website</th>
+                  <th data-formatter="linkFormatterBI">Broad Institute's website</th>
               </tr>
               </thead>    
               <tbody>

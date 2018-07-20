@@ -10,7 +10,7 @@
   <div class="container">
     <div class="col-md-12 text-center" id="home1text">
       <h1 id="maintitle">CELL'ECTION</h1>
-      <p id="mainp">Database of specific researches of breast cancer cell lines</p>
+      <p id="mainp">Breast cancer transcriptomics database</p>
       <a href="#research" ><div class="glyphicon glyphicon-triangle-bottom" id="target"></div></a>
     </div>    
 
@@ -20,7 +20,7 @@
 <div class="content-wrapper" >
 <!-- Research -->
   <div id="research" class="col-xs-6 col-sm-4 center">
-    <h2 class="text-center">Please, enter your research <a href="/about_us" target="_blanck" class="glyphicon glyphicon-info-sign"></a></h2>
+    <h2 class="text-center">Enter your search terms below : <a href="/about_us" target="_blanck" class="glyphicon glyphicon-info-sign"></a></h2>
     <div class="col-xs-12 center" id="divresearch">
         <div class="col-xs-6 col-sm-6 center" id="research_bar">
             <input id="searchH" class="form-control center" placeholder="Search Genes (BRCA1), Cell Lines (MCF7) or Pathways (ERB2_UP.V1_DN)" name="q[entry]" style="margin-top: .5em">
@@ -112,7 +112,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 </script>
 
 <script>
-  $("#notification").fadeIn("slow").append('We recommend you to use Google Chrome or Firefox for this website.');
+  $("#notification").fadeIn("slow").append('This website was optimized for Google Chrome or Firefox.');
   $(".dismiss").click(function(){
          $("#notification").fadeOut("slow");
   });

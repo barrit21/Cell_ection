@@ -14,13 +14,7 @@
 		<button type="submit" class="btn btn-default submit">Sign In</button>
 	</div>
 
-	<div class="separator">
-        <p class="change_link">Wrong direction ?
-                  <a href="/" class="to_register"><i class="fa fa-home"></i> Go back to our website. </a>
-        </p>
-    </div>
-
-    <h1 id="site">Cell'ection</h1>
+    <h1 id="site"> <a href="/" class="to_register"> <i class="fa fa-home"></i> Cell'ection </a></h1>
 
 	@include('layouts.errors')
 

@@ -14,11 +14,7 @@
 <div class="content-wrapper">
   <div class="container">
 
-    <nav aria-label="...">
-      <ul class="pager">
-        <li class="previous"><a href="/"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
-      </ul>
-    </nav>       
+      
 
     <!-- Contact us menu -->
     <div>
@@ -30,8 +26,8 @@
         <div class="jumbotron">
           <h1 class="text-center">Contact Us</h1> </br>
           <div class="col-sm-12">
-            <blockquote class="blockquote-reverse">
-              <p>For any questions, please fill in the fields below. We will be happy to answer you as soon as possible.</p>
+            <blockquote>
+              <p>If you have any questions, please fill in the fields below. We will happily answer you as soon as possible.</p>
             </blockquote>
           </div> 
 

@@ -22,7 +22,7 @@ class User extends Authenticatable //automatically created by Laravel
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id', 'name', 'email', 'password',
     ];
 
     /**

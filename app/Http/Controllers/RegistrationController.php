@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
+use DB;
 use App\Mail\Welcome;
 
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class RegistrationController extends Controller
     	]);
             
         //Create and save the user + Encryption
-        $user = User::create([
+        $user = DB::table('users')->insertGetId([
             'name' => request('name'),
             'email' => request('email'),
             'password' => bcrypt(request('password'))

@@ -2,11 +2,7 @@
 
 <div class="content-wrapper">
   <div class="container">
-    <nav aria-label="...">
-      <ul class="pager">
-        <li class="previous"><a href="/"><p class="glyphicon glyphicon-arrow-left" aria-hidden="true"></p></a></li>
-      </ul>
-    </nav>
+
 
     <ul class="nav nav-tabs" id="myTab">
     <!-- <ul class="nav nav-pills" id="myTab"> -->
@@ -32,21 +28,28 @@
             <div class="jumbotron">
               <h1 class="text-center">How to use</h1>
               <div align="justify">
-                <a href="http://cellection.univ-lyon1.fr"><b>Cell'ection</b></a> is a website for the display of specific data of cell lines, genes and pathways concerning breast cancer. The goal is to be able to bring you the maximum information concerning your request. </br>
+                <a href="http://cellection.univ-lyon1.fr"><b>Cell'ection</b></a> is an online database combining transcriptomic data, annotation by gene symbols and pathway analysis for the most commonly used cell lines in breast cancer research, allowing each request to link to all relevant information.
+ </br>
                 <blockquote class="blockquote" id="prerequisities">
                   <h3>Prerequisites</h3>
-                  We recommend you to use Google Chrome or Firefox for this website.
+                  We recommend you use Google Chrome or Firefox for this website.
                 </blockquote>
-              <h2>Research</h2>
-              When you are on the index page, scroll down the page by clicking on the arrow or manually. You will find a search bar that allows you to enter a gene, a pathway or a cell line for your search.
+              <h2>Requests</h2>
+              When you are on the index page, scroll down the page by clicking on the arrow or manually. A search bar is provided on the bottom of the index page. You may search by gene symbol, geneset, or cell line name.
+
               
               <div align="center"><img class="img-responsive" src="/img/structure.png"/></div>
               <br />
-              The most important aspect we focus on is to make the site easily navigable and to establish simple links for the user. So, all pages return data in a variety of ways :
-
-                <li id="itemize">A page on a cell line (eg HCC38) will return GSEA-related classification, gene expression, and analysis information to itself,</li>
-                <li id="itemize">A page on a metabolic pathway (eg GLI1) will return all the genes involved in that pathway and the GSEA results of that pathway for all cell lines,</li>
-                <li id="itemize">A page on a gene (eg TPD52) will return all the metabolic pathways in which it is involved as well as its expression levels for all cell lines.</li>
+              Result pages aggregate several types of data and present it in an easily exploitable manner in a user friendly interface.
+              <li id="itemize">
+                Cell line queries (for example: HCC38) return molecular classification and dataset of origin for each replicate, expression levels for each gene symbol and GSEA results for each pathway
+              </li>
+              <li id="itemize">
+                Geneset queries (for example: GLI1→ attention je crois que c’est le nom d’un gène ?) return the list of genes it contains, and enrichment results for all cell lines
+              </li>
+              <li id="itemize">
+                Gene symbol queries (for example: TPD52) return the list of pathways it is involved in, and its expression levels in all cell lines
+              </li>               
 
               </div>
             </div>
