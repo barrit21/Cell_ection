@@ -1,0 +1,43 @@
+Architecture du site :
+  .phpintel : dossier de cache pour php
+  app : dossier de fonctions
+    Console : console, liée à /routes/console.php
+    Exceptions : gère les exceptions
+    Http : gestion des commandes du site
+      Controllers : controller des différentes pages
+        Auth : gestion des users
+      Middleware : gestion des requêtes et cookies
+    Mail : pourrait servir à enregistrer le mail du webmaster (actuellement pas le cas)
+    Providers : service de bases fournit par Laravel
+  bootstrap : dossier utilisé par Bootstrap
+  config : configure laravel, notamment en donnant les chemin d'accès
+  database : fichiers nécessaires à la mise en place de la bdd
+    factories :
+    migrations : fichiers de création des tables de la base de données
+    seeds : fichiers de remplissage des bases de données, requiert une source (/storage/data)
+  public : documents utilisés sur le site
+    css : fichiers de css pour chaque page
+    gif : gifs animés
+    img : images (licenses inclusent)
+    js : fichiers jasons utilisés pour l'export
+    upload : exemple de mise à jour de la bdd
+    zontal-admin : répète public pour la partie admin du site
+  ressources :
+    assets
+    lang : détermine les messages visibles correspondants aux actions standards en fonction de la langue (anglais seul disponible)
+    view : vues des pages du site
+      admin : vues des pages administrateurs
+      auth : vues des pages de login
+      data
+      emails : affiche les enregistrement et logins d'administrateurs
+      layouts :
+      registrations : fichier de vue d'enregistrement d'un administrateur
+      sessions
+  routes : routes vers les ensemble du site
+  storage :
+    app : à ignorer
+    Data : contient les fichiers sources de la bdd
+    framework : stockage par Laravel, à ignorer
+    logs : logs de Laravel, à ignorer
+  test : dossier test de Laravel
+  vendor : outils Laravel
