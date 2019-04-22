@@ -21,7 +21,7 @@ class CreateDatasetsTable extends Migration
     public function up()
     {
         Schema::create('datasets', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('iddataset');
             $table->char('name',45);
         });
     }

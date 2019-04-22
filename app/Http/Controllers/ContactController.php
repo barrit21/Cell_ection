@@ -23,7 +23,7 @@ class ContactController extends Controller
 
     	]);
     	//Validate that you're not a robot
-    	$token = $request->input('g-recaptcha-response');
+    	$token = true/*$request->input('g-recaptcha-response')*/;
 
     	//Send an email
         if ($token) {
@@ -36,7 +36,7 @@ class ContactController extends Controller
                 'msg'=>$request->message
             ], function($mail) use($request){
                 $mail->from($request->email);
-                $mail->to('cellection69@gmail.com')->subject("You've got a new Email from a guest");
+                $mail->to('shubnighurath@gmail.com')->subject("You've got a new Email from a guest");
             });
 
             Mail::send('emails.mailconfirm', [
@@ -44,7 +44,7 @@ class ContactController extends Controller
                 'subject'=>$request->subject,
                 'msg'=>$request->subject
             ], function($mailconfirm) use($request){
-                $mailconfirm->from("cellection69@gmail.com");
+                $mailconfirm->from("shubnighurath@gmail.com");
                 $mailconfirm->to($request->email)->subject("Cell'ection : mail confirmation");
             });
 

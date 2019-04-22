@@ -21,9 +21,17 @@ class CreateCellinesTable extends Migration
     public function up()
     {
         Schema::create('cellines', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idcelline');
             $table->char('name',45);
             $table->integer('replicate')->nullable();
+            $table->char('subtype',45)->nullable();
+            $table->double('correlation',20,20)->nullable();
+            $table->double('pval',10,10)->nullable();
+            $table->char('citbcmst',45)->nullable();
+            $table->char('citbcmst_mixed',45)->nullable();
+            $table->char('citbcmst_core',45)->nullable();
+            $table->char('citbcmst_confidence',45)->nullable();
+            $table->timestamps();
         });
     }
 

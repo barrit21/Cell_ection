@@ -21,14 +21,15 @@ class CreateExpressionlevelsTable extends Migration
     public function up()
     {
         Schema::create('expressionlevels', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('celline_id')->unsigned()->nullable();           
-            $table->char('name');
-            $table->char('gene_symbol');
-            $table->char('gene_title');
-            $table->float('score');
-            $table->float('meanexp');
-            $table->float('sdexp');
+            $table->increments('idexpression');
+            $table->integer('idgene')->unsigned()->nullable();
+            $table->char('name')->nullable();
+            $table->integer('idarray')->unsigned()->nullable();
+            //$table->char('gene_symbol');
+            //$table->char('gene_title');
+            $table->float('expression');
+            //$table->float('meanexp');
+            //$table->float('sdexp')->nullable();
             $table->timestamps();
         });
 

@@ -22,36 +22,35 @@ class ResultFileSeeder extends Seeder
      */
     public function run()
     {
-       $fichier=file('./storage/Data/20161112 resultats vanderbilt et CIT.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES); //vanderbilt's settlement
+       $fichier=file('./storage/Data/vanderbilt.by.array.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES); //vanderbilt's settlement
         unset($fichier[0]);
-        unset($fichier[1]);
 
         foreach ($fichier as $value) { //insertion of the data in vanderbilts table with duplicates (except 'UNS')
-            $value=explode(';',$value);
-            if (strpos($value[4], "UNS")===false){
+            $value=explode(',',$value);
+            if (strpos($value[3], "UNS")===false){
 
                 if (Vanderbilt::where([
-                    ['class','=',$value[4]],
-                    ['correlation','=',$value[5]],
-                    ['pval','=',$value[6]]])->exists()){
+                    ['class','=',$value[1]],
+                    ['correlation','=',$value[3]],
+                    ['pval','=',$value[4]]])->exists()){
                 }
 
                 else{
                     DB::table('vanderbilts')->insert([
-                        'class'=>($value[4]),
-                        'correlation'=>($value[5]),
-                        'pval'=>($value[6]),
+                        'class'=>($value[1]),
+                        'correlation'=>($value[3]),
+                        'pval'=>($value[4]),
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now(),
                     ]);
                 }
 
                 $vanderbilt=Vanderbilt::where([
-                ['class',$value[4]],
-                ['correlation',($value[5])],
-                ['pval',$value[6]],
+                ['class',$value[1]],
+                ['correlation',($value[3])],
+                ['pval',$value[4]],
                 ])->first();
-                
+
                 $cellinedataset=CellineDataset::all();
 
                 if ($cellinedataset->contains('file',$value[2])===false){ //verifies that the vanderbilt file is already existing in celline_dataset
@@ -59,7 +58,7 @@ class ResultFileSeeder extends Seeder
                         'file'=>($value[2]),
                     ]);
                 }
-                
+
                 $cellinedataset=CellineDataset::where(
                     'file', $value[2])->first();
 

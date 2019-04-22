@@ -14,30 +14,47 @@ class GeneGenesetSeeder extends Seeder
      */
 
     public function run()
-    { 	
-        $fichier=file('storage/Data/gene_geneset.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
+    {
+        $fichier=file('storage/Data/genesets.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        unset($fichier[0]);
         foreach ($fichier as $value) {
         	$value=explode(',',$value);
-
-        	$geneset=DB::table('genesets')
-        	->where('name','=',$value[0])
+          $value[1]=trim($value[1],'"');
+          $value[2]=trim($value[2],'"');
+          if(Geneset::where('name',$value[2])->exists()){
+            $genesetid=Geneset::where('name',$value[2])->pluck('idgeneset');
+          }
+          else{
+            $genesetid=0;
+          }
+          if(Gene::where('hugo',$value[1])->exists()){
+            $geneid=Gene::where('hugo',$value[1])->pluck('idgene');
+          }
+          else{
+            $geneid=0;
+          }
+          DB::table('gene_geneset')->insert([
+            'idgene'=>($geneid[0]),
+            'idgeneset'=>($genesetid[0]),
+          ]);
+        	/*$geneset=DB::table('genesets')
+        	->where('idgeneset','=',$value[2])
         	->get()
         	->toArray();
 
         	$gene=DB::table('genes')
-        	->where('entrez','=',$value[1])
+        	->where('idgene','=',$value[1])
         	->get()
-        	->toArray();
+        	->toArray();*
 
         	//dd($gene);
-        	
+
         	DB::table('gene_geneset')->insert([
-    			'gene_id'=>($gene[0]->id),
-    			'geneset_id'=>($geneset[0]->id),
+    			'idgene'=>($gene[0]->id),
+    			'idgeneset'=>($geneset[0]->id),
                 'created_at'=>Carbon::now(),
-                'updated_at' => Carbon::now(),
-        	]);
+                'updated_at'=>Carbon::now(),
+        	]);*/
 
     	}
     }

@@ -20,17 +20,27 @@ class CreateCellineDatasetTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('celline_dataset');
         Schema::create('celline_dataset', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idarray');
             $table->char('file',100)->unique();
-            $table->integer('celline_id')->unsigned()->nullable();
-            $table->foreign('celline_id')->references('id')->on('cellines')->onDelete('cascade');
-            $table->integer('dataset_id')->unsigned()->nullable();
-            $table->foreign('dataset_id')->references('id')->on('datasets')->onDelete('cascade');
-            $table->integer('vanderbilt_id')->unsigned()->nullable();
-            $table->foreign('vanderbilt_id')->references('id')->on('vanderbilts')->onDelete('cascade');
-            $table->integer('citbcmst_id')->unsigned()->nullable();
-            $table->foreign('citbcmst_id')->references('id')->on('citbcmsts')->onDelete('cascade');
+            $table->integer('idcelline')->unsigned()->nullable();
+            /*$table->foreign('idcelline')->references('idcelline')->on('cellines')->onDelete('cascade');*/
+            $table->integer('iddataset')->unsigned()->nullable();
+            /*$table->foreign('iddataset')->references('iddataset')->on('datasets')->onDelete('cascade');*/
+            $table->char('subtype',45)->nullable();
+            $table->double('correlation',25,20)->nullable();
+            $table->double('pval',15,10)->nullable();
+            $table->char('citbcmst',45)->nullable();
+            $table->char('citbcmst_mixed',45)->nullable();
+            $table->char('citbcmst_core',45)->nullable();
+            $table->char('citbcmst_confidence',45)->nullable();
+            //$table->integer('vanderbilt_id')->unsigned()->nullable();
+            //$table->foreign('vanderbilt_id')->references('id')->on('vanderbilts')->onDelete('cascade');
+            //$table->integer('citbcmst_id')->unsigned()->nullable();
+            //$table->foreign('citbcmst_id')->references('id')->on('citbcmsts')->onDelete('cascade');
+            //$table->integer('mean_cit')->nullable();
+            //$table->integer('mean_vanderbilt')->nullable();
             $table->timestamps();
         });
     }
