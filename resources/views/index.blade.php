@@ -12,7 +12,7 @@
       <h1 id="maintitle">CELL'ECTION</h1>
       <p id="mainp">Breast cancer transcriptomics database</p>
       <a href="#research" ><div class="glyphicon glyphicon-triangle-bottom" id="target"></div></a>
-    </div>    
+    </div>
 
   </div>
 </div>
@@ -112,7 +112,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 </script>
 
 <script>
-  $("#notification").fadeIn("slow").append('This website was optimized for Google Chrome or Firefox.');
+  $("#notification").fadeIn("slow").append('This website does only use internal cookies, and does not collect any data.');
   $(".dismiss").click(function(){
          $("#notification").fadeOut("slow");
   });

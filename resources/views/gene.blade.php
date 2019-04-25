@@ -1,8 +1,14 @@
 @section('content')
 
 <?php
+$expressionlevel=[];
+foreach($expressionlevels as $expression){
+  foreach($expression as $exp){
+    $expressionlevel[]=$exp;
+  }
+}
 $nbpathways=count($data);
-$nbcell=count($expressionlevels);
+$nbcell=count($expressionlevel);
 ?>
 
 <script type="text/javascript">
@@ -35,11 +41,11 @@ function linkFormatterCell(value)
 {
     return '<a href="/cell/'+value+'">'+value+'</a>';
 }
- function imgFormatter(value) 
+ function imgFormatter(value)
  {
     return '<img src="/images/'+value+'.png"/>';
 }
-  function commFormatter(value) 
+  function commFormatter(value)
 {
     return '<pre>'+value+'</pre>';
 }
@@ -65,11 +71,11 @@ function linkFormatterCell(value)
           <!-- First Menu -->
           <div id="MenuPathways" class="tab-pane fade active in">
             <div class="col-xs-12" id="cell">
-                <h1><?php echo $genes->hugo; ?> 
+                <h1><?php echo $genes->hugo; ?>
                   <small>
                     <?php if(!is_null($gene_title)) {
-                      echo $gene_title->gene_title;
-                    } ?>                     
+                      echo $gene_title-> hugo;
+                    } ?>
                   </small>
                 </h1>
                 <blockquote class="blockquote">
@@ -77,10 +83,10 @@ function linkFormatterCell(value)
                   <h4><?= $genes->hugo;?> is involved in <?= count($data);?> pathways.</h4>
                 </blockquote>
 
-                <table id="table" 
+                <table id="table"
                     data-toggle="table"
                     data-search="true"
-                    data-filter-control="true" 
+                    data-filter-control="true"
                     data-show-export="true"
                     data-click-to-select="true"
                     data-toolbar="#toolbar"
@@ -94,12 +100,12 @@ function linkFormatterCell(value)
                   <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway</th>
                   <th data-formatter="linkFormatterBI">Broad Institute's website</th>
               </tr>
-              </thead>    
+              </thead>
               <tbody>
                 <?php foreach ($data as $datum) : ?>
-                    <tr>                     
+                    <tr>
                         <td><?php echo $datum->name; ?></td>
-                        <td><?php echo $datum->name; ?></td>                   
+                        <td><?php echo $datum->name; ?></td>
                     </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -114,8 +120,8 @@ function linkFormatterCell(value)
               <?php echo $genes->hugo; ?>
               <small>
                 <?php if(!is_null($gene_title)) {
-                  echo $gene_title->gene_title;
-                } ?>                     
+                  echo $gene_title-> hugo;
+                } ?>
               </small>
             </h1>
             <blockquote class="blockquote">
@@ -124,13 +130,13 @@ function linkFormatterCell(value)
               echo '<div class="alert alert-warning" id="warningexp">No probsets were found for this gene.</div>';
             } else {
               echo '<h4>'.$genes->hugo.' has been found in '.$nbcell.' cell lines.</h4>';
-            } ?> 
+            } ?>
             </blockquote>
 
-            <table id="table" 
+            <table id="table"
               data-toggle="table"
               data-search="true"
-              data-filter-control="true" 
+              data-filter-control="true"
               data-show-export="true"
               data-click-to-select="true"
               data-toolbar="#toolbar"
@@ -143,12 +149,12 @@ function linkFormatterCell(value)
               <th data-field="Cell" data-formatter="linkFormatterCell" data-filter-control="select" data-sortable="true">Cell line</th>
               <th data-field="Score" data-sortable="true">Ranked Gene score</th>
           </tr>
-          </thead>    
+          </thead>
           <tbody>
-            <?php foreach ($expressionlevels as $expressionlevel) : ?>
+            <?php foreach ($expressionlevel as $expressionlevels) : ?>
                 <tr>
-                    <td><?php echo $expressionlevel->name; ?></td>
-                    <td><?php echo $expressionlevel->score; ?></td>
+                    <td><?php echo $expressionlevels->name; ?></td>
+                    <td><?php echo $expressionlevels->expression; ?></td>
                 </tr>
             <?php endforeach; ?>
           </tbody>

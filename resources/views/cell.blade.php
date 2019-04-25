@@ -4,7 +4,6 @@
 
 <?php
 $nbreplicate=count($data);
-
 function GSEA($pval){
   if($pval < 0.01)
     {
@@ -16,7 +15,6 @@ function GSEA($pval){
       return $class;
   }
 }
-
 ?>
 
 <div class="content-wrapper">
@@ -35,13 +33,10 @@ var $table = $('#table');
           });
       });
   })
-
       var trBoldBlue = $("table");
-
   $(trBoldBlue).on("click", "tr", function (){
           $(this).toggleClass("bold-blue");
   });
-
 function linkFormatterGene(value)
 {
     return '<a href="/gene/'+value+'">'+value+'</a>';
@@ -105,6 +100,8 @@ function linkFormatterGeneset(value)
             <th data-field="Correlation" data-sortable="true">Vanderbilt's correlation<i class="fa fa-fw fa-sort"></i></th>
             <th data-field="P-value" data-sortable="true" data-formatter="commFormatter">Vanderbilt's p-value<i class="fa fa-fw fa-sort"></i></th>
             <th data-field="CITBCMST" data-sortable="true">CITBCMST<i class="fa fa-fw fa-sort"></i></th>
+            <th data-field="CITBCMSTmixed" data-sortable="true">CITBCMSTmixed<i class="fa fa-fw fa-sort"></i></th>
+            <th data-field="CITBCMSTcore" data-sortable="true">CITBCMSTcore<i class="fa fa-fw fa-sort"></i></th>
         </tr>
         </thead>
         <tbody>
@@ -114,7 +111,9 @@ function linkFormatterGeneset(value)
                   <td><?php echo $datum->classv; ?></td>
                   <td><?php echo $datum->correlation; ?></td>
                   <td><?php echo $datum->pval; ?></td>
-                  <td><?php echo $datum->class; ?></td>
+                  <td><?php echo $datum->citbcmst; ?></td>
+                  <td><?php echo $datum->citbcmst_mixed; ?></td>
+                  <td><?php echo $datum->citbcmst_core; ?></td>
               </tr>
           <?php endforeach; ?>
         </tbody>
@@ -128,7 +127,7 @@ function linkFormatterGeneset(value)
           <h1><?php echo $cell->name; ?></h1>
         </div>
         <blockquote class="blockquote">
-          <?php if(!$genes_actives->count() > 0) {
+          <?php if(!sizeof($genes_actives)> 0) {
               echo '<div class="alert alert-warning" id="warningexp">No GSEA has been proceed on this cell line, so there is no data of genes expressions available.</div>';
             } else {
               echo '<h4>There are '.count($genes_actives).' genes across '. count($data) .' replicates.</h4>';
@@ -156,16 +155,16 @@ function linkFormatterGeneset(value)
         <thead>
         <tr>
             <th data-formatter="linkFormatterGene" data-filter-control="input">Gene Symbol</th>
-            <th data-field="Gene Title" data-filter-control="input" data-sortable="true">Gene Name<i class="fa fa-fw fa-sort"></i></th>
+            <!--<th data-field="Gene Title" data-filter-control="input" data-sortable="true">Gene Name<i class="fa fa-fw fa-sort"></i></th>-->
             <th data-field="Score" data-sortable="true">Ranked gene level<i class="fa fa-fw fa-sort"></i></th>
         </tr>
         </thead>
         <tbody>
-          <?php foreach ($genes_actives as $genes_active) : ?>
+          <?php foreach ($genes_actives[0] as $genes_active) : ?>
               <tr>
-                  <td><?php echo $genes_active->gene_symbol; ?></td>
-                  <td><?php echo $genes_active->gene_title; ?></td>
-                  <td><?php echo $genes_active->score; ?></td>
+                  <td><?php echo $genes_active->name; ?></td>
+                  <!--<td><?php// echo $genes_active->gene_title; ?></td>-->
+                  <td><?php echo $genes_active->expression; ?></td>
               </tr>
           <?php endforeach; ?>
         </tbody>
@@ -187,7 +186,6 @@ function linkFormatterGeneset(value)
         <div class="jumbotron" id="infos_GSEA">
           <?php if(!$gsea_results->count() > 0) {
               echo '<div class="alert alert-warning" id="warningexp">No GSEA has been proceed on this cell line.</div>';
-
           } else {
               echo '<li>'.count($gsea_results).' / '.$nbpathways.' gene sets are upregulated in phenotype MCF7.</li>';
               echo '<li>'.count($validation).' gene sets are significant at FDR < 25%.</li>';
@@ -220,7 +218,7 @@ function linkFormatterGeneset(value)
                 <th data-field="ES" data-sortable="true">Enrichment Score<i class="fa fa-fw fa-sort"></i></th>
                 <th data-field="NES" data-sortable="true">Normalize ES<i class="fa fa-fw fa-sort"></i></th>
                 <th data-field="pval" data-sortable="true">Nominale p-value<i class="fa fa-fw fa-sort"></i></th>
-                <th data-field="FDR" data-sortable="true">FDR<i class="fa fa-fw fa-sort"></i></th>
+                <th data-field="FDR" data-sortable="true">Adjusted p-value<i class="fa fa-fw fa-sort"></i></th>
                 <th data-field="FWER" data-sortable="true">FWER<i class="fa fa-fw fa-sort"></i></th>
                 <th data-field="rank_at_max" data-sortable="true">Rank at max<i class="fa fa-fw fa-sort"></i></th>
                 <!-- <th data-field="Leading EDGE" colspan=3 data-sortable="true">Leading EDGE</th> -->
@@ -231,18 +229,18 @@ function linkFormatterGeneset(value)
           </thead>
           <tbody>
             <?php foreach ($gsea_results as $gsea_result) : ?>
-                <tr <?php echo GSEA($gsea_result->NOMpval); ?>>
-                    <td><?php echo $gsea_result->link; ?></td>
-                    <td ><?php echo $gsea_result->size; ?></td>
-                    <td ><?php echo $gsea_result->ES; ?></td>
-                    <td ><?php echo $gsea_result->NES; ?></td>
-                    <td ><?php echo $gsea_result->NOMpval; ?></td>
-                    <td ><?php echo $gsea_result->FDRqval; ?></td>
-                    <td><?php echo $gsea_result->FWERqval; ?></td>
-                    <td ><?php echo $gsea_result->rank_at_max; ?></td>
-                    <td><?php echo $gsea_result->tags; ?></td>
-                    <td ><?php echo $gsea_result->list; ?></td>
-                    <td><?php echo $gsea_result->signal; ?></td>
+                <tr <?php echo GSEA($gsea_result-> pval); ?>>
+                    <td><?php echo $gsea_result-> idgeneset; ?></td>
+                    <td><?php echo $gsea_result-> size; ?></td>
+                    <td><?php echo $gsea_result-> ES; ?></td>
+                    <td><?php echo $gsea_result-> NES; ?></td>
+                    <td><?php echo $gsea_result-> pval; ?></td>
+                    <td><?php echo $gsea_result-> padj; ?></td>
+                    <!--<td><?php// echo $gsea_result-> FWERqval; ?></td>-->
+                    <td><?php echo $gsea_result-> nMoreExtreme; ?></td>
+                    <!--<td><?php// echo $gsea_result-> tags; ?></td>
+                    <td><?php// echo $gsea_result-> list; ?></td>
+                    <td><?php// echo $gsea_result-> signal; ?></td>-->
                 </tr>
             <?php endforeach; ?>
           </tbody>

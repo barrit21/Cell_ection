@@ -58,8 +58,8 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">                
-                    <span id="admin">
+                <div class="col-md-12">
+                    <!--<span id="admin">
                         @if (! Auth::check())
                             <a href="/admin/login" @if ($menu == 'sign') class='menu-top-active' @endif><i class="glyphicon glyphicon-off" id="loginbutton"></i></a>
                         @endif
@@ -72,9 +72,9 @@
                     @if (Auth::check())
                         <div class="col-sm">
                             <a href="/admin/home" id="author-check">{{Auth::user()->name}}</a>
-                        </div> 
-                    @endif                       
-                </div>
+                        </div>
+                    @endif
+                --></div>
             </div>
         </div>
     </header>
@@ -84,7 +84,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">
                     <img class="img-responsive" src="/gif/logo.gif" />
-                </a>               
+                </a>
             </div>
 
         </div>
@@ -109,7 +109,7 @@
                             </li>
                             <li>
                                 <a href="/contact_us" @if ($menu == 'contact') class='menu-top-active' @endif>Contact Us</a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href='/data' @if ($menu == 'data') class='menu-top-active' @endif>
                                     Data
