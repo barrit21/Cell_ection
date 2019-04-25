@@ -26,27 +26,28 @@ class Gene extends Model
     {
         return $this->belongsToMany('App\Geneset');
     }
-    public static function res_data_gene($id) 
+    public static function res_data_gene($id)
     {
     	$id_gene = $id;
         $pathways = DB::table('gene_geneset')
-        ->join('genesets', 'gene_geneset.geneset_id', '=', 'genesets.id')
+        ->join('genesets', 'gene_geneset.idgeneset', '=', 'genesets.idgeneset')
         ->select('genesets.name')
-        ->where('gene_geneset.gene_id', $id_gene)
+        ->where('gene_geneset.idgene', $id_gene)
         ->get();
 
         //dd($pathways);
     	return $pathways;
     }
 
-    public static function get_expressionlevel($id){
-        $id_gene = $id;
-        $expressionlevels = DB::table('expressionlevels')
-        ->join('genes', 'expressionlevels.gene_symbol', 'LIKE', 'genes.hugo')
-        ->join('cellines', 'cellines.id', '=', 'expressionlevels.celline_id')
-        ->where('genes.id', $id_gene)
-        ->get();
-
+    public static function get_expressionlevel($id,$idgene){
+        $expressionlevels=[];
+        foreach($id as $id_gene){
+          $expressionlevels[] = DB::table('celline_dataset')
+          ->join('expressionlevels','expressionlevels.idarray','=','celline_dataset.idarray')
+          ->join('cellines', 'cellines.idcelline', '=', 'celline_dataset.idcelline')
+          ->where('celline_dataset.idarray', $id_gene)
+            ->get();
+        }
         //dd($expressionlevels);
         return($expressionlevels);
     }
@@ -54,8 +55,8 @@ class Gene extends Model
     public static function get_genetitle($id){
         $id_gene = $id;
         $gene_title = DB::table('expressionlevels')
-        ->join('genes', 'expressionlevels.gene_symbol', 'LIKE', 'genes.hugo')
-        ->where('genes.id', $id_gene)
+        ->join('genes', 'expressionlevels.name', 'LIKE', 'genes.hugo')
+        ->where('genes.idgene', $id_gene)
         ->first();
 
         //dd($gene_title);
@@ -65,6 +66,6 @@ class Gene extends Model
     public static function gene_table(){
         $genes=DB::table('genes')->get();
         //dd($genes);
-        return $genes;        
+        return $genes;
     }
 }

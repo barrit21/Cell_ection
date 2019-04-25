@@ -21,10 +21,17 @@ class CreateEnrichementscoresTable extends Migration
     public function up()
     {
         Schema::create('enrichementscores', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('geneset_id')->unsigned()->nullable();
-            $table->integer('celline_id')->unsigned()->nullable();
-            $table->char('link');
+            $table->increments('idgsea');
+            $table->integer('idgeneset')->unsigned()->nullable();
+            $table->integer('idcelline')->unsigned()->nullable();
+            $table->double('pval',25,20);
+            $table->double('padj',25,20);
+            $table->double('ES',25,20);
+            $table->double('NES',25,20);
+            $table->integer('nMoreExtreme');
+            $table->integer('size');
+            $table->text('leadingEdge');
+            /*$table->char('link');
             $table->integer('size');
             $table->double('ES',8,4);
             $table->double('NES',8,4);
@@ -35,7 +42,7 @@ class CreateEnrichementscoresTable extends Migration
             $table->char('tags');
             $table->char('list');
             $table->char('signal');
-            $table->timestamps();
+            $table->timestamps();*/
         });
     }
 

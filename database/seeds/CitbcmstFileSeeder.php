@@ -21,32 +21,32 @@ class CitbcmstFileSeeder extends Seeder
      */
     public function run()
     {
-        
-        $fichier=file('./storage/Data/20161112 resultats vanderbilt et CIT.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        $fichier=file('./storage/Data/cit.by.array.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         unset($fichier[0]);
-        unset($fichier[1]);
 
         $citbcmst=Citbcmst::all();
         $cellinedataset=CellineDataset::all();
 
         foreach ($fichier as $value) {
 
-            $value=explode(';',$value);
-            
+            $value=explode(',',$value);
+
             $cellinedataset=CellineDataset::all();
-    
+
             if (Citbcmst::where([ //insert informations in citbcmsts without duplicates
-                ['class','=',$value[7]],
-                ['classmixed','=',$value[8]],
-                ['classcore','=',$value[9]]])->exists()){
+                ['class','=',$value[1]],
+                ['classmixed','=',$value[2]],
+                ['classcore','=',$value[3]]])->exists()){
             }
 
             else{
                 DB::table('citbcmsts')->insert([
-                        'class'=>($value[7]),
-                        'classmixed'=>($value[8]),
-                        'classcore'=>($value[9]),
-                        'created_at' => Carbon::now(),
+                        'class'=>($value[1]),
+                        'classmixed'=>($value[2]),
+                        'classcore'=>($value[3]),
+                        'classification'=>($value[4]),
+                        'created_at' => Carbon::now(),//not useful
                         'updated_at' => Carbon::now(),
                     ]);
             }
@@ -58,12 +58,11 @@ class CitbcmstFileSeeder extends Seeder
             }
 
             $citbcmst=Citbcmst::where([ //integrate the citbcmst ID in the celline_dataset table
-                ['class','=',$value[7]],
-                ['classmixed','=',$value[8]],
-                ['classcore','=',$value[9]]])-> first();
-            $c=$citbcmst->id;
+                ['class','=',$value[1]],
+                ['classmixed','=',$value[2]],
+                ['classcore','=',$value[3]]])->pluck('id');
 
-            CellineDataset::where('file',$value[2])->update(['citbcmst_id'=>$c]);
+            CellineDataset::where('file',$value[1])->update(['citbcmst_id'=>$citbcmst[0]]);
         }
     }
 }

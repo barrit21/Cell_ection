@@ -29,10 +29,10 @@ class Geneset extends Model
     public static function get_genes($id){
         $id_geneset=$id;
         $genes=DB::table('gene_geneset')
-        ->join('genes', 'gene_geneset.gene_id', '=', 'genes.id')
-        ->join('expressionlevels', 'genes.hugo', '=', 'expressionlevels.name')
-        ->where('gene_geneset.geneset_id', $id_geneset)
-        ->select( DB::raw('DISTINCT(genes.hugo)'), 'expressionlevels.gene_title', 'genes.entrez')
+        ->join('genes', 'gene_geneset.idgene', '=', 'genes.idgene')
+        ->join('expressionlevels', 'genes.idgene', '=', 'expressionlevels.idgene')
+        ->where('gene_geneset.idgeneset', $id_geneset)
+        ->select( DB::raw('DISTINCT(genes.hugo)'), 'expressionlevels.name', 'genes.entrez')
         ->get();
 
         //dd($genes);
@@ -42,17 +42,17 @@ class Geneset extends Model
     public static function getES($id){
         $id_geneset=$id;
         $ES = DB::table('enrichementscores')
-        ->join('genesets', 'enrichementscores.geneset_id', '=', 'genesets.id')
-        ->join('cellines', 'enrichementscores.celline_id', '=', 'cellines.id')
-        ->where('genesets.id', $id_geneset)
+        ->join('genesets', 'enrichementscores.idgeneset', '=', 'genesets.idgeneset')
+        ->join('cellines', 'enrichementscores.idcelline', '=', 'cellines.idcelline')
+        ->where('genesets.idgeneset', $id_geneset)
         ->get();
         //dd($ES);
-        return $ES;       
+        return $ES;
     }
 
     public static function geneset_table(){
         $genesets=DB::table('genesets')->get();
         //dd($genesets);
-        return $genesets;        
+        return $genesets;
     }
 }

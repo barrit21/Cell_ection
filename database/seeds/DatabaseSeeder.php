@@ -22,12 +22,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CellinesFileSeeder::class,
             DatasetsFileSeeder::class,
-            CelDatasetLigneeFileSeeder::class,
-            CitbcmstFileSeeder::class,
-            UgoToUniprotFileSeeder::class,
-            ResultFileSeeder::class,
-            ExpressionLevelFileSeeder::class,
+            GenesFileSeeder::class,
             GeneSetFileSeeder::class,
+            GeneGenesetSeeder::class,
+            CelDatasetLigneeFileSeeder::class,
+            //CitbcmstFileSeeder::class,
+            //ResultFileSeeder::class,
+            ExpressionLevelFileSeeder::class,
             GseaResultFileSeeder::class
             ]);
     }

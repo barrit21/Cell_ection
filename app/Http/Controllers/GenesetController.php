@@ -20,15 +20,15 @@ class GenesetController extends Controller
 		if($geneset == null){
 			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
-		
-		$genes = Geneset::get_genes($geneset -> id);
-		$ES = Geneset::getES($geneset -> id);
+
+		$genes = Geneset::get_genes($geneset -> idgeneset);
+		$ES = Geneset::getES($geneset -> idgeneset);
 
 		return view("layout", ["menu" => "home", "content" => view('geneset', array('datum'=> $geneset, 'genes'=> $genes, 'ES' => $ES))]);
 	}
 
     public function show(){
 		$genesets=Geneset::geneset_table();
-		return view("admin.layoutadmin", ["contentadmin" => view('admin.geneset_table', array('genesets'=> $genesets))]);    	
+		return view("admin.layoutadmin", ["contentadmin" => view('admin.geneset_table', array('genesets'=> $genesets))]);
     }
 }

@@ -13,19 +13,31 @@ class GeneSetFileSeeder extends Seeder
      */
     public function run()
     {
-        $fichier=file('storage/Data/geneset_reactome_L.txt',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $file=file('storage/Data/genesets.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-        $genes=Gene::all();
-
+        unset($file[0]);
+        foreach($file as $key){
+          $geneset=Geneset::all();
+          $infos=explode(',',$key);
+          $infos[2]=trim($infos[2],'"');
+          if(Geneset::where('name',$infos[2])->exists()){
+            ;
+          }
+          else{
+            DB::table('genesets')->insert([
+              'name'=>$infos[2],
+            ]);
+          }
+        }
 
         //print_r($fichier);
 
-   
+
 
         /**
         Remplissage de Geneset, Genes (uniprot)
-        */
-       
+
+
         $e=0;
         foreach ($fichier as $key => $value) {
             //for ($i=0 ; $i < count($dataset) ; ){
@@ -57,13 +69,13 @@ class GeneSetFileSeeder extends Seeder
                     }
                 }
                 //print_r($g{$e});
-               
+
             }
 
-           
+
         }
         //print_r($g);
-       
+
         for($i=1 ; $i <= count($dataset) ; $i++){
             $d=$g{$i}[0];
             for($a=1 ; $a < count($g{$i}) ; $a++){
@@ -73,6 +85,6 @@ class GeneSetFileSeeder extends Seeder
                 $x -> genesets() -> attach($y -> id);
             }
         }
-    
-    }
+
+    */}
 }

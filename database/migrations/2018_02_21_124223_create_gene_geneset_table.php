@@ -21,15 +21,15 @@ class CreateGeneGenesetTable extends Migration
     public function up()
     {
         Schema::create('gene_geneset', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('gene_id')->unsigned();
-            $table->foreign('gene_id')
-                ->references('id')->on('genes')
-                ->onDelete('cascade');
-            $table->integer('geneset_id')->unsigned();
-            $table->foreign('geneset_id')
-                ->references('id')->on('genesets')
-                ->onDelete('cascade');
+            $table->increments('idgenegenset');
+            $table->integer('idgene')->nullable()->unsigned();
+            /*$table->foreign('idgene')
+                ->references('idgene')->on('genes')
+                ->onDelete('cascade');*/
+            $table->integer('idgeneset')->nullable()->unsigned();
+            /*$table->foreign('idgeneset')
+                ->references('idgeneset')->on('idgeneset')
+                ->onDelete('cascade');*/
             $table->timestamps();
         });
     }
