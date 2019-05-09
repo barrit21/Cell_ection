@@ -28,10 +28,10 @@ class CellineController extends Controller
 			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
 		$idcelline= Celline::where('name',$name)->pluck('idcelline');
-		$array=\DB::table('celline_dataset')->join('cellines','cellines.idcelline','=','celline_dataset.idcelline')->where('cellines.idcelline',$idcelline)->pluck('idarray');
+
 		$data = Celline::liste_cell_datasets($celline -> idcelline);
 
-		$genes_actives = Celline::genes_active($array);
+		$genes_actives = Celline::genes_active($celline-> idcelline);
 
 		$gsea_results = Celline::get_gsea_results($celline -> idcelline);
 

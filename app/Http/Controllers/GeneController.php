@@ -28,8 +28,7 @@ class GeneController extends Controller
 			return view("layout", ["menu"=>"home", "content" => view('error')]);
 		}
 		$data = Gene::res_data_gene($genes -> idgene);
-    $array=\DB::table('expressionlevels')->where('idgene',$genes-> idgene)->pluck('idarray');
-		$expressionlevels = Gene::get_expressionlevel($array, $genes-> idgene);
+		$expressionlevels = Gene::get_expressionlevel($genes-> idgene);
 		$gene_title = Gene::get_genetitle($genes -> idgene);
 		return view("layout", ["menu" => "home", "content" => view('gene', array('genes'=> $genes, 'data'=> $data, 'expressionlevels' => $expressionlevels, 'gene_title' => $gene_title))]);
 	}

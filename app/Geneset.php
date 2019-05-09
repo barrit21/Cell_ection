@@ -28,11 +28,10 @@ class Geneset extends Model
 
     public static function get_genes($id){
         $id_geneset=$id;
-        $genes=DB::table('gene_geneset')
-        ->join('genes', 'gene_geneset.idgene', '=', 'genes.idgene')
-        ->join('expressionlevels', 'genes.idgene', '=', 'expressionlevels.idgene')
-        ->where('gene_geneset.idgeneset', $id_geneset)
-        ->select( DB::raw('DISTINCT(genes.hugo)'), 'expressionlevels.name', 'genes.entrez')
+        $query="(SELECT idgene FROM gene_geneset WHERE idgeneset=$id_geneset) as genegeneset";
+        $genes=DB::table('genes')
+        ->join(DB::raw($query), 'genegeneset.idgene', '=', 'genes.idgene')
+        ->select('genes.hugo','genes.entrez')
         ->get();
 
         //dd($genes);
@@ -41,10 +40,10 @@ class Geneset extends Model
 
     public static function getES($id){
         $id_geneset=$id;
-        $ES = DB::table('enrichementscores')
-        ->join('genesets', 'enrichementscores.idgeneset', '=', 'genesets.idgeneset')
-        ->join('cellines', 'enrichementscores.idcelline', '=', 'cellines.idcelline')
-        ->where('genesets.idgeneset', $id_geneset)
+        $query="(SELECT idcelline,size,ES,NES,pval,nMoreExtreme FROM enrichementscores WHERE idgeneset=$id_geneset) as gsea";
+        $ES = DB::table('cellines')
+        ->join(DB::raw($query), 'gsea.idcelline', '=', 'cellines.idcelline')
+        ->select('cellines.name','gsea.size','gsea.ES','gsea.NES','gsea.pval','gsea.nMoreExtreme')
         ->get();
         //dd($ES);
         return $ES;

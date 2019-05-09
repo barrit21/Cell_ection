@@ -50,11 +50,26 @@ class Celline extends Model
     public static function liste_cell_datasets($id)
     {
         $id_cell = $id;
-        $data = DB::table('celline_dataset')
-        ->join('datasets', 'datasets.iddataset', '=', 'celline_dataset.iddataset')
+        $query="(SELECT iddataset,file,idarray,subtype,correlation,pval,citbcmst,citbcmst_confidence FROM celline_dataset WHERE idcelline=$id_cell) as cellinedataset";
+        $data = DB::table('datasets')
+        ->join(DB::raw($query), 'cellinedataset.iddataset', '=', 'datasets.iddataset')
+        ->select('datasets.name','cellinedataset.file','cellinedataset.idarray','cellinedataset.subtype','cellinedataset.correlation','cellinedataset.pval','cellinedataset.citbcmst','cellinedataset.citbcmst_confidence')
+        ->get();
+        /*$query="(SELECT iddataset, subtype, correlation, pval, citbcmst, citbcmst_mixed, citbcmst_core FROM celline_dataset WHERE idcelline = $id_cell) as p";
+        $data=DB::table('datasets')
+        ->join(DB::raw($query), 'p.iddataset','=','celline_dataset.iddataset')
         ->select('datasets.name', 'celline_dataset.subtype as classv', 'celline_dataset.correlation', 'celline_dataset.pval', 'celline_dataset.citbcmst', 'celline_dataset.citbcmst_mixed', 'celline_dataset.citbcmst_core')
         ->where('celline_dataset.idcelline', $id_cell)
         ->get();
+        /*$data1=DB::table('celline_dataset')
+        ->select('iddataset','subtype as classv','correlation','pval','citbcmst','citbcmst_mixed','citbcmst_core')
+        ->where('idcelline',$id_cell)
+        ->get();
+        $data2=DB::table('datasets')
+        ->select('datasets.name')
+        ->join($data1, 'datasets.iddataset', '=', 'celline_dataset.iddataset')
+        ->get();*/
+        //$data=$data1.$data2;
 
         //dd($data);
         return $data;
@@ -62,16 +77,13 @@ class Celline extends Model
 
     public static function genes_active($id)
     {
-      $genes_active=[];
-      foreach($id as $id_cell){
-        $genes_actives[] = DB::table('expressionlevels')
-        ->join('genes', 'expressionlevels.idgene', '=', 'genes.idgene' )
-        ->where('expressionlevels.idarray', $id_cell)
-        ->select('expressionlevels.name', 'expressionlevels.expression')
-        ->get();
-      }
+      $query="(SELECT idarray FROM celline_dataset WHERE idcelline=$id) as cellinedataset";
+      $genesactives = DB::table('expressionlevels')
+      ->join(DB::raw($query), 'cellinedataset.idarray', '=', 'expressionlevels.idarray' )
+      ->select('expressionlevels.name', 'expressionlevels.idgene', 'expressionlevels.expression')
+      ->get();
       //dd($genes_actives);
-      return($genes_actives);
+      return($genesactives);
     }
 
     public static function get_gsea_results($id)

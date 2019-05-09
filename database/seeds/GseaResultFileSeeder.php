@@ -1,4 +1,5 @@
 <?php
+ini_set("memory_limit","-1");
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
@@ -16,7 +17,7 @@ class GseaResultFileSeeder extends Seeder
      */
     public function run()
     {//à refaire avec les clés étrangère sinon code là OK
-        $fichier=file('./storage/Data/gsea2.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $fichier=file('./storage/Data/gsea.csv',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         unset($fichier[0]);
 
         $geneset_table=Geneset::all();
@@ -27,6 +28,10 @@ class GseaResultFileSeeder extends Seeder
           $value=explode(',', $value);
           $value[1]=trim($value[1],'"');
           $value[2]=trim($value[2],'"');
+          $value[9]=trim($value[9],'"');
+          if($value[6]==="NA"){
+            $value[6]=-1;
+          }
           if ($geneset_table->contains('name',$value[2])===false){
               DB::table('genesets')->insert([
                   'name'=>$value[2],

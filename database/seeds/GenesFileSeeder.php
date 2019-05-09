@@ -37,7 +37,6 @@ class GenesFileSeeder extends Seeder
 
             else{
                 $hugo=Gene::where('hugo',$key[1])->update(['entrez' => $key[2]]);
-                print('problem');
             }
         }
     }

@@ -1,5 +1,5 @@
 <?php
-
+ini_set("memory_limit","-1");
 /**
  * @file ExpressionLevelFileSeeder.php
  */
@@ -103,7 +103,7 @@ class ExpressionLevelFileSeeder extends Seeder
 
 
         //New file about means
-        $filemean=file('storage/Data/expression2.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $filemean=file('storage/Data/expression.csv', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         //$header = explode(',', $filemean[0]);
         unset($filemean[0]);
         foreach($filemean as $value){
@@ -111,11 +111,10 @@ class ExpressionLevelFileSeeder extends Seeder
           $infos=explode(',',$value);
           $infos[1]=trim($infos[1],'"');
           $infos[2]=trim($infos[2],'"');
-          $infos[3]=trim($infos[3],'"');
-          if(Expressionlevel::where('name',$infos[2])->exists()){
-
-          }
-          else{
+          //if(Expressionlevel::where([['name',$infos[2]],['expression',$infos[3]]])->exists()){
+            //;
+          //}
+          //else{
             $geneid=Gene::where('hugo',$infos[1])->pluck('idgene');
             $arrayid=CellineDataset::where('file',$infos[2])->pluck('idarray');
             DB::table('expressionlevels')->insert([
@@ -124,7 +123,7 @@ class ExpressionLevelFileSeeder extends Seeder
               'idarray'=>($arrayid[0]),
               'expression'=>($infos[3]),
             ]);
-          }
+          //}
         }
         /*
         //dd($header);

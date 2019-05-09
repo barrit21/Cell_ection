@@ -98,7 +98,7 @@ function linkFormatterCell(value)
 					        <thead>
 					        <tr>
 					            <th data-field="hugo" data-formatter="linkFormatter" data-filter-control="input" data-sortable="true">Gene Symbol</th>
-					            <th data-field="gene_title" data-filter-control="input" data-sortable="true">Gene Title</th>
+					            <!--<th data-field="gene_title" data-filter-control="input" data-sortable="true">Gene Title</th>-->
 					            <th data-field="entrez" data-filter-control="input" data-sortable="true">Gene Entrez ID</th>
 					        </tr>
 					        </thead>
@@ -106,7 +106,7 @@ function linkFormatterCell(value)
 					          	<?php foreach ($genes as $gene) : ?>
 						            <tr>
 						                  <td><?php echo $gene-> hugo; ?></td>
-						                  <td><?php echo $gene-> name; ?></td>
+						                  <!--<td><?php //echo $gene-> name; ?></td>-->
 						                  <td><?php echo $gene-> entrez; ?></td>
 						            </tr>
 					          	<?php endforeach; ?>
@@ -150,7 +150,7 @@ function linkFormatterCell(value)
                     <th data-field="ES" data-sortable="true">Enrichment Score<i class="fa fa-fw fa-sort"></i></th>
                     <th data-field="NES" data-sortable="true">Normalize ES<i class="fa fa-fw fa-sort"></i></th>
                     <th data-field="pval" data-sortable="true">Nominale p-value<i class="fa fa-fw fa-sort"></i></th>
-                    <th data-field="FDR" data-sortable="true">Adjusted p-value<i class="fa fa-fw fa-sort"></i></th>
+                    <!--<th data-field="FDR" data-sortable="true">Adjusted p-value<i class="fa fa-fw fa-sort"></i></th>-->
                     <th data-field="FWER" data-sortable="true">FWER<i class="fa fa-fw fa-sort"></i></th>
                     <th data-field="rank_at_max" data-sortable="true">Rank at max<i class="fa fa-fw fa-sort"></i></th>
                     <!-- <th data-field="Leading EDGE" colspan=3 data-sortable="true">Leading EDGE</th> -->
@@ -160,14 +160,14 @@ function linkFormatterCell(value)
 					        </tr>
 					        </thead>
 					        <tbody>
-					            <?php foreach ($ES as $oneES) : ?>
-					                <tr <?php echo validGSEA($oneES->NOMpval); ?>>
-                            <td><?php echo $gsea_result-> idgeneset; ?></td>
+					            <?php foreach ($ES as $gsea_result) : ?>
+					                <tr <?php echo validGSEA($gsea_result-> pval); ?>>
+                            <td><?php echo $gsea_result-> name; ?></td>
                             <td><?php echo $gsea_result-> size; ?></td>
                             <td><?php echo $gsea_result-> ES; ?></td>
                             <td><?php echo $gsea_result-> NES; ?></td>
                             <td><?php echo $gsea_result-> pval; ?></td>
-                            <td><?php echo $gsea_result-> padj; ?></td>
+                            <!--<td><?php //echo $gsea_result-> padj; ?></td>-->
                             <!--<td><?php// echo $gsea_result-> FWERqval; ?></td>-->
                             <td><?php echo $gsea_result-> nMoreExtreme; ?></td>
                             <!--<td><?php// echo $gsea_result-> tags; ?></td>

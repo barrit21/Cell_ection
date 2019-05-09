@@ -1,14 +1,8 @@
 @section('content')
 
 <?php
-$expressionlevel=[];
-foreach($expressionlevels as $expression){
-  foreach($expression as $exp){
-    $expressionlevel[]=$exp;
-  }
-}
 $nbpathways=count($data);
-$nbcell=count($expressionlevel);
+$nbcell=count($expressionlevels);
 ?>
 
 <script type="text/javascript">
@@ -147,14 +141,16 @@ function linkFormatterCell(value)
           <thead>
           <tr>
               <th data-field="Cell" data-formatter="linkFormatterCell" data-filter-control="select" data-sortable="true">Cell line</th>
-              <th data-field="Score" data-sortable="true">Ranked Gene score</th>
+              <th data-field="Score" data-sortable="true">Mean expression level</th>
+              <th data-field="Score" data-sortable="true">SD expression level</th>
           </tr>
           </thead>
           <tbody>
-            <?php foreach ($expressionlevel as $expressionlevels) : ?>
+            <?php foreach ($expressionlevels as $expressionlevel) : ?>
                 <tr>
-                    <td><?php echo $expressionlevels->name; ?></td>
-                    <td><?php echo $expressionlevels->expression; ?></td>
+                    <td><?php echo $expressionlevel-> name; ?></td>
+                    <td><?php echo $expressionlevel-> expression_mean; ?></td>
+                    <td><?php echo $expressionlevel-> expression_sd; ?></td>
                 </tr>
             <?php endforeach; ?>
           </tbody>

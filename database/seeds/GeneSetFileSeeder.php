@@ -1,5 +1,5 @@
 <?php
-
+ini_set("memory_limit","-1");
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Gene;
@@ -17,7 +17,7 @@ class GeneSetFileSeeder extends Seeder
 
         unset($file[0]);
         foreach($file as $key){
-          $geneset=Geneset::all();
+          //$geneset=Geneset::all();
           $infos=explode(',',$key);
           $infos[2]=trim($infos[2],'"');
           if(Geneset::where('name',$infos[2])->exists()){

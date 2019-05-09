@@ -3,7 +3,6 @@
 /**
  * @file CelDatasetLigneeFileSeeder.php
  */
-
 use Illuminate\Database\Seeder;
 use Illuminate\Http\Request;
 use App\Celline;
@@ -78,6 +77,10 @@ class CelDatasetLigneeFileSeeder extends Seeder
         foreach($file as $key){
           $infos=explode(',',$key);
           $infos[1]=trim($infos[1],'"');
+          $infos[2]=trim($infos[2],'"');
+          $infos[3]=trim($infos[3],'"');
+          $infos[4]=trim($infos[4],'"');
+          $infos[5]=trim($infos[5],'"');
           if(DB::table('celline_dataset')->where('file',$infos[1])->exists()){
             DB::table('celline_dataset')->where('file',$infos[1])->update(['citbcmst'=>$infos[2],'citbcmst_mixed'=>$infos[3],'citbcmst_core'=>$infos[4],'citbcmst_confidence'=>$infos[5]]);
           }

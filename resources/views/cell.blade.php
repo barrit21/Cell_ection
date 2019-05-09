@@ -58,7 +58,10 @@ function linkFormatterGeneset(value)
 
     <ul class="nav nav-tabs" id="Tabs">
       <li class="active">
-        <a data-toggle="tab" href="#MenuData">Data</a>
+        <a data-toggle="tab" href="#MenuData">Origin of  Data</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#MenuClassif">Classification Tool</a>
       </li>
       <li>
         <a data-toggle="tab" href="#MenuGenes">Expression level</a>
@@ -71,6 +74,46 @@ function linkFormatterGeneset(value)
     <!-- First Menu -->
     <div class="tab-content" id="TabContent">
       <div id="MenuData" class="tab-pane fade active in">
+        <div class="col-xs-12" id="cell">
+          <h1><?php echo $cell->name; ?></h1>
+
+          <h4><?= $cell->name; ?> has <?= count($data); ?> replicates in our data for this meta-analysis.</h4>
+
+          <table id="table"
+            data-toggle="table"
+            data-search="true"
+            data-filter-control="true"
+            data-show-export="true"
+            data-click-to-select="true"
+            data-toolbar="#toolbar"
+            data-sortable="true"
+            data-sort-order="asc"
+            class="table table-striped table-bordered"
+
+            >
+
+        <thead>
+        <tr>
+            <th data-field="Dataset" data-filter-control="select" data-sortable="true">Dataset<i class="fa fa-fw fa-sort"></i></th>
+            <th data-field="Name" data-sortable="true">Array's name<i class="fa fa-fw fa-sort"></i></th>
+            <th data-field="Idarray" data-sortable="true">Array's ID<i class="fa fa-fw fa-sort"></i></th>
+        </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($data as $datum) : ?>
+              <tr>
+                  <td><?php echo $datum->name; ?></td>
+                  <td><?php echo $datum->file; ?></td>
+                  <td><?php echo $datum->idarray; ?></td>
+              </tr>
+          <?php endforeach; ?>
+        </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!--Second menu -->
+      <div id="MenuClassif" class="tab-pane fade">
         <div class="col-xs-12" id="cell">
           <h1><?php echo $cell->name; ?></h1>
 
@@ -96,24 +139,24 @@ function linkFormatterGeneset(value)
         <thead>
         <tr>
             <th data-field="Dataset" data-filter-control="select" data-sortable="true">Dataset<i class="fa fa-fw fa-sort"></i></th>
+            <th data-field="Idarray" data-sortable="true">Array's ID<i class="fa fa-fw fa-sort"></i></th>
             <th data-field="Class" data-sortable="true">Vanderbilt's class<i class="fa fa-fw fa-sort"></i></th>
             <th data-field="Correlation" data-sortable="true">Vanderbilt's correlation<i class="fa fa-fw fa-sort"></i></th>
             <th data-field="P-value" data-sortable="true" data-formatter="commFormatter">Vanderbilt's p-value<i class="fa fa-fw fa-sort"></i></th>
             <th data-field="CITBCMST" data-sortable="true">CITBCMST<i class="fa fa-fw fa-sort"></i></th>
-            <th data-field="CITBCMSTmixed" data-sortable="true">CITBCMSTmixed<i class="fa fa-fw fa-sort"></i></th>
-            <th data-field="CITBCMSTcore" data-sortable="true">CITBCMSTcore<i class="fa fa-fw fa-sort"></i></th>
+            <th data-field="CITBCMST_confidence" data-sortable="true">CITBCMST confidence<i class="fa fa-fw fa-sort"></i></th>
         </tr>
         </thead>
         <tbody>
           <?php foreach ($data as $datum) : ?>
               <tr>
                   <td><?php echo $datum->name; ?></td>
-                  <td><?php echo $datum->classv; ?></td>
+                  <td><?php echo $datum->idarray; ?></td>
+                  <td><?php echo $datum->subtype; ?></td>
                   <td><?php echo $datum->correlation; ?></td>
                   <td><?php echo $datum->pval; ?></td>
                   <td><?php echo $datum->citbcmst; ?></td>
-                  <td><?php echo $datum->citbcmst_mixed; ?></td>
-                  <td><?php echo $datum->citbcmst_core; ?></td>
+                  <td><?php echo $datum->citbcmst_confidence; ?></td>
               </tr>
           <?php endforeach; ?>
         </tbody>
@@ -121,7 +164,7 @@ function linkFormatterGeneset(value)
         </div>
       </div>
 
-      <!-- Second Menu -->
+      <!--Third Menu -->
       <div id="MenuGenes" class="tab-pane">
         <div class="col-xs-12" id="cell">
           <h1><?php echo $cell->name; ?></h1>
@@ -160,11 +203,11 @@ function linkFormatterGeneset(value)
         </tr>
         </thead>
         <tbody>
-          <?php foreach ($genes_actives[0] as $genes_active) : ?>
+          <?php foreach ($genes_actives as $genes_active) : ?>
               <tr>
-                  <td><?php echo $genes_active->name; ?></td>
+                  <td><?php echo $genes_active-> name; ?></td>
                   <!--<td><?php// echo $genes_active->gene_title; ?></td>-->
-                  <td><?php echo $genes_active->expression; ?></td>
+                  <td><?php echo $genes_active-> expression; ?></td>
               </tr>
           <?php endforeach; ?>
         </tbody>
@@ -173,7 +216,7 @@ function linkFormatterGeneset(value)
 
 
 
-    <!-- Third Menu -->
+    <!-- Fourth Menu -->
     <div id="MenuGSEA" class="tab-pane">
         <div class="col-xs-12" id="cell">
           <h1>Enrichement off <?php echo $cell->name; ?> compared to all other cell lines in database</h1>
