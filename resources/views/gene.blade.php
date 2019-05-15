@@ -78,6 +78,8 @@ function linkFormatterCell(value)
                 </blockquote>
 
                 <table id="table"
+                    data-pagination="true"
+                    data-page-list="[10, 100, 1000, 10000, ALL]"
                     data-toggle="table"
                     data-search="true"
                     data-filter-control="true"
@@ -91,7 +93,7 @@ function linkFormatterCell(value)
 
               <thead>
               <tr>
-                  <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway</th>
+                  <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway<i class="fa fa-fw fa-sort"></th>
                   <th data-formatter="linkFormatterBI">Broad Institute's website</th>
               </tr>
               </thead>
@@ -128,6 +130,8 @@ function linkFormatterCell(value)
             </blockquote>
 
             <table id="table"
+              data-pagination="true"
+              data-page-list="[10, 100, 1000, 10000, ALL]"
               data-toggle="table"
               data-search="true"
               data-filter-control="true"
@@ -140,9 +144,9 @@ function linkFormatterCell(value)
 
           <thead>
           <tr>
-              <th data-field="Cell" data-formatter="linkFormatterCell" data-filter-control="select" data-sortable="true">Cell line</th>
-              <th data-field="Score" data-sortable="true">Mean expression level</th>
-              <th data-field="Score" data-sortable="true">SD expression level</th>
+              <th data-field="Cell" data-formatter="linkFormatterCell" data-sortable="true">Cell line<i class="fa fa-fw fa-sort"></th>
+              <th data-field="Score" data-sortable="true">Mean expression level<i class="fa fa-fw fa-sort"></i></th>
+              <th data-field="Score" data-sortable="true">SD expression level<i class="fa fa-fw fa-sort"></i></th>
           </tr>
           </thead>
           <tbody>
