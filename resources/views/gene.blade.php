@@ -93,7 +93,7 @@ function linkFormatterCell(value)
 
               <thead>
               <tr>
-                  <th data-field="Patwhay" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway<i class="fa fa-fw fa-sort"></th>
+                  <th data-field="Pathway" data-formatter="linkFormatterOther" data-filter-control="select" data-sortable="true">Pathway<i class="fa fa-fw fa-sort"></th>
                   <th data-formatter="linkFormatterBI">Broad Institute's website</th>
               </tr>
               </thead>
@@ -144,9 +144,9 @@ function linkFormatterCell(value)
 
           <thead>
           <tr>
-              <th data-field="Cell" data-formatter="linkFormatterCell" data-sortable="true">Cell line<i class="fa fa-fw fa-sort"></th>
-              <th data-field="Score" data-sortable="true">Mean expression level<i class="fa fa-fw fa-sort"></i></th>
-              <th data-field="Score" data-sortable="true">SD expression level<i class="fa fa-fw fa-sort"></i></th>
+              <th data-field="Cell" data-formatter="linkFormatterCell" data-filter-control="true" data-sortable="true">Cell line<i class="fa fa-fw fa-sort"></th>
+              <th data-field="Mean" data-sortable="true">Mean expression level<i class="fa fa-fw fa-sort"></i></th>
+              <th data-field="SD" data-sortable="true">SD expression level<i class="fa fa-fw fa-sort"></i></th>
           </tr>
           </thead>
           <tbody>
