@@ -29,19 +29,19 @@ class QueryController extends Controller
 
         $searchH=[];
 
+        $valuesgenes=Gene::where('hugo', 'LIKE', '%'.$term.'%')->get()->pluck('hugo')->take(5);
+        foreach ($valuesgenes as $valuesgene) {
+        array_push($searchH, ["category"=>'Genes', "value"=>$valuesgene]);
+        }
+
         $valuescells=Celline::where('name', 'LIKE', '%'.$term.'%')->get()->pluck('name')->take(5);
         foreach ($valuescells as $valuescell) {
             array_push($searchH, ["category"=>'Cell lines', "value"=>$valuescell]);
         }
 
-        $valuesgenes=Gene::where('hugo', 'LIKE', '%'.$term.'%')->get()->pluck('hugo')->take(5);
-        foreach ($valuesgenes as $valuesgene) {
-            array_push($searchH, ["category"=>'Genes', "value"=>$valuesgene]);
-        }
-
         $valuesgenesets=Geneset::where('name', 'LIKE', '%'.$term.'%')->get()->pluck('name')->take(5);
         foreach ($valuesgenesets as $valuesgeneset) {
-            array_push($searchH, ["category"=>'Genesets', "value"=>$valuesgeneset]);
+            array_push($searchH, ["category"=>'Pathways', "value"=>$valuesgeneset]);
         }
 
         return response()->json($searchH);
