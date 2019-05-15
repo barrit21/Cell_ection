@@ -1,0 +1,43 @@
+Website architecture :
+  .phpintel : cache for php
+  app : function folder
+    Console : console, linked to /routes/console.php
+    Exceptions : handle exceptions
+    Http : handle commands and function for the site
+      Controllers : controller for every page
+        Auth : users management
+      Middleware : manage query and cookies (everything comming in and out of the website)
+    Mail : may serve for registering the webmaster'mail address (currently not in use)
+    Providers : baseline function provided by Laravel
+  bootstrap : folder used by Bootstrap
+  config : configure Laravel, displaying access path
+  database : handle the creation of the database
+    factories :
+    migrations : files for the tables creation
+    seeds : files handling the datas copy in the database. Require a source : /storage/data
+  public : files used on the website
+    css : css pages for each view
+    gif : animated gifs
+    img : images (licenses included)
+    js : jasons files used for exporting datas
+    upload : exemple of update for the database
+    zontal-admin : duplicate of /public for the admin part
+  ressources :
+    assets
+    lang : handle the messages depending of the actions of users and the selected language (english currently only avaible)
+    view : view for every pages of the website
+      admin : /view for admin pages
+      auth : /view for login pages
+      data
+      emails : display login and creation of administrators
+      layouts :
+      registrations : view of the registration for a new administrator
+      sessions
+  routes : path for the entire website
+  storage :
+    app : ignore
+    Data : source files for the database
+    framework : storage for Laravel, ignore
+    logs : logs for Laravel, ignore except for information about errors, exception and failures
+  test : test folder for Laravel
+  vendor : array of tools for Laravel
