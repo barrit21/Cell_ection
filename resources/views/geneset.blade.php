@@ -97,9 +97,9 @@ function linkFormatterCell(value)
 				            >
 					        <thead>
 					        <tr>
-					            <th data-field="hugo" data-formatter="linkFormatter" data-filter-control="input" data-sortable="true">Gene Symbol</th>
+					            <th data-field="hugo" data-formatter="linkFormatter" data-filter-control="input" data-sortable="true">Gene Symbol<i class="fa fa-fw fa-sort"></th>
 					            <!--<th data-field="gene_title" data-filter-control="input" data-sortable="true">Gene Title</th>-->
-					            <th data-field="entrez" data-filter-control="input" data-sortable="true">Gene Entrez ID</th>
+					            <th data-field="entrez" data-filter-control="input" data-sortable="true">Gene Entrez ID<i class="fa fa-fw fa-sort"></th>
 					        </tr>
 					        </thead>
 					        <tbody>
