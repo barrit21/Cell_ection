@@ -89,11 +89,11 @@ function linkFormatterCell(value)
 				            data-sort-order="asc"
 				            data-sort-name="hugo"
 				            data-show-pagination-switch="true"
-							data-pagination="true"
-							data-page-list="[10, 25, 50, 100, ALL]"
-							data-response-handler="responseHandler"
-							data-show-refresh="true"
-							class="table table-striped table-bordered"
+      							data-pagination="true"
+      							data-page-list="[10, 25, 50, 100, ALL]"
+      							data-response-handler="responseHandler"
+      							data-show-refresh="true"
+      							class="table table-striped table-bordered"
 				            >
 					        <thead>
 					        <tr>
@@ -137,11 +137,11 @@ function linkFormatterCell(value)
 				            data-sort-order="asc"
 				            data-sort-name="cell"
 				            data-show-pagination-switch="true"
-							data-pagination="true"
-							data-page-list="[10, 25, 50, 100, ALL]"
-							data-response-handler="responseHandler"
-							data-show-refresh="true"
-							class="table table-striped table-bordered"
+      							data-pagination="true"
+      							data-page-list="[10, 25, 50, 100, ALL]"
+      							data-response-handler="responseHandler"
+      							data-show-refresh="true"
+      							class="table table-striped table-bordered"
 				            >
 					        <thead>
 					        <tr>

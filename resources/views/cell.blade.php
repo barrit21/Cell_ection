@@ -80,6 +80,8 @@ function linkFormatterGeneset(value)
           <h4><?= $cell->name; ?> has <?= count($data); ?> replicates in our data for this meta-analysis.</h4>
 
           <table id="table"
+            data-pagination="true"
+            data-page-list="[10, 100, 1000, 10000, ALL]"
             data-toggle="table"
             data-search="true"
             data-filter-control="true"
@@ -88,9 +90,7 @@ function linkFormatterGeneset(value)
             data-toolbar="#toolbar"
             data-sortable="true"
             data-sort-order="asc"
-            class="table table-striped table-bordered"
-
-            >
+            class="table table-striped table-bordered">
 
         <thead>
         <tr>
@@ -124,6 +124,8 @@ function linkFormatterGeneset(value)
           <h4><?= $cell->name; ?> has <?= count($data); ?> replicates in our data for this meta-analysis.</h4>
 
           <table id="table"
+            data-pagination="true"
+            data-page-list="[10, 100, 1000, 10000, ALL]"
             data-toggle="table"
             data-search="true"
             data-filter-control="true"
@@ -132,9 +134,7 @@ function linkFormatterGeneset(value)
             data-toolbar="#toolbar"
             data-sortable="true"
             data-sort-order="asc"
-            class="table table-striped table-bordered"
-
-            >
+            class="table table-striped table-bordered">
 
         <thead>
         <tr>
@@ -178,6 +178,8 @@ function linkFormatterGeneset(value)
         </blockquote>
 
         <table id="table"
+          data-pagination="true"
+          data-page-list="[10, 100, 1000, 10000, ALL]"
           data-toggle="table"
           data-search="true"
           data-filter-control="true"
@@ -188,16 +190,13 @@ function linkFormatterGeneset(value)
           data-sort-order="asc"
           data-sort-name="hugo"
           data-show-pagination-switch="true"
-          data-pagination="true"
-          data-page-list="[10, 100, 1000, 10000, ALL]"
           data-response-handler="responseHandler"
           data-show-refresh="true"
-          class="table table-striped table-bordered"
-        >
+          class="table table-striped table-bordered">
 
         <thead>
         <tr>
-            <th data-formatter="linkFormatterGene" data-filter-control="input">Gene Symbol</th>
+            <th data-formatter="linkFormatterGene" data-sortable="true" data-filter-control="input">Gene Symbol<i class="fa fa-fw fa-sort"></th>
             <!--<th data-field="Gene Title" data-filter-control="input" data-sortable="true">Gene Name<i class="fa fa-fw fa-sort"></i></th>-->
             <th data-field="Score" data-sortable="true">Ranked gene level<i class="fa fa-fw fa-sort"></i></th>
         </tr>
@@ -238,6 +237,8 @@ function linkFormatterGeneset(value)
         </div>
 
         <table id="table"
+          data-pagination="true"
+          data-page-list="[10, 100, 1000, 10000, ALL]"
           data-toggle="table"
           data-search="true"
           data-filter-control="true"
@@ -248,8 +249,6 @@ function linkFormatterGeneset(value)
           data-sort-order="asc"
           data-sort-name="link"
           data-show-pagination-switch="true"
-          data-pagination="true"
-          data-page-list="[10, 100, 1000, 10000, ALL]"
           data-response-handler="responseHandler"
           data-show-refresh="true"
           class="table table-striped table-bordered"

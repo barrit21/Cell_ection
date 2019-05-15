@@ -112,7 +112,7 @@ $('a[href*="#"]:not([href="#"])').click(function() {
 </script>
 
 <script>
-  $("#notification").fadeIn("slow").append('This website does only use internal cookies, and does not collect any data.');
+  $("#notification").fadeIn("slow").append('By continuing your navigation on this site, you accept the use of Cookies for which allow to carry out searches in the database of the site. No personal information is collected.');
   $(".dismiss").click(function(){
          $("#notification").fadeOut("slow");
   });

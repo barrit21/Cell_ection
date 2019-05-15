@@ -12,11 +12,11 @@
 	<div class="jumbotron">
 		<blockquote class="blockquote" id="GSEAblockquote">
 			<h2>GSEA parameters</h2>
-			We chose several different metrics to perform our GSEA analyzes. The GSEA data was generated through the R fgsea pakage.
+			We chose several different metrics to perform our GSEA analyzes. The GSEA data was generated using the R fgsea package.
 
 		</blockquote>
 		<li id="itemize">The metric used to assign a rank to genes, we used the tTest.</li>
-		<li id="itemize">We used the set of C6 pathways, the set representing the oncogenic signature.</li>
+		<li id="itemize">We used the complete Molecular Signatures Database (MSigDB).</li>
 	</div>
 
 	</div>
