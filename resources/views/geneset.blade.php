@@ -164,9 +164,9 @@ function linkFormatterCell(value)
 					                <tr <?php echo validGSEA($gsea_result-> pval); ?>>
                             <td><?php echo $gsea_result-> name; ?></td>
                             <td><?php echo $gsea_result-> size; ?></td>
-                            <td><?php echo $gsea_result-> ES; ?></td>
-                            <td><?php echo $gsea_result-> NES; ?></td>
-                            <td><?php echo $gsea_result-> pval; ?></td>
+                            <td><?php echo round($gsea_result-> ES, 2); ?></td>
+                            <td><?php echo round($gsea_result-> NES, 2); ?></td>
+                            <td><?php $temp=sprintf("%E",$gsea_result-> pval); echo substr($temp, 0, 4),substr($temp, -3 ); ?></td>
                             <!--<td><?php //echo $gsea_result-> padj; ?></td>-->
                             <!--<td><?php// echo $gsea_result-> FWERqval; ?></td>-->
                             <td><?php echo $gsea_result-> nMoreExtreme; ?></td>
