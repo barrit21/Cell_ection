@@ -145,7 +145,7 @@ function linkFormatterCell(value)
 				            >
 					        <thead>
 					        <tr>
-                    <th data-field="link" data-formatter="linkFormatterGeneset" data-sortable="true">Pathway's name<i class="fa fa-fw fa-sort"></th>
+                    <th data-field="link" data-formatter="linkFormatter" data-sortable="true">Pathway's name<i class="fa fa-fw fa-sort"></th>
                     <th data-field="size" data-sortable="true">Size<i class="fa fa-fw fa-sort"></i></th>
                     <th data-field="ES" data-sortable="true">Enrichment Score<i class="fa fa-fw fa-sort"></i></th>
                     <th data-field="NES" data-sortable="true">Normalize ES<i class="fa fa-fw fa-sort"></i></th>
