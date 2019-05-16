@@ -153,8 +153,8 @@ function linkFormatterCell(value)
             <?php foreach ($expressionlevels as $expressionlevel) : ?>
                 <tr>
                     <td><?php echo $expressionlevel-> name; ?></td>
-                    <td><?php echo $expressionlevel-> expression_mean; ?></td>
-                    <td><?php echo $expressionlevel-> expression_sd; ?></td>
+                    <td><?php echo round($expressionlevel-> expression_mean, 2); ?></td>
+                    <td><?php echo round(,$expressionlevel-> expression_sd, 2); ?></td>
                 </tr>
             <?php endforeach; ?>
           </tbody>
