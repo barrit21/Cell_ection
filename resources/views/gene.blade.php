@@ -146,7 +146,7 @@ function linkFormatterCell(value)
           <tr>
               <th data-field="Cell" data-formatter="linkFormatterCell" data-filter-control="true" data-sortable="true">Cell line<i class="fa fa-fw fa-sort"></th>
               <th data-field="Mean" data-sortable="true">Mean expression level<i class="fa fa-fw fa-sort"></i></th>
-              <th data-field="SD" data-sortable="true">SD expression level<i class="fa fa-fw fa-sort"></i></th>
+              <th data-field="SD" data-sortable="true">SD of expression level<i class="fa fa-fw fa-sort"></i></th>
           </tr>
           </thead>
           <tbody>
@@ -154,7 +154,7 @@ function linkFormatterCell(value)
                 <tr>
                     <td><?php echo $expressionlevel-> name; ?></td>
                     <td><?php echo round($expressionlevel-> expression_mean, 2); ?></td>
-                    <td><?php echo round(,$expressionlevel-> expression_sd, 2); ?></td>
+                    <td><?php echo round($expressionlevel-> expression_sd, 2); ?></td>
                 </tr>
             <?php endforeach; ?>
           </tbody>
